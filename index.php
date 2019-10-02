@@ -7,7 +7,7 @@
   <body>
 
     <?php
-      print "Buenos dias a todos esto es una prueba de mensaje"
+      print "Buenos dias a todos esto es una prueba de mensaje aaaaaa"
 
      ?>
 
