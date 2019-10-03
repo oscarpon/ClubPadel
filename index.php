@@ -6,11 +6,14 @@
     <title></title>
   </head>
   <body>
-
+<div class="container">
+  <div class="abs-center">
     <form action="/action_page.php">
-  <div class="form-group">
-    <label for="email">Email address:</label>
-    <input type="email" class="form-control" id="email">
+  <div class="form-group ">
+
+          <label for="email">Email address:</label>
+          <input type="email" class="form-control" id="email">
+      
   </div>
   <div class="form-group">
     <label for="pwd">Password:</label>
@@ -21,6 +24,10 @@
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
+  </div>
+
+</div>
+
 
   </body>
 </html>
