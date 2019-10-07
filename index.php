@@ -7,7 +7,7 @@
   </head>
   <body>
 <div class="container">
-  <div class="abs-center">a
+  <div class="abs-center">
     <form action="/action_page.php">
   <div class="form-group ">
 
