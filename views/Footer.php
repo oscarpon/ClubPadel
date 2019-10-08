@@ -1,11 +1,9 @@
-<footer id="main-footer" class="bg-dark">
+
+
+<footer id="main-footer" class="bg-dark footer page-footer">
   <div class="container">
-    <div class="row">
-      <div class="col text-center py-2">
-        <h3>Info Padel</h3>
-        <p>Copyright&copy; <span id="year"></span></p>
-      </div>
-    </div>
+    <div class="footer-copyright text-center py-3" style="color:white">© 2019 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
   </div>
 </footer>
 

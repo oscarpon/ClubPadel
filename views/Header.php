@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <link rel="stylesheet" href=../css/bootstrap.min.css>
+<link rel="stylesheet" href=../css/styles.css>
   <head>
     <meta charset="utf-8">
     <title></title>
