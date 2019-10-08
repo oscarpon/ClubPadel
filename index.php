@@ -1,31 +1,20 @@
 <?php
 
-define("DEFAULT_CONTROLLER", "Index");
-define("DEFAULT_ACTION", "index");
+//se va usar la session de la conexion
+session_start();
 
+//funcion de autenticacion
+include './Functions/Authentication.php';
 
-function run(){
-	try{
-		if(!isset($_GET["controller"])){
-			$_GET["controller"] = DEFAULT_CONTROLLER;
-		}
-		if(!isset($_GET["action"])){
-			$_GET["action"] = DEFAULT_ACTION;
-		}
-
-		$controller = loadController($_GET["controller"]);
-
-		include (string)$controller;
-
-	} catch(Exception $ex){
-		die("An exception has occured: " . $ex->getMessage());
-	}
+//si no ha pasado por el login de forma correcta
+if (!IsAuthenticated()){
+	header('Location:./controllers/LoginController.php');
+}
+//si ha pasado por el login de forma correcta
+else{
+	header('Location:./Controllers/IndexController.php');
 }
 
-function loadController($controllerName){
-	$controllerClassName = __DIR__."/controllers/".$controllerName."Controller.php";
-	return $controllerClassName;
-}
-
-run();
 ?>
+
+ ?>
