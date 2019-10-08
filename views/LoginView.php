@@ -1,12 +1,15 @@
 
 <?php
 
-class Index_View{
+class LoginView{
 
+  function __construct(){
+    $this->render();
+  }
 
 
   function render(){
-    include "Header.php";
+    include '../views/Header.php';
 
 ?>
 
@@ -33,7 +36,7 @@ class Index_View{
 </div>
 
 <?php
-  include "Footer.php";
+  include '../views/Footer.php';
 }//fin render
 }//Fin class
 ?>
