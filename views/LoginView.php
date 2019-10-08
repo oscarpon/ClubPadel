@@ -3,7 +3,10 @@
 
 class LoginView{
 
-  function __construct(){
+  var $inicio;
+
+  function __construct($inicio){
+    $this->inicio=$inicio;
     $this->render();
   }
 
