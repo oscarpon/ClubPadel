@@ -6,7 +6,7 @@ class Index_View{
 
 
   function render(){
-    include 'Header.php';
+    include 'Cabecera.php';
 
 ?>
 
@@ -36,4 +36,4 @@ class Index_View{
   include 'Footer.php';
 }//fin render
 }//Fin class
-?>
+ ?>
