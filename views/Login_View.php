@@ -27,7 +27,7 @@
 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
 </div>
 <div class="pb-2">
-	<a href="#" id="nocuenta">¿Aún no tienes cuenta?</a>
+	<a href="../controllers/Register_Controller.php" id="nocuenta">¿Aún no tienes cuenta?</a>
 </div>
 <button type="submit" class="btn btn-dark mb-2">Acceder</button>
 </form>
