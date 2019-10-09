@@ -4,15 +4,15 @@
 session_start();
 
 //funcion de autenticacion
-//include './Functions/Authentication.php';
+include './Functions/Autenticacion.php';
 
 //si no ha pasado por el login de forma correcta
-/*if (!IsAuthenticated()){
-	header('Location:./controllers/LoginController.php');
-}*/
+if (!IsAuthenticated()){
+	header('Location:./controllers/Login_Controller.php');
+}
 //si ha pasado por el login de forma correcta
-//else{
+else{
 	header('Location:./Controllers/Index_Controller.php');
-//}
+}
 
 ?>
