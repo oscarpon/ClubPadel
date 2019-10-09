@@ -16,6 +16,7 @@
 
 <div class="container col-lg-3 bg-light mt-5 border rounded">
 	<form>
+		<h3 class="iniciar">Iniciar Sesión</h3>
 <div class="form-group" action='../controllers/Login_Controller.php' method='post'>
 		<label for="exampleInputEmail1">Email</label>
 		<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce email">
