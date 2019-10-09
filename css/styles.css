@@ -1,11 +1,24 @@
-.footer{
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#nocuenta{
+  color: black;
+}
+
+.imagen1{
+  height: 300px;
+  width: 500px;
+  display: block;
+  margin: auto;
+  padding-top: 4em;
+
+}
+
+
+#footer{
   position: absolute;
   bottom: 0;
   width: 100%;
-}
-
-.formlogin{
-  padding-bottom: 20px;
-  background-color: #cacaca;
-
 }
