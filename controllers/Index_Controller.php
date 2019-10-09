@@ -11,6 +11,9 @@ session_start();
 //else{
 	include '../Views/Login_View.php';
 	new Login();
+
+	include '../views/Register_View.php';
+	new Register();
 //}
 
 ?>

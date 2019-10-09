@@ -1,8 +1,5 @@
 <?php
-/*
-autor serg
-clase
-fecha 30/11/2018*/
+
 	class Login{
 
 /////////////////
@@ -24,6 +21,9 @@ fecha 30/11/2018*/
 <div class="form-group">
 <label for="exampleInputPassword1">Contraseña</label>
 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+</div>
+<div class="pb-2">
+	<a href="#">¿Aún no tienes cuenta?</a>
 </div>
 <button type="submit" class="btn btn-dark">Acceder</button>
 </form>
