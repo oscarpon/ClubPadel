@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <link rel="stylesheet" type="text/css" href="../css/styles.css" media="screen" />
 <link rel="stylesheet" href=../css/bootstrap.min.css>
-
+<script src="../functions/Validaciones.php"></script>
   <head>
     <meta charset="utf-8">
     <title></title>
