@@ -9,9 +9,9 @@
 ////////////////
 		function render(){
 
-			include '../Views/Header.php';
+			include '../views/Header.php';
 ?>
-<div class="container pt-5 col-lg-3">
+<div id="formlogin"class="container pt-5 mt-3 col-lg-3 formlogin">
 	<form>
 <div class="form-group" action='../controllers/Login_Controller.php' method='post'>
 		<label for="exampleInputEmail1">Email</label>
