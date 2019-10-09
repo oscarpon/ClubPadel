@@ -9,11 +9,11 @@ session_start();
 }*/
 //esta autenticado
 //else{
-	include '../Views/Login_View.php';
+
+		include '../Views/Login_View.php';
 	new Login();
 
-	include '../views/Register_View.php';
-	new Register();
+
 //}
 
 ?>
