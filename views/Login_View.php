@@ -20,6 +20,9 @@
 <div class="form-group" action='../controllers/Login_Controller.php' method='post'>
 		<label for="email">Email</label>
 		<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Introduce email" onblur="comprobarEmail(email, 50)">
+		<div class="invalid-feedback">
+        Please provide a valid state.
+      </div>
 </div>
 <div class="form-group">
 <label for="password">Contraseña</label>

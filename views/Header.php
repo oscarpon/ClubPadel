@@ -4,7 +4,9 @@
 <link rel="stylesheet" href=../css/bootstrap.min.css>
 <script src="../functions/Validaciones.js"></script>
 <script src="../js/bootstrap.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 <script src="../js/jquery-3.4.1.js"></script>
+<script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
   <head>
     <meta charset="utf-8">
     <title></title>
