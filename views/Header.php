@@ -4,6 +4,7 @@
 <link rel="stylesheet" href=../css/bootstrap.min.css>
 <script src="../functions/Validaciones.php"></script>
 <script src="../js/bootstrap.js"></script>
+<script src="../js/jquery-3.4.1.js"></script>
   <head>
     <meta charset="utf-8">
     <title></title>

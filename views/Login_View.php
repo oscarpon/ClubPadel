@@ -18,13 +18,12 @@
 	<form>
 		<h3 class="iniciar">Iniciar Sesión</h3>
 <div class="form-group" action='../controllers/Login_Controller.php' method='post'>
-		<label for="exampleInputEmail1">Email</label>
-		<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce email">
-
+		<label for="email">Email</label>
+		<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Introduce email" >
 </div>
 <div class="form-group">
-<label for="exampleInputPassword1">Contraseña</label>
-<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+<label for="password">Contraseña</label>
+<input type="password" class="form-control required" id="password" placeholder="Contraseña" >
 </div>
 <div class="pb-2">
 	<a href="../controllers/Register_Controller.php" id="nocuenta">¿Aún no tienes cuenta?</a>
