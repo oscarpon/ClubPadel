@@ -16,22 +16,22 @@ function comprobarVacio(campo){
 }
 
 //Comprobar que solo se introducen caracteres alfabeticos,
-//y que no supere el tamaño indicado.
+//y que no supere el tamaï¿½o indicado.
 function comprobarAlfabetico(campo, size){
 
 	//Expresion regular para comprobar que solo se introducen caracteres alfabeticos.
-	var expresion_reg_alf=/(([A-Za-záéíóúñ]+)(\s)?([A-Za-záéíóúñ]+)?)/;
+	var expresion_reg_alf=/(([A-Za-zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]+)(\s)?([A-Za-zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]+)?)/;
 
 	//Comprueba que en el campo solo se introducen caracteres alfabeticos.
 	if(!expresion_reg_alf.test(campo.value)){
-		
+
 		campo.style.borderColor = "#d32e12";
 		return false;
 	}
 	else{
-		//Comprueba el que tamño del campo no supere el maximo indicado.
+		//Comprueba el que tamï¿½o del campo no supere el maximo indicado.
 		if(campo.value.length > size){
-			
+
 			campo.style.borderColor = "#d32e12";
 			return false;
 		}
@@ -43,22 +43,22 @@ function comprobarAlfabetico(campo, size){
 }
 
 //Comprobar que solo se introducen caracteres alfanumericos,
-//y que no supere el tamaño indicado.
+//y que no supere el tamaï¿½o indicado.
 function comprobarAlfanumerico(campo, size){
 
 	//Expresion regular para comprobar que solo se introducen caracteres alfanumericos.
-	var expresion_reg_alfnum=/^[A-Za-záéíóúÁÉÍÓÚñÑ0-9]+$/;
+	var expresion_reg_alfnum=/^[A-Za-zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0-9]+$/;
 
 	//Comprueba que en el campo solo se introducen caracteres alfanumericos.
 	if(!expresion_reg_alfnum.test(campo.value)){
-		
+
 		campo.style.borderColor = "#d32e12";
 		return false;
 	}
 	else{
-		//Comprueba el que tamño del campo no supere el maximo indicado.
+		//Comprueba el que tamï¿½o del campo no supere el maximo indicado.
 		if(campo.value.length > size){
-			
+
 			campo.style.borderColor = "#d32e12";
 			return false;
 		}
@@ -70,20 +70,20 @@ function comprobarAlfanumerico(campo, size){
 }
 
 //Comprobar que se introduce correctamente un email,
-//y que no supere el tamaño indicado.
+//y que no supere el tamaï¿½o indicado.
 function comprobarEmail(campo, size){
 	//Expresion regular para un email
 	var expresion_reg_email=/^[A-Za-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(\.[_a-z0-9-]+)*(\.[a-z]{2,4})$/;
 
 	if(!expresion_reg_email.test(campo.value)){
-		
+
 		campo.style.borderColor = "#d32e12";
 		return false;
 	}
 	else{
-		//Comprueba el que tamño del campo no supere el maximo indicado.
+		//Comprueba el que tamï¿½o del campo no supere el maximo indicado.
 		if(campo.value.length > size){
-			
+
 			campo.style.borderColor = "#d32e12";
 			return false;
 		}
