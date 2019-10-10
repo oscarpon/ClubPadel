@@ -14,9 +14,9 @@
 
 
 
-<div class="container col-lg-3 bg-light mt-5 border rounded">
+<div class="container col-lg-3 bg-light mt-5  ">
 	<form>
-		<h3 class="iniciar">Iniciar Sesión</h3>
+		<h3 id="iniciar">Iniciar Sesión</h3>
 <div class="form-group" action='../controllers/Login_Controller.php' method='post'>
 		<label for="email">Email</label>
 		<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Introduce email" onblur="comprobarEmail(email, 50)">
@@ -35,7 +35,7 @@
 </form>
 </div>
 
-	<img class="imagen1" src="../src/padel4.jpg">
+	<img id="imagen1" src="../src/padel4.jpg">
 
 
 
