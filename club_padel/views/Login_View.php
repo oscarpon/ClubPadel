@@ -32,11 +32,10 @@
 	</form>
 	</div>
 </div>
+<section id="imagen1">
+	<img src="../src/padel4.jpg">
+</section>
 
-
-
-
-	<img class="imagen1" src="../src/padel4.jpg">
 
 
 

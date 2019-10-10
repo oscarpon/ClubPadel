@@ -2,25 +2,22 @@
   margin: 0;
   padding: 0;
 }
-/*
+
 #nocuenta{
   color: black;
 }
 
-.imagen1{
-  height: 300px;
-  width: 500px;
-  display: block;
-  margin: auto;
-  padding-top: 4em;
-}
-*/
+
 
 #footer{
-  position: absolute;
-  bottom: 0;
   width: 100%;
   margin-top: 100%;
+}
+
+#imagen1{
+  width: 25px;
+  height: 25px;
+
 }
 
 
