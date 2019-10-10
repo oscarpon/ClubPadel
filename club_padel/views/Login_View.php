@@ -36,7 +36,7 @@
 
 
 
-	<img class="imagen1" src="../src/padel4.jpg">
+	<img id="imagen1" src="../src/padel4.jpg">
 
 
 
