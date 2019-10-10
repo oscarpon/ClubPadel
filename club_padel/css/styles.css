@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
 }
-
+/*
 #nocuenta{
   color: black;
 }
@@ -13,20 +13,17 @@
   display: block;
   margin: auto;
   padding-top: 4em;
-
 }
-
+*/
 
 #footer{
   position: absolute;
   bottom: 0;
   width: 100%;
+  margin-top: 100%;
 }
 
-.iniciar{
-  padding-top: 10px;
-}
 
 .nuevoUsuario{
-  padding-top: 20px;
+  padding: 20px;
 }

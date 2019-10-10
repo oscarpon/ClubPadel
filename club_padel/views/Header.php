@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<link rel="stylesheet" type="text/css" href="../css/styles.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../css/styles.css">
 <link rel="stylesheet" href=../css/bootstrap.min.css>
 <script src="../functions/Validaciones.js"></script>
 <script src="../js/bootstrap.js"></script>
-<script src="../js/bootstrap.min.js"></script>
 <script src="../js/jquery-3.4.1.js"></script>
-<script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -15,12 +13,12 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="../index.php">Padel Online</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse " id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="#">Inicio</a>
       </li>
       <li class="nav-item">
