@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<link rel="stylesheet" type="text/css" href="../css/styles.css">
-<link rel="stylesheet" href=../css/bootstrap.min.css>
-<script src="../functions/Validaciones.js"></script>
-<script src="../js/bootstrap.js"></script>
-<script src="../js/jquery-3.4.1.js"></script>
   <head>
     <meta charset="utf-8">
-    <title></title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <script src="../functions/Validaciones.js"></script>
+    <title>Padel Online</title>
   </head>
   <body class="cuerpo">
 
@@ -23,6 +22,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Campeonatos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Prueba</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
