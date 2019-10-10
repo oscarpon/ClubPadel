@@ -26,6 +26,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Campeonatos</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Prueba</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <button class="btn btn-dark my-2 my-sm-0" >Reserva</button>
