@@ -38,12 +38,12 @@
     //Caso añadir
     case 'ADD':
       if(!$_POST){
-        new UsuarioAdd();
+        new UsuarioAddView();
       }
       else{
         $USUARIO = get_data_form();
         $respuesta = $USUARIO -> ADD();
-        new Message($respuesta, '../controllers/Usuario_Controller.php');
+        new MessageView($respuesta, '../controllers/Usuario_Controller.php');
       }
       break;
 
@@ -52,12 +52,12 @@
       if(!$_POST){
         $USUARIO = new UsuarioModel($_REQUEST['email'],'','','','','');
         $valores = $USUARIO->RellenaDatos($_REQUEST['email']);
-        new UsuarioDelete($valores);
+        new UsuarioDeleteView($valores);
       }
       else{
         $USUARIO = get_data_form();
         $respuesta = $USUARIO->DELETE();
-        new Message($respuesta, '../controllers/Usuario_Controller.php');
+        new MessageView($respuesta, '../controllers/Usuario_Controller.php');
       }
       break;
 
@@ -71,7 +71,7 @@
 
       $datos = $USUARIO->SEARCH();
       $lista = array('email','password', 'nombre', 'apellidos', 'rol', 'genero');
-      new UsuarioShowall($lista, $datos);
+      new UsuarioShowallView($lista, $datos);
       break;
   }
 

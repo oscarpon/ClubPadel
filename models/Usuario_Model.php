@@ -45,7 +45,7 @@
           return 'Error en la conexion a la base de datos';
         } else{
             if($result->num_rows == 0){
-              $sql="INSERT INTO USUARIO (email,password,nombre,apellidos,rol,genero)
+              $sql="INSERT INTO USUARIOS (email,password,nombre,apellidos,rol,genero)
                 VALUES($this->email,
                 $this->password,
                 $this->nombre,
@@ -80,7 +80,7 @@
     }
 
     function RellenaDatos(){
-      $sql = "SELECT * FROM USUARIO WHERE (email = '$this->email')";
+      $sql = "SELECT * FROM USUARIOS WHERE (email = '$this->email')";
 		  if ( !( $resultado = $this->mysqli->query( $sql ) ) ) {
 			 return 'No existe en la base de datos'; //
 		  } else {
@@ -97,7 +97,7 @@
           return 'Error en la conexion a la base de datos';
         } else{
             if($result->num_rows == 0){
-              $sql="INSERT INTO USUARIO (email,password,nombre,apellidos,rol,genero)
+              $sql="INSERT INTO USUARIOS (email,password,nombre,apellidos,rol,genero)
                 VALUES($this->email,
                 $this->password,
                 $this->nombre,

@@ -20,11 +20,11 @@ else{
 	if ($respuesta == 'true'){//if
 		$respuesta = $usuario->Register();
 		//Include '../Views/MESSAGE_View.php';
-		new Message($respuesta, './Login_Controller.php');
+		new MessageView($respuesta, './Login_Controller.php');
 	}
 	else{//else
 		//include '../Views/MESSAGE_View.php';
-		new Message($respuesta, './Login_Controller.php');
+		new MessageView($respuesta, './Login_Controller.php');
 	}
 
 }
