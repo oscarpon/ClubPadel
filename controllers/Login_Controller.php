@@ -10,8 +10,8 @@ else{///else
 
 	include '../Models/Access_DB.php';
 
-	include '../Models/USUARIOS_Model.php';
-	$usuario = new USUARIOS_Model($_REQUEST['login'],$_REQUEST['password'],'','','','','','','','');/////
+	include '../Models/Usuario_Model.php';
+	$usuario = new Usuario_Model($_REQUEST['login'],$_REQUEST['password'],'','','','','','','','');/////
 	$respuesta = $usuario->login();
 
 	if ($respuesta == 'true'){/////
@@ -20,8 +20,8 @@ else{///else
 		header('Location:../index.php');
 	}
 	else{/////
-		include '../Views/MESSAGE_View.php';
-		new MESSAGE($respuesta, './Login_Controller.php');
+		include '../Views/Message_View.php';
+		new Message($respuesta, './Login_Controller.php');
 	}
 
 }

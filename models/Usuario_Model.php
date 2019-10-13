@@ -89,4 +89,8 @@
 		  }
     }
 
+    function Register(){
+      
+    }
+
  ?>

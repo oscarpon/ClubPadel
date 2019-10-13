@@ -2,11 +2,11 @@
 //Controllador usuarios
   session_start();
 
-  include '../models/UsuarioModel.php';
-  include '../views/UsuarioAddView.php';
-  include '../views/UsuarioDeleteView.php';
-  include '../views/UsuarioShowallView.php';
-  include '../views/MessageView.php';
+  include '../models/Usuario_Model.php';
+  include '../views/Usuario_Add_View.php';
+  include '../views/Usuario_Delete_View.php';
+  include '../views/Usuario_Showall_View.php';
+  include '../views/Message_View.php';
 
   //Función que recoge la información del formulario
   function get_data_form(){
@@ -43,7 +43,7 @@
       else{
         $USUARIO = get_data_form();
         $respuesta = $USUARIO -> ADD();
-        new Message($respuesta, '../controllers/UsuarioController.php');
+        new Message($respuesta, '../controllers/Usuario_Controller.php');
       }
       break;
 
@@ -57,7 +57,7 @@
       else{
         $USUARIO = get_data_form();
         $respuesta = $USUARIO->DELETE();
-        new Message($respuesta, '../controllers/UsuarioController.php');
+        new Message($respuesta, '../controllers/Usuario_Controller.php');
       }
       break;
 

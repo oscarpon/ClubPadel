@@ -18,13 +18,13 @@ else{
 	$respuesta = $usuario->Register();//var
 
 	if ($respuesta == 'true'){//if
-		$respuesta = $usuario->registrar();
+		$respuesta = $usuario->Register();
 		//Include '../Views/MESSAGE_View.php';
-		new MESSAGE($respuesta, './Login_Controller.php');
+		new Message($respuesta, './Login_Controller.php');
 	}
 	else{//else
 		//include '../Views/MESSAGE_View.php';
-		new MESSAGE($respuesta, './Login_Controller.php');
+		new Message($respuesta, './Login_Controller.php');
 	}
 
 }
