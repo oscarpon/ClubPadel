@@ -90,7 +90,56 @@
     }
 
     function Register(){
-      
+      if (($this->email <> '')){
+        $sql="SELECT * FROM USUARIOS WHERE (email='$this->email')";
+
+        if (!($resultado=$this->mysqli->query($sql))){
+          return 'Error en la conexion a la base de datos';
+        } else{
+            if($result->num_rows == 0){
+              $sql="INSERT INTO USUARIO (email,password,nombre,apellidos,rol,genero)
+                VALUES($this->email,
+                $this->password,
+                $this->nombre,
+                $this->apellidos,
+                'A',
+                $this->genero)";
+            } else {
+              return 'Ya existe un usuario con el correo introducido';
+            }
+              if (!$this->mysqli->query($sql)){
+                return 'Error en la inserción';
+              } else{
+                return 'Inserción realizada';
+              }
+        }
+      }else {
+      return 'Introduzca un valor';
+      }
     }
+
+    function login() {
+        //hacemos la consulta para saber que usuario tiene dicho login
+        $sql = "SELECT *
+          FROM USUARIOS
+          WHERE (
+				        (email = '$this->email')
+                )";
+
+        $resultado = $this->mysqli->query( $sql );//hacemos la consulta en la base de datos
+        if ( $resultado->num_rows == 0 ) {//miramos si el numero de filas es 0
+  			     return 'El usuario no existe';
+
+    		} else {//si no es 0, el usuario existe
+    			$tupla = $resultado->fetch_array();//devolvemos la tupla
+
+    			   if ( $tupla[ 'password' ] == $this->password ) {//si la contraseña es correcta entra en la página
+    				       return true;
+
+    			   } else {//en caso contrario no entra
+    				       return 'La password para este usuario no es correcta';
+    			   }
+    	   }
+	 }
 
  ?>
