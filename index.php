@@ -12,7 +12,7 @@ if (!IsAuthenticated()){
 }
 //si ha pasado por el login de forma correcta
 else{
-	header('Location:./Controllers/Index_Controller.php');
+	header('Location:./controllers/Index_Controller.php');
 }
 
 ?>
