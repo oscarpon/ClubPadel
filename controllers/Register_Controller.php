@@ -11,7 +11,7 @@ else{
 
 
 
-	include '../models/UsuarioModel.php';
+	include '../models/Usuario_Model.php';
     //var
 	$usuario = new UsuarioModel($_REQUEST['nombre'],$_REQUEST['apellidos'],$_REQUEST['password'],$_REQUEST['email'],
 		$_REQUEST['genero']);
