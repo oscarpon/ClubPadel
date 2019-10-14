@@ -166,7 +166,7 @@ function submitRegister(){
 }
 
 //Valida el submit de Login. En caso de que todo este correcto realiza el submit.
-function validarLogin(){
+function validarRegister(){
 	//variables para seleccionar los campos email y password.
 	var nombre;
 	var apellidos;
