@@ -13,21 +13,20 @@
 ?>
 
 <div class="formularioLogin">
-	<form>
+	<form id="login" action='../controllers/Login_Controller.php' method='post'>
 		<h3 id="iniciar">Iniciar Sesión</h3>
-<div class="form-group" action='../controllers/Login_Controller.php' method='post'>
+<div>
 		<label id="email1" for="email"></label>
-		<input type="email" id="email" aria-describedby="emailHelp" placeholder="&#x1F464;Introduce tu email" onblur="comprobarEmail(email, 50)">
-
+		<input type="email" id="email" aria-describedby="emailHelp" placeholder="&#x1F464; Introduce tu email" onblur="comprobarEmail(email, 50)">
 </div>
-<div class="form-group">
+<div>
 	<label for="password"></label>
-	<input type="password" id="password" placeholder="&#128273;Contraseña" >
+	<input type="password" id="password" placeholder="&#128273; Contraseña" >
 </div>
-<div class="pb-2">
+<div>
 	<a href="../controllers/Register_Controller.php" id="nocuenta">¿Aún no tienes cuenta?</a>
 </div>
-	<button type="submit" class="botonAcceder">Acceder</button>
+	<button onclick="validarLogin" type="submit" class="botonAcceder">Acceder</button>
 </form>
 </div>
 

@@ -7,41 +7,38 @@ class Register{
     include '../views/Header.php';
 ?>
 
-<div class="container col-4">
-  <h3 class="nuevoUsuario">Nuevo usuario</h3>
-  <form>
-    <div class="row">
-      <div class="form-group col">
-        <label for="exampleInputEmail1">Nombre</label>
-      <input type="text" class="form-control" id="" aria-describedby="" placeholder="Nombre">
+<div class="formularioRegister">
+  <form id="registro" action='../controllers/Register_Controller.php' method='post'>
+    <h3 id="nuevoUsuario">Nuevo usuario</h3>
+    <div>
+      <div id="nombre">
+        <label>Nombre</label>
+        <input name="nombre" type="text" aria-describedby="" placeholder="Nombre">
       </div>
-      <div class="form-group col">
-        <label for="exampleInputEmail1">Apellidos</label>
-      <input type="text" class="form-control" id="" aria-describedby="" placeholder="Apellidos">
+      <div id="apellidos">
+        <label>Apellidos</label>
+        <input name="apellidos" type="text" aria-describedby="" placeholder="Apellidos">
       </div>
+    <div id="clave">
+      <label>Contraseña</label>
+      <input name="clave" type="password" aria-describedby="" placeholder="Contraseña">
     </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Contraseña</label>
-  <input type="password" class="form-control" id="" aria-describedby="" placeholder="Contraseña">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email</label>
-  <input type="email" class="form-control" id="" aria-describedby="" placeholder="Email">
+    <div id="email">
+      <label>Email</label>
+      <input name="email" type="email" aria-describedby="" placeholder="Email">
     </div>
     <div class="row">
-      <div class="form-group col-4">
-      <label for="exampleFormControlSelect2">Genero</label>
-      <select class="form-control" id="exampleFormControlSelect2">
+      <label>Genero</label>
+      <select id="exampleFormControlSelect2">
         <option></option>
         <option>Masculino</option>
         <option>Femenino</option>
         <option>Otro</option>
       </select>
     </div>
-    </div>
+  </div>
 
-  <button type="submit" class="btn btn-dark">Registrar</button>
-
+  <button onclick="validarRegister" type="submit" class="botonRegistrar">Registrar</button>
 
   </form>
 

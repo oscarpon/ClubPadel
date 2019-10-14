@@ -5,7 +5,7 @@
   font-weight: bold;
 }
 
-#iniciar{
+#iniciar, #nuevoUsuario{
   padding-bottom: 10%;
   font-family: 'Rajdhani', sans-serif;
   text-align: center;
@@ -117,4 +117,34 @@ body{
   bottom: 0;
   width: 100%;
   text-align: center;
+}
+
+.formularioRegister{
+  top: 40%;
+  left: 40%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff4;
+}
+
+#email, #clave, #nombre, #apellidos{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  width: 250px;
+}
+.botonRegistrar{
+  margin-bottom: 0;
+  background: #5264BA;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 5%;
+}
+.botonRegistrar:hover{
+  background: #727DB0;
+  cursor: pointer;
 }
