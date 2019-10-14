@@ -17,7 +17,7 @@
 		<h3 id="iniciar">Iniciar Sesión</h3>
 <div>
 		<label id="email1" for="email"></label>
-		<input type="email" id="email" aria-describedby="emailHelp" placeholder="&#x1F464; Introduce tu email" onblur="comprobarEmail(email, 50)">
+		<input type="email" id="email1" aria-describedby="emailHelp" placeholder="&#x1F464; Introduce tu email" onblur="comprobarEmail(email, 50)">
 </div>
 <div>
 	<label for="password"></label>

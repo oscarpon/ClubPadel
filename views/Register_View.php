@@ -11,25 +11,25 @@ class Register{
   <form id="registro" action='../controllers/Register_Controller.php' method='post'>
     <h3 id="nuevoUsuario">Nuevo usuario</h3>
     <div>
-      <div id="nombre">
-        <label>Nombre</label>
-        <input name="nombre" type="text" aria-describedby="" placeholder="Nombre">
+      <div>
+        <label></label>
+        <input id="nombre" name="nombre" type="text" aria-describedby="" placeholder="&#x1F464;  Nombre">
       </div>
-      <div id="apellidos">
-        <label>Apellidos</label>
-        <input name="apellidos" type="text" aria-describedby="" placeholder="Apellidos">
+      <div>
+        <label></label>
+        <input id="apellidos" name="apellidos" type="text" aria-describedby="" placeholder="&#128101;  Apellidos">
       </div>
-    <div id="clave">
-      <label>Contraseña</label>
-      <input name="password" type="password" aria-describedby="" placeholder="Contraseña">
+    <div>
+      <label></label>
+      <input id="clave" name="password" type="password" aria-describedby="" placeholder="&#128273;  Contraseña">
     </div>
-    <div id="email">
-      <label>Email</label>
-      <input name="email" type="email" aria-describedby="" placeholder="Email">
+    <div>
+      <label></label>
+      <input id="email" name="email" type="email" aria-describedby="" placeholder="&#64;  Email">
     </div>
-    <div class="row">
+    <div id="genero">
       <label>Género</label>
-      <select name="genero">
+      <select id="tablaGenero" name="genero">
         <option></option>
         <option>Masculino</option>
         <option>Femenino</option>
