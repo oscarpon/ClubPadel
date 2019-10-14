@@ -30,9 +30,9 @@ function comprobarAlfabetico(campo, size){
 		return false;
 	}
 	else{
-		//Comprueba el que tamño del campo no supere el maximo indicado.
+		//Comprueba el que tamaño del campo no supere el maximo indicado.
 		if(campo.value.length > size){
-			alert("El campo "+campo.name+" no puede superar el tamaño maximo( "+size+" caracteres).");
+			alert("El campo "+campo.name+" no puede superar la longitud maxima( "+size+" caracteres).");
 			campo.style.borderColor = "#d32e12";
 			return false;
 		}
@@ -59,7 +59,7 @@ function comprobarAlfanumerico(campo, size){
 	else{
 		//Comprueba el que tamño del campo no supere el maximo indicado.
 		if(campo.value.length > size){
-			alert("El campo "+campo.name+" no puede superar el tamaño maximo( "+size+" caracteres).");
+			alert("El campo "+campo.name+" no puede superar la longitud maxima( "+size+" caracteres).");
 			campo.style.borderColor = "#d32e12";
 			return false;
 		}
@@ -84,7 +84,7 @@ function comprobarEmail(campo, size){
 	else{
 		//Comprueba el que tamño del campo no supere el maximo indicado.
 		if(campo.value.length > size){
-			alert("El campo "+campo.name+" no puede superar el tamaño maximo( "+size+" caracteres).");
+			alert("El campo "+campo.name+" no puede superar la longitud maxima( "+size+" caracteres).");
 			campo.style.borderColor = "#d32e12";
 			return false;
 		}
