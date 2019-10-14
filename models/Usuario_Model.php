@@ -102,7 +102,7 @@
                 $this->password,
                 $this->nombre,
                 $this->apellidos,
-                'A',
+                'D',
                 $this->genero)";
             } else {
               return 'Ya existe un usuario con el correo introducido';
