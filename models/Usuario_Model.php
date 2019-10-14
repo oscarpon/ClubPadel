@@ -17,7 +17,7 @@
       $this->rol=$rol;
       $this->genero=$genero;
 
-      include_once '../Functios/BdAdmin.php';
+      include_once '../functions/BdAdmin.php';
       $this->mysqli=ConectarBD();
     }
 
@@ -29,7 +29,7 @@
         && (BINARY nombre LIKE '%$this->nombre%')
         && (BINARY apellidos LIKE '%$this->apellidos%')
         && (BINARY rol LIKE '%$this->rol%')
-        && (BINARY genero LIKE '%$this->genero%'))"
+        && (BINARY genero LIKE '%$this->genero%'))";
 
         if (!($resultado=$this->mysqli->query($sql))){
           return 'Error en la consulta';
@@ -73,7 +73,7 @@
       if ($resultado->num_rows == 1){
         $sql="DELETE FROM USUARIOS WHERE (email='$this->email')";
         $this->mysqli->query( $sql );
-        return 'Eliminado correctamente'
+        return 'Eliminado correctamente';
       } else{
         return 'No existe';
       }
@@ -96,7 +96,7 @@
         if (!($resultado=$this->mysqli->query($sql))){
           return 'Error en la conexion a la base de datos';
         } else{
-            if($result->num_rows == 0){
+            if($resultado->num_rows == 0){
               $sql="INSERT INTO USUARIOS (email,password,nombre,apellidos,rol,genero)
                 VALUES($this->email,
                 $this->password,
@@ -141,5 +141,5 @@
     			   }
     	   }
 	 }
-
+}
  ?>
