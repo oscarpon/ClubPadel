@@ -14,7 +14,7 @@
 
 
 
-<div class="container col-lg-3 bg-light mt-5  ">
+<div class="container col-lg-3 bg-light mt-5 border ">
 	<form>
 		<h3 id="iniciar">Iniciar Sesión</h3>
 <div class="form-group" action='../controllers/Login_Controller.php' method='post'>
