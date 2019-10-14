@@ -21,15 +21,15 @@ class Register{
       </div>
     <div id="clave">
       <label>Contraseña</label>
-      <input name="clave" type="password" aria-describedby="" placeholder="Contraseña">
+      <input name="password" type="password" aria-describedby="" placeholder="Contraseña">
     </div>
     <div id="email">
       <label>Email</label>
       <input name="email" type="email" aria-describedby="" placeholder="Email">
     </div>
     <div class="row">
-      <label>Genero</label>
-      <select id="exampleFormControlSelect2">
+      <label>Género</label>
+      <select name="genero">
         <option></option>
         <option>Masculino</option>
         <option>Femenino</option>
