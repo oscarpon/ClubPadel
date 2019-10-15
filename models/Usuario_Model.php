@@ -141,5 +141,12 @@
     			   }
     	   }
 	 }
+
+function returnDatos($email){
+  sql = "SELECT * FROM usuarios WHERE EMAIL = '".$email."'";
+
+  if(!$this->mysqli->query($sql))
+}
+
 }
  ?>
