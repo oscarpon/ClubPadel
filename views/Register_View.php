@@ -51,6 +51,4 @@ class Register{
 include '../views/Footer.php';
   }
 }
-
-
  ?>
