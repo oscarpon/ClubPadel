@@ -13,19 +13,19 @@ class Register{
     <div>
       <div>
         <label></label>
-        <input id="nombre" name="nombre" type="text" aria-describedby="" placeholder="&#x1F464;  Nombre">
+        <input id="nombre" name="nombre" type="text" aria-describedby="" placeholder="&#x1F464;  Nombre" onblur="comprobarAlfabetico(nombre, 20)">
       </div>
       <div>
         <label></label>
-        <input id="apellidos" name="apellidos" type="text" aria-describedby="" placeholder="&#128101;  Apellidos">
+        <input id="apellidos" name="apellidos" type="text" aria-describedby="" placeholder="&#128101;  Apellidos" onblur="comprobarAlfabetico(apellidos, 30)">
       </div>
     <div>
       <label></label>
-      <input id="clave" name="password" type="password" aria-describedby="" placeholder="&#128273;  Contraseña">
+      <input id="clave" name="password" type="password" aria-describedby="" placeholder="&#128273;  Contraseña" onblur="comprobarAlfanumerico(clave, 15)">
     </div>
     <div>
       <label></label>
-      <input id="email" name="email" type="email" aria-describedby="" placeholder="&#64;  Email">
+      <input id="email" name="email" type="email" aria-describedby="" placeholder="&#64;  Email" onblur="comprobarEmail(email, 50)">
     </div>
     <div id="genero">
       <label>Género</label>
