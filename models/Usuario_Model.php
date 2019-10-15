@@ -98,16 +98,16 @@
         } else{
             if($resultado->num_rows == 0){
               $sql="INSERT INTO USUARIOS (email,password,nombre,apellidos,rol,genero)
-                VALUES($this->email,
-                $this->password,
-                $this->nombre,
-                $this->apellidos,
-                'D',
-                $this->genero)";
+                VALUES('$this->email',
+                '$this->password',
+                '$this->nombre',
+                '$this->apellidos',
+                '$this->rol',
+                '$this->genero')";
             } else {
               return 'Ya existe un usuario con el correo introducido';
             }
-              if (!$this->mysqli->query($sql)){
+              if (!($resultado=$this->mysqli->query($sql))){
                 return 'Error en la inserción';
               } else{
                 return 'Inserción realizada';

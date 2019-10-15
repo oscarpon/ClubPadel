@@ -14,7 +14,7 @@ else{
 	include '../models/Usuario_Model.php';
     //var
 	$usuario = new UsuarioModel($_REQUEST['email'],$_REQUEST['password'],$_REQUEST['nombre'],$_REQUEST['apellidos'],
-		'',$_REQUEST['genero']);
+		'D',$_REQUEST['genero']);
 	$respuesta = $usuario->Register();//var
 
 	if ($respuesta == 'true'){//if
@@ -23,7 +23,7 @@ else{
 		new MessageView($respuesta, './Login_Controller.php');
 	}
 	else{//else
-		//include '../Views/MESSAGE_View.php';
+		include '../views/Message_View.php';
 		new MessageView($respuesta, './Login_Controller.php');
 	}
 

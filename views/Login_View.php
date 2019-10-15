@@ -14,11 +14,11 @@
 		<h3 id="iniciar">Iniciar Sesión</h3>
 <div>
 		<label id="email1" for="email"></label>
-		<input type="email" id="email1" aria-describedby="emailHelp" placeholder="&#x1F464; Introduce tu email" onblur="comprobarEmail(email, 50)">
+		<input type="email" id="email1" name="email" aria-describedby="emailHelp" placeholder="&#x1F464; Introduce tu email" onblur="comprobarEmail(email, 50)">
 </div>
 <div>
 	<label for="password"></label>
-	<input type="password" id="password" placeholder="&#128273; Contraseña" >
+	<input type="password" id="password" name="password" placeholder="&#128273; Contraseña" >
 </div>
 <div>
 	<a href="../controllers/Register_Controller.php" id="nocuenta">¿Aún no tienes cuenta?</a>

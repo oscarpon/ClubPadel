@@ -2,15 +2,15 @@
 
 session_start();
 
-if(!isset($_REQUEST['email']) && !(isset($_REQUEST['password']))){//if
-	include '../Views/Login_View.php';
+if(!(isset($_REQUEST['email1'])) && !(isset($_REQUEST['password']))){//if
+	include '../views/Login_View.php';
 	$login = new Login();//var
 }
 else{///else
 
-	include '../Models/Access_DB.php';
+	include '../models/Access_DB.php';
 
-	include '../Models/Usuario_Model.php';
+	include '../models/Usuario_Model.php';
 	$usuario = new UsuarioModel($_REQUEST['email'],$_REQUEST['password'],'','','','');/////
 	$respuesta = $usuario->login();
 
@@ -20,8 +20,8 @@ else{///else
 		header('Location:../index.php');
 	}
 	else{/////
-		include '../Views/Message_View.php';
-		new Message($respuesta, './Login_Controller.php');
+		include '../views/Message_View.php';
+		new MessageView($respuesta, './Login_Controller.php');
 	}
 
 }
