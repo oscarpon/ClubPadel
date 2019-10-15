@@ -10,15 +10,32 @@
   <script src="../functions/Validaciones.js"></script>
     <title></title>
   </head>
+<?php
 
-<body>
-  <div class="nav">
-    <div class="wrapper"></div>
-      <div class="tituloPadel">Club de padel</div>
-      <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Campeonatos</a>
-        <a href="#">Culo</a>
-        <a href="#">Contacto</a>
-      </nav>
-  </div>
+include '../functions/Autenticacion.php';
+
+if (isAuthenticated()) {
+  ?>
+  <body>
+    <div class="nav">
+      <div class="wrapper"></div>
+        <div class="tituloPadel">Club de padel</div>
+        <nav>
+          <a href="#">Inicio</a>
+          <a href="#">Campeonatos</a>
+          <a href="#">Culo</a>
+          <a href="#">Contacto</a>
+        </nav>
+    </div>
+    <?php }else { ?>
+
+  <body>
+    <div class="nav">
+      <div class="wrapper"></div>
+        <div class="tituloPadel">Club de padel</div>
+        <nav>
+          <a href="#">Inicio</a>
+          <a href="#">Contacto</a>
+        </nav>
+    </div>
+<?php } ?>

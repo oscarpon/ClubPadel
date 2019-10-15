@@ -5,7 +5,7 @@ if(!function_exists('isAuthenticated')){
     /*
     Comprueba que el usuario esté logeado en el sistema.
     */
-    if(!isset($_SESSION['login'])){
+    if(!isset($_SESSION['email'])){
       return false;
     } else{
       return true;
