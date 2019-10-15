@@ -13,4 +13,9 @@ if(!function_exists('isAuthenticated')){
   }
 }
 
+function comprobarRol($rol){
+  $usuario = new UsuarioModel('','','','','','');
+  $return = $usuario->
+}
+
  ?>
