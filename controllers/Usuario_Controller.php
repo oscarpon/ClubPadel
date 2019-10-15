@@ -3,8 +3,8 @@
   session_start();
 
   include '../models/Usuario_Model.php';
-  include '../views/Usuario_Add_View.php';
-  include '../views/Usuario_Delete_View.php';
+  /*include '../views/Usuario_Add_View.php';
+  include '../views/Usuario_Delete_View.php';*/
   include '../views/Usuario_Showall_View.php';
   include '../views/Message_View.php';
 
@@ -24,7 +24,7 @@
         $apellidos,
         $rol,
         $genero
-        )
+      );
         return $USUARIO;
   }
   //Comprueba si se accede con una acción
@@ -71,7 +71,7 @@
 
       $datos = $USUARIO->SEARCH();
       $lista = array('email','password', 'nombre', 'apellidos', 'rol', 'genero');
-      new UsuarioShowallView($lista, $datos);
+      new UsuarioShowallView($datos);
       break;
   }
 

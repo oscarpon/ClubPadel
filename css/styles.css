@@ -159,3 +159,50 @@ body{
   background: #727DB0;
   cursor: pointer;
 }
+.tablaUsuarios {
+  top: 30%;
+  left: 40%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  border-collapse: collapse;
+}
+
+.tablaUsuarios td{
+    border: 1px solid black;
+}
+
+.botonEliminar{
+  margin-bottom: 0;
+  background: #E64747;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 3.5%;
+  margin-top: 8%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  outline: none;
+}
+.botonEliminar:hover{
+  background: #E56464;
+  cursor: pointer;
+}
+#letraUsuarios{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+}
+.usuariosVisibles{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  text-align: center;
+}
+#añadirUsuario{
+  
+}
