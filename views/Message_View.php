@@ -1,6 +1,6 @@
 <?php
 
-	Función: vista de un mensaje(message) realizada con una clase donde se muestra el mensaje deseado
+/*	Función: vista de un mensaje(message) realizada con una clase donde se muestra el mensaje deseado
 */
 class MessageView { // declaración de la función
 
