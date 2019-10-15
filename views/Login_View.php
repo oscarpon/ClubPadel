@@ -21,7 +21,7 @@
 </div>
 <div>
 	<label for="password"></label>
-	<input type="password" id="password" placeholder="&#128273; Contraseña" >
+	<input type="password" id="password" placeholder="&#128273; Contraseña" onblur="comprobarAlfanumerico(password, 15)">
 </div>
 <div>
 	<a href="../controllers/Register_Controller.php" id="nocuenta">¿Aún no tienes cuenta?</a>
