@@ -14,7 +14,7 @@
 
 include '../functions/Autenticacion.php';
 
-if (isAuthenticated()) {
+if (!isAuthenticated()) {
   ?>
   <body>
     <div class="nav">
@@ -22,12 +22,10 @@ if (isAuthenticated()) {
         <div class="tituloPadel">Club de padel</div>
         <nav>
           <a href="#">Inicio</a>
-          <a href="#">Campeonatos</a>
-          <a href="#">Culo</a>
           <a href="#">Contacto</a>
         </nav>
     </div>
-    <?php }else { ?>
+  <?php }else if($_SESSION['rol'] === 'D'){ ///Si es un usuario deportista ?>
 
   <body>
     <div class="nav">
@@ -38,4 +36,26 @@ if (isAuthenticated()) {
           <a href="#">Contacto</a>
         </nav>
     </div>
+<?php } else if ($_SESSION['rol'] === 'A'){ ?>
+  <body>
+    <div class="nav">
+      <div class="wrapper"></div>
+        <div class="tituloPadel">Club de padel</div>
+        <nav>
+          <a href="#">Inicio</a>
+          <a href="#">Contacto</a>
+        </nav>
+    </div>
+
+<?php } else if ($_SESSION['rol'] === 'E'){?>
+  <body>
+    <div class="nav">
+      <div class="wrapper"></div>
+        <div class="tituloPadel">Club de padel</div>
+        <nav>
+          <a href="#">Inicio</a>
+          <a href="#">Contacto</a>
+        </nav>
+    </div>
+
 <?php } ?>
