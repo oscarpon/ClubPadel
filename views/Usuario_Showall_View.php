@@ -33,7 +33,7 @@
     <td><?php echo $fila['genero']?> </td>
 
     <td> <form action="../controllers/Usuario_Controller.php" name ='DELETE'>
-            <input type="hidden" name = 'login' value="<?php echo $fila['login'] ?>" readonly>
+            <input type="hidden" name = 'email' value="<?php echo $fila['email'] ?>" readonly>
             <button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
             </form>
     </td>
