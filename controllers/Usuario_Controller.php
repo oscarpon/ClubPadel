@@ -3,8 +3,8 @@
   session_start();
 
   include '../models/Usuario_Model.php';
-  /*include '../views/Usuario_Add_View.php';
-  include '../views/Usuario_Delete_View.php';*/
+  include '../views/Usuario_Add_View.php';
+  /*include '../views/Usuario_Delete_View.php';*/
   include '../views/Usuario_Showall_View.php';
   include '../views/Message_View.php';
 

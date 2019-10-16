@@ -17,7 +17,7 @@
             <th>Genero</th>
             <th>
               <div>
-                <a href="../controllers/Usuario_Controller.php" action="ADD" id = "añadirUsuario"><img src="../img/añadir.png" width="24px" height="24px" ></a>
+                <a href="../controllers/Usuario_Controller.php?action=ADD" action="ADD" id = "añadirUsuario"><img src="../img/añadir.png" width="24px" height="24px" ></a>
               </div>
             </th>
         </tr>

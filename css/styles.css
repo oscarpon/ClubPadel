@@ -124,7 +124,7 @@ body{
   font-weight: bold;
 }
 
-.formularioRegister{
+.formularioRegister, .formularioAñadir{
   top: 30%;
   left: 40%;
   position: absolute;
@@ -135,7 +135,7 @@ body{
   background-color: #fff4;
 }
 
-#email, #clave, #nombre, #apellidos, #genero{
+#email, #clave, #nombre, #apellidos, #genero, #rol{
   font-family: 'Rajdhani', sans-serif;
   font-size: 15px;
   width: 325px;
@@ -143,7 +143,7 @@ body{
 #tablaGenero{
   width: 25%;
 }
-.botonRegistrar{
+.botonRegistrar, .botonAñadir{
   margin-bottom: 0;
   background: #5264BA;
   color: #fff;
@@ -155,7 +155,7 @@ body{
   float: none;
   text-align: center;
 }
-.botonRegistrar:hover{
+.botonRegistrar:hover, .botonAñadir:hover{
   background: #727DB0;
   cursor: pointer;
 }
@@ -202,7 +202,4 @@ body{
   font-family: 'Rajdhani', sans-serif;
   font-size: 17px;
   text-align: center;
-}
-#añadirUsuario{
-  
 }
