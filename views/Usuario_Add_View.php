@@ -47,7 +47,7 @@ class UsuarioAddView{
     </div>
   </div>
 
-  <button onclick="validarAñadir" type="submit" class="botonAñadir">Añadir</button>
+  <button onclick="validarAñadir" name="action" value="ADD" type="submit" class="botonAñadir">Añadir</button>
 
   </form>
 

@@ -25,7 +25,7 @@ if (!isAuthenticated()) {
           <a href="#">Contacto</a>
         </nav>
     </div>
-  <?php }else if($_SESSION['rol'] === 'D'){ ///Si es un usuario deportista ?>
+  <?php }else if($_SESSION['rol'] == 'D'){ ///Si es un usuario deportista ?>
 
   <body>
     <div class="nav">
@@ -36,7 +36,19 @@ if (!isAuthenticated()) {
           <a href="#">Contacto</a>
         </nav>
     </div>
-<?php } else if ($_SESSION['rol'] === 'A'){ ?>
+<?php } else if ($_SESSION['rol'] == 'A'){ ?>
+  <body>
+    <div class="nav">
+      <div class="wrapper"></div>
+        <div class="tituloPadel">Club de padel</div>
+        <nav>
+          <a href="#">Inicio</a>
+          <a href="../controllers/Usuario_Controller.php">Usuarios</a>
+          <a href="#">Contacto</a>
+        </nav>
+    </div>
+
+<?php } else if ($_SESSION['rol'] == 'E'){?>
   <body>
     <div class="nav">
       <div class="wrapper"></div>
@@ -47,15 +59,13 @@ if (!isAuthenticated()) {
         </nav>
     </div>
 
-<?php } else if ($_SESSION['rol'] === 'E'){?>
+<?php }else{?>
   <body>
     <div class="nav">
       <div class="wrapper"></div>
         <div class="tituloPadel">Club de padel</div>
         <nav>
           <a href="#">Inicio</a>
-          <a href="#">Contacto</a>
         </nav>
     </div>
-
 <?php } ?>

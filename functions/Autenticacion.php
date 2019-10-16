@@ -13,8 +13,5 @@ if(!function_exists('isAuthenticated')){
   }
 }
 
-function comprobarRol(){
-  
-}
 
  ?>
