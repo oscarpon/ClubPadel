@@ -135,7 +135,7 @@ body{
   background-color: #fff4;
 }
 
-#email, #clave, #nombre, #apellidos, #genero, #rol{
+#email, #clave, #nombre, #apellidos, #genero, #rol, #mensajeEliminar {
   font-family: 'Rajdhani', sans-serif;
   font-size: 15px;
   width: 325px;
@@ -170,8 +170,19 @@ body{
   background-color: #fff4;
   border-collapse: collapse;
 }
+.tablaUsuariosEl{
+  top: 30%;
+  left: 33%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  border-collapse: collapse;
+}
 
-.tablaUsuarios td{
+.tablaUsuarios td, .tablaUsuariosEl td{
     border: 1px solid black;
 }
 
@@ -198,8 +209,26 @@ body{
   font-family: 'Rajdhani', sans-serif;
   font-size: 20px;
 }
-.usuariosVisibles{
+.usuariosVisibles, #nombresTabEl{
   font-family: 'Rajdhani', sans-serif;
   font-size: 17px;
   text-align: center;
+}
+.botonVolver{
+  margin-left: 90%;
+}
+.botonVolverEl{
+  margin-right: 25%;
+}
+#ticConfirmar{
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+#titulosTabEl{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+}
+.mensajeEliminar{
+
 }

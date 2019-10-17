@@ -10,10 +10,10 @@
 
 ?>
     <cuerpo>
-<div class="scroll">
+<div class="tablaUsuariosEl">
     <center>
-		<table border="1">
-			<tr>
+		<table>
+			<tr id="titulosTabEl">
 				<th>Email</th>
 				<th>Password</th>
 				<th>Nombre</th>
@@ -22,7 +22,7 @@
 				<th>Genero</th>
 			</tr>
 
-			<tr>
+			<tr id="nombresTabEl">
 				<td><?php echo $valores['email'] ?></td>
 				<td><?php echo $valores['password'] ?></td>
 				<td><?php echo $valores['nombre'] ?></td>
@@ -40,10 +40,11 @@
             <input type="hidden" name = 'apellidos' value="<?php echo $valores['apellidos'] ?>" readonly>
             <input type="hidden" name = 'rol' value="<?php echo $valores['rol'] ?>" readonly>
             <input type="hidden" name = 'genero' value="<?php echo $valores['genero'] ?>" readonly>
-            <h4>¿Desea borrar este usuario?</h4>
-            <button name = "action" value = "DELETE" ><img src="../img/borrar.svg" width="30px" height="30px" ></button>
+            <h4 id="mensajeEliminar">¿Desea borrar este usuario?</h4>
+
+            <button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmar"></button>
             </form>
-            <center><button name = "action" onclick="location= '../controllers/Usuario_Controller.php'" ><img src="../img/volver.png" width="30px" height="30px" ></button></center>
+            <center><a href="../controllers/Usuario_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverEl"></a></center>
 
     </center>
         </div>
