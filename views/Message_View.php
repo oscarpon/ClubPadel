@@ -17,16 +17,20 @@ class MessageView { // declaración de la función
 		<br>
 		<br>
 		<br>
-		<?php
-			echo $this->text; // se muestra por pantalla el texto
-		?>
+		<div class="fondoMsg">
+		<div id="confirmacionEliminar">
+			<?php
+				echo $this->text; // se muestra por pantalla el texto
+			?>
+		</div>
 		<br>
 		<br>
 		<br>
 
 		<form action='<?php $this->ruta?>'>
-			<button type="submit">Atrás</button>
+			<button id="atrasMsg" type="submit">Atrás</button>
 		</form>
+	</div>
 
 
 <?php

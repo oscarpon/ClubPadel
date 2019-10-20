@@ -161,7 +161,7 @@ body{
 }
 .tablaUsuarios {
   top: 30%;
-  left: 40%;
+  left: 35%;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
@@ -229,6 +229,42 @@ body{
   font-family: 'Rajdhani', sans-serif;
   font-size: 20px;
 }
-.mensajeEliminar{
-
+#confirmacionEliminar{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+  position: absolute;
+  color: white;
+}
+#atrasMsg{
+  left: 44%;
+  position: absolute;
+  background: #D7DB6F;
+  color: black;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 0.3%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  outline: none;
+  top: 64%;
+}
+#atrasMsg:hover{
+  background: #E6E69A;
+  cursor: pointer;
+}
+.fondoMsg{
+  top: 40%;
+  left: 39%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #01010199;
+  border-collapse: collapse;
+  width: 15%;
+  height: 12%;
 }

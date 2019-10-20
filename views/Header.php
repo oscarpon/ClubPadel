@@ -34,6 +34,7 @@ if (!isAuthenticated()) {
         <nav>
           <a href="#">Inicio</a>
           <a href="../controllers/OfertaPartido_Controller.php">Mis partidos ofertados</a>
+          <a href="../controllers/InscripcionPartido_Controller.php">Inscribirme a un partido</a>
           <a href="#">Contacto</a>
         </nav>
     </div>
