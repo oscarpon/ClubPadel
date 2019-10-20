@@ -33,6 +33,7 @@ if (!isAuthenticated()) {
         <div class="tituloPadel">Club de padel</div>
         <nav>
           <a href="#">Inicio</a>
+          <a href="../controllers/OfertaPartido_Controller.php">Mis partidos ofertados</a>
           <a href="#">Contacto</a>
         </nav>
     </div>
@@ -44,6 +45,7 @@ if (!isAuthenticated()) {
         <nav>
           <a href="#">Inicio</a>
           <a href="../controllers/Usuario_Controller.php">Usuarios</a>
+          <a href="../controllers/PromocionPartido_Controller.php">Promociones de partidos</a>
           <a href="#">Contacto</a>
         </nav>
     </div>

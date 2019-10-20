@@ -37,7 +37,7 @@
                                                 $this->miembro2Par2,
                                                 $this->resultado)";
           }else{
-            return 'Ya existe un partido para esa fecha y esa pista.'
+            return 'Ya existe un partido para esa fecha y esa pista.';
           }
           if(!($resultado=$this->msqli->query($sql))){
             return 'Error en la base de datos.';

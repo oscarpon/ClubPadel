@@ -104,6 +104,31 @@ CREATE TABLE `incripcionesclases` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `oferprompartidos`
+--
+
+CREATE TABLE `oferprompartidos` (
+  `email` varchar(50) NOT NULL,
+  `fecha` datetime NOT NULL,
+  `partic1` varchar(50) NOT NULL,
+  `partic2` varchar(50) NOT NULL,
+  `partic3` varchar(50) NOT NULL,
+  `partic4` varchar(50) NOT NULL,
+  `numpart` int(1) NOT NULL,
+  `tipo` char(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `oferprompartidos`
+--
+
+INSERT INTO `oferprompartidos` (`email`, `fecha`, `partic1`, `partic2`, `partic3`, `partic4`, `numpart`, `tipo`) VALUES
+('rachid1194@hotmail.com', '2019-10-20 18:46:54', 'rachid1194@hotmail.com', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 4, 'OFER'),
+('rachid1194@hotmail.com', '2019-10-20 18:47:14', 'rachid1194@hotmail.com', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 1, 'OFER');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `parejas`
 --
 
@@ -151,12 +176,19 @@ CREATE TABLE `partidocamp` (
 CREATE TABLE `partidos` (
   `codigoPista` char(6) NOT NULL,
   `fecha` datetime(6) NOT NULL,
-  `miembro1Par1` varchar(10) NOT NULL,
-  `miembro2Par1` varchar(10) NOT NULL,
-  `miembro1Par2` varchar(10) NOT NULL,
-  `miembro2Par2` varchar(10) NOT NULL,
+  `miembro1Par1` varchar(50) NOT NULL,
+  `miembro2Par1` varchar(50) NOT NULL,
+  `miembro1Par2` varchar(50) NOT NULL,
+  `miembro2Par2` varchar(50) NOT NULL,
   `resultado` char(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `partidos`
+--
+
+INSERT INTO `partidos` (`codigoPista`, `fecha`, `miembro1Par1`, `miembro2Par1`, `miembro1Par2`, `miembro2Par2`, `resultado`) VALUES
+('000000', '2019-10-18 13:59:02.000000', '', '', '', '', 'NJ');
 
 -- --------------------------------------------------------
 
@@ -166,8 +198,20 @@ CREATE TABLE `partidos` (
 
 CREATE TABLE `pistas` (
   `codigoPista` char(6) NOT NULL,
+  `fecha` datetime(6) NOT NULL,
   `tipo` char(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `pistas`
+--
+
+INSERT INTO `pistas` (`codigoPista`, `fecha`, `tipo`) VALUES
+('000000', '2019-10-18 13:59:02.000000', 'EXT'),
+('000000', '2019-10-18 14:59:02.000000', 'EXT'),
+('000000', '2019-10-18 15:59:02.000000', 'EXT'),
+('000001', '2019-10-18 13:59:02.000000', 'EXT'),
+('000001', '2019-10-18 16:59:02.000000', 'EXT');
 
 -- --------------------------------------------------------
 
@@ -195,6 +239,14 @@ CREATE TABLE `usuarios` (
   `rol` char(1) NOT NULL,
   `genero` char(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`email`, `password`, `nombre`, `apellidos`, `rol`, `genero`) VALUES
+('brmartinez@esei.uvigo.es', 'hola', 'Brais', 'RM', 'A', 'Mascul'),
+('rachid1194@hotmail.com', 'm', 'h', 'r', 'D', 'M');
 
 --
 -- Índices para tablas volcadas
@@ -237,6 +289,12 @@ ALTER TABLE `incripcionesclases`
   ADD PRIMARY KEY (`nombre`,`horario`,`email`);
 
 --
+-- Indices de la tabla `oferprompartidos`
+--
+ALTER TABLE `oferprompartidos`
+  ADD PRIMARY KEY (`email`,`fecha`);
+
+--
 -- Indices de la tabla `parejas`
 --
 ALTER TABLE `parejas`
@@ -264,7 +322,7 @@ ALTER TABLE `partidos`
 -- Indices de la tabla `pistas`
 --
 ALTER TABLE `pistas`
-  ADD PRIMARY KEY (`codigoPista`);
+  ADD PRIMARY KEY (`codigoPista`,`fecha`);
 
 --
 -- Indices de la tabla `reservas`

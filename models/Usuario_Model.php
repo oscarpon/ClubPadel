@@ -45,13 +45,17 @@
           return 'Error en la conexion a la base de datos';
         } else{
             if($resultado->num_rows == 0){
+              $rol = $this->rol;
+              $rolInicial = $rol[0];
+              $genero = $this->genero;
+              $generoInicial = $genero[0];
               $sql="INSERT INTO USUARIOS (email,password,nombre,apellidos,rol,genero)
                 VALUES('$this->email',
                 '$this->password',
                 '$this->nombre',
                 '$this->apellidos',
-                '$this->rol',
-                '$this->genero')";
+                '$rolInicial',
+                '$generoInicial')";
             } else {
               return 'Ya existe un usuario con el correo introducido';
             }
@@ -97,13 +101,15 @@
           return 'Error en la conexion a la base de datos';
         } else{
             if($resultado->num_rows == 0){
+              $genero = $this->genero;
+              $generoInicial = $genero[0];
               $sql="INSERT INTO USUARIOS (email,password,nombre,apellidos,rol,genero)
                 VALUES('$this->email',
                 '$this->password',
                 '$this->nombre',
                 '$this->apellidos',
                 '$this->rol',
-                '$this->genero')";
+                '$generoInicial')";
             } else {
               return 'Ya existe un usuario con el correo introducido';
             }

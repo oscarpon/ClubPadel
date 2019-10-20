@@ -69,8 +69,7 @@ switch ($_REQUEST['action']) {
     }
 
     $datos = $PARTIDO->SEARCH();
-    $lista = array('codigoPista','fecha', 'miembro1Par1', 'miembro2Par1', 'miembro1Par2', 'miembro2Par2', 'resultado');
-    new PartidoShowallView($lista, $datos);
+    new PartidoShowallView($datos);
     break;
 }
  ?>
