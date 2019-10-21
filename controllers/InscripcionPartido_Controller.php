@@ -33,30 +33,22 @@ if(!isset($_REQUEST['action'])){
 
 switch ($_REQUEST['action']){
   case 'EDIT':
-    if($_REQUEST['tipo']=='OFER'){
-      //header("Location: ../controllers/OfertaPartido_Controller.php?action=EDIT");
-
       $OFERTAPARTIDO = get_data_form();
-      //$OFERTAPARTIDO = new OferPromPartidoModel('rachid1194@hotmail.com', '2019-10-20 18:46:54', '', '', '', '','', 'OFER');
       $respuestaEdit = $OFERTAPARTIDO->EDIT($_SESSION['email']);
       $arrayPart = $OFERTAPARTIDO->comprobarParticipacion();
       if($arrayPart[0] == 4){
         $arrayPistas = $OFERTAPARTIDO->comprobarDispPistas();
         if(!empty($arrayPistas)){
           $respuestaCrear = $OFERTAPARTIDO->crearPartido($arrayPistas);
-          //new MessageView($respuestaCrear, '../controllers/OfertaPartido_Controller.php');
-          new MessageView($respuestaCrear, '../controllers/Register_Controller.php');
+          $OFERTAPARTIDO->DELETE();
+          new MessageView($respuestaCrear, '../controllers/InscripcionPartido_Controller.php');
         }else{
           new MessageView("No hay pistas disponibles actualmente, el partido ha
-          sido cancelado.", '../controllers/OfertaPartido_Controller.php');
+          sido cancelado.", '../controllers/InscripcionPartido_Controller.php');
         }
       }else{
-        //new MessageView($respuestaEdit, '../controllers/OfertaPartido_Controller.php');
-        new MessageView($respuestaEdit, '../controllers/Usuario_Controller.php');
+        new MessageView($respuestaEdit, '../controllers/InscripcionPartido_Controller.php');
       }
-    }else {
-      header("Location: ../controllers/PromocionPartido_Controller.php?action=EDIT");
-    }
   break;
 
   default:

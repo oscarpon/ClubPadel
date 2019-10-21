@@ -96,7 +96,8 @@ class OferPromPartidoModel{
       }else{
         if($resultado->num_rows == 1){
           if($this->numpart<4){
-            $participantes=$this->numpart++;
+            $participantes=$this->numpart;
+            $participantes++;
             if($this->partic1!='Puesto vacio'){
               if($this->partic2!='Puesto vacio'){
                 if($this->partic3!='Puesto vacio'){
@@ -212,18 +213,30 @@ class OferPromPartidoModel{
         return 'Error de base de datos';
       }else{
         if($resultado->num_rows == 0){
-          $sql = "INSERT INTO partidos VALUES('$pistaElegida',
-                                              '$fechaElegida',
-                                              '$this->partic1',
-                                              '$this->partic2',
-                                              '$this->partic3',
-                                              '$this->partic4',
-                                              'NJ')";
+          $sql = "SELECT partic1, partic2, partic3, partic4 FROM oferprompartidos WHERE(email='$this->email' AND fecha='$this->fecha')";
+          if(!($resultado=$this->mysqli->query($sql))){
+            return 'Error de base de datos';
+          }else{
+            $result = $resultado->fetch_array();
+            $p1 = $result[0];
+            $p2 = $result[1];
+            $p3 = $result[2];
+            $p4 = $result[3];
+            $sql = "INSERT INTO partidos VALUES('$pistaElegida',
+                                                '$fechaElegida',
+                                                '$p1',
+                                                '$p2',
+                                                '$p3',
+                                                '$p4',
+                                                'NJ')";
+          }
         }else{
           return 'Ya hay un partido en esta pista y en esta fecha.';
         }
         if(!($resultado=$this->mysqli->query($sql))){
           return 'Error en la base de datos.';
+        }else{
+          return 'Eras el ultimo inscrito, el partido ha sido creado.';
         }
       }
     }else{
