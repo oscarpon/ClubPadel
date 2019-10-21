@@ -9,7 +9,7 @@
  ?>
 
 <table class="tablaOferta">
-        <tr id="letraOferta">
+        <tr class="letraOferta">
             <th>Usuario</th>
             <th>Fecha de oferta</th>
             <th>Pareja</th>
