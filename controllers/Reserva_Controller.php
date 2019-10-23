@@ -4,7 +4,6 @@
 
   include '../models/Reserva_Model.php';
   include '../views/Reserva_Add_View.php';
-  include '../views/Reserva_Delete_View.php';
   include '../views/Reserva_Showall_View.php';
   include '../views/Message_View.php';
 
@@ -35,16 +34,15 @@
         new ReservaAddView();
       }
       else{
-        $RESERVA = get_data_form();
+        $RESERVA = new ReservaModel($_SESSION ['email'],'','');
         $arrayPistas = $RESERVA->comprobarDispPistas();
 
         if(!empty($arrayPistas)){
           $respuesta = $RESERVA -> ADD($arrayPistas);
-          new MessageView($respuestaCrear, '../controllers/Reserva_Controller.php');
+          new MessageView($respuesta, '../controllers/Reserva_Controller.php');
         }else{
           new MessageView("No hay pistas disponibles actualmente.", '../controllers/Reserva_Controller.php');
         }
-        new MessageView($respuesta, '../controllers/Reserva_Controller.php');
       }
       break;
 
