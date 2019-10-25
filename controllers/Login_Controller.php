@@ -8,7 +8,7 @@ if(!(isset($_REQUEST['email'])) && !(isset($_REQUEST['password']))){//if
 }
 else{///else
 
-	include '../functions/BdAdmin.php';
+	include '../models/Access_DB.php';
 
 	include '../models/Usuario_Model.php';
 	$usuario = new UsuarioModel($_REQUEST['email'],$_REQUEST['password'],'','','','');/////

@@ -40,12 +40,12 @@ switch ($_REQUEST['action']){
         $arrayPistas = $OFERTAPARTIDO->comprobarDispPistas();
         if(!empty($arrayPistas)){
           $respuestaCrear = $OFERTAPARTIDO->crearPartido($arrayPistas);
+          $OFERTAPARTIDO->DELETE();
           new MessageView($respuestaCrear, '../controllers/InscripcionPartido_Controller.php');
         }else{
           new MessageView("No hay pistas disponibles actualmente, el partido ha
           sido cancelado.", '../controllers/InscripcionPartido_Controller.php');
         }
-        $OFERTAPARTIDO->DELETE();
       }else{
         new MessageView($respuestaEdit, '../controllers/InscripcionPartido_Controller.php');
       }

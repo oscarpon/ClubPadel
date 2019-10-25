@@ -1,22 +1,16 @@
 <?php
 class PromocionPartidoAddView{
-  function __construct($query){
-    $this->render($query);
+  function __construct(){
+    $this->render();
   }
-  function render($query){
+  function render(){
     include '../views/Header.php';
 ?>
 
 <div class="formularioAñadir">
   <form id="añadir" action='../controllers/PromocionPartido_Controller.php' method='post'>
-    <label>Seleccione la fecha en la que desea que se juegue el partido</label>
-    <select id="tablaFecha" name="fecha">
-      <?php
-      while ($valores = mysqli_fetch_array($query)) {
-        echo '<option>'.$valores[fecha].'</option>';
-      }
-    ?>
-    </select>
+    <h3 id="nuevaPromocion">Como administrador puedes promocionar partidos para
+    que la gente asista al club y disfutar de las instalaciones.</h3>
     <a href="../controllers/PromocionPartido_Controller"><img src="../img/volver.png" width="24px" height="24px" class="botonVolver" ></a>
   </div>
 
