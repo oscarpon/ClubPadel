@@ -25,15 +25,14 @@ class OferPromPartidoModel{
   }
 
   function ADD(){
-    $fecha = date("Y-m-d H:i:s");
-    if($this->email <> '' && $fecha <> ''){
-      $sql = "SELECT * FROM oferprompartidos WHERE(email='$this->email' AND fecha='$fecha')";
+    if($this->email <> '' && $this->fecha <> ''){
+      $sql = "SELECT * FROM oferprompartidos WHERE(email='$this->email' AND fecha='$this->fecha')";
       if(!($resultado=$this->mysqli->query($sql))){
         return 'Error de base de datos';
       }else{
         if($resultado->num_rows == 0){
           $sql = "INSERT INTO oferprompartidos VALUES('$this->email',
-                                                    '$fecha',
+                                                    '$this->fecha',
                                                     '$this->partic1',
                                                     'Puesto vacio',
                                                     'Puesto vacio',
@@ -87,7 +86,7 @@ class OferPromPartidoModel{
       }
     }
   }
-
+//TODO: que un usuario no se inscriba varias veces en la misma oferprom
   function EDIT($usuario){
     if($this->email <> '' && $this->fecha <> ''){
       $sql = "SELECT * FROM oferprompartidos WHERE(email='$this->email' AND fecha='$this->fecha')";
@@ -158,7 +157,7 @@ class OferPromPartidoModel{
           }
 
         }else{
-          return 'Ya existe una oferta o promocion en esta fecha.';
+          return 'No existe esta fila en la BD.';
         }
 
       }
@@ -189,21 +188,36 @@ class OferPromPartidoModel{
   }
 
   function comprobarDispPistas(){
-    $sql = "SELECT t1.codigoPista, t1.fecha
-            FROM pistas as t1
+    $sql = "SELECT t1.codigoPista, t1.fecha FROM pistas as t1
             WHERE NOT EXISTS (SELECT t2.codigoPista, t2.fecha
             FROM reservas as t2 WHERE t1.codigoPista = t2.codigoPista
-            AND t1.fecha = t2.fecha) AND NOT EXISTS (SELECT t3.codigoPista, t3.fecha
+            AND t1.fecha = t2.fecha)
+            AND NOT EXISTS (SELECT t3.codigoPista, t3.fecha
             FROM partidos as t3 WHERE t1.codigoPista = t3.codigoPista
-            AND t1.fecha = t3.fecha AND t3.resultado = 'NJ') AND NOT EXISTS (SELECT t4.codigoPista, t4.fecha
+            AND t1.fecha = t3.fecha AND t3.resultado = 'NJ')
+            AND NOT EXISTS (SELECT t4.codigoPista, t4.fecha
             FROM partidocamp as t4 WHERE t1.codigoPista = t4.codigoPista
-            AND t1.fecha = t4.fecha AND t4.resultado = 'NJ')";
+            AND t1.fecha = t4.fecha AND t4.resultado = 'NJ') AND t1.fecha='$this->fecha'";
     if($resultado=$this->mysqli->query($sql)){
       $arrayPistas = $resultado->fetch_array();
       return $arrayPistas;
     }
   }
 
+  function comprobarDispFechas(){
+    $sql = "SELECT t1.fecha
+            FROM pistas as t1
+            WHERE NOT EXISTS (SELECT t2.fecha
+            FROM reservas as t2 WHERE t1.codigoPista = t2.codigoPista
+            AND t1.fecha = t2.fecha) AND NOT EXISTS (SELECT t3.fecha
+            FROM partidos as t3 WHERE t1.codigoPista = t3.codigoPista
+            AND t1.fecha = t3.fecha AND t3.resultado = 'NJ') AND NOT EXISTS (SELECT t4.fecha
+            FROM partidocamp as t4 WHERE t1.codigoPista = t4.codigoPista
+            AND t1.fecha = t4.fecha AND t4.resultado = 'NJ')";
+    if($resultado=$this->mysqli->query($sql)){
+      return $resultado;
+    }
+  }
   function crearPartido($pistas){
     $pistaElegida = $pistas[0];
     $fechaElegida = $pistas[1];
