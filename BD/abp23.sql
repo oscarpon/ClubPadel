@@ -169,7 +169,6 @@ INSERT INTO `pagos` (`email`, `fecha`, `importe`, `pagado`) VALUES
 CREATE TABLE `parejas` (
   `miembro1` varchar(50) NOT NULL,
   `miembro2` varchar(50) NOT NULL,
-  `capitan` varchar(50) NOT NULL,
   `genero` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

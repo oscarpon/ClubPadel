@@ -52,6 +52,7 @@ if (!isAuthenticated()) {
           <a href="../controllers/Noticia_Controller.php">Gestionar noticias</a>
           <a href="../controllers/Pago_Controller.php">Gestionar pagos</a>
           <a href="#">Contacto</a>
+          <a id="desconectar" href="../functions/Desconectar.php"> <img src="../img/desconectar.png" width="24px" height="24px" > </a>
         </nav>
     </div>
 
@@ -63,6 +64,7 @@ if (!isAuthenticated()) {
         <nav>
           <a href="#">Inicio</a>
           <a href="#">Contacto</a>
+          <a id="desconectar" href="../functions/Desconectar.php"> <img src="../img/desconectar.png" width="24px" height="24px" > </a>
         </nav>
     </div>
 
