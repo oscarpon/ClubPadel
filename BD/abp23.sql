@@ -1,17 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2019 a las 19:06:26
--- Versión del servidor: 10.1.26-MariaDB
--- Versión de PHP: 7.1.9
-
-DROP DATABASE IF EXISTS `abp23`;
-CREATE DATABASE `abp23` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-
-USE `abp23`;
-
+-- Tiempo de generación: 28-10-2019 a las 18:09:02
+-- Versión del servidor: 10.1.36-MariaDB
+-- Versión de PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -126,7 +120,7 @@ CREATE TABLE `oferprompartidos` (
 --
 
 INSERT INTO `oferprompartidos` (`email`, `fecha`, `partic1`, `partic2`, `partic3`, `partic4`, `numpart`, `tipo`) VALUES
-('brmartinez@esei.uvigo.es', '2019-10-22 19:13:21', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 4, 'PROM');
+('brmartinez@esei.uvigo.es', '2019-10-24 19:37:37', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 0, 'PROM');
 
 -- --------------------------------------------------------
 
@@ -214,11 +208,7 @@ CREATE TABLE `partidos` (
 --
 
 INSERT INTO `partidos` (`codigoPista`, `fecha`, `miembro1Par1`, `miembro2Par1`, `miembro1Par2`, `miembro2Par2`, `resultado`) VALUES
-('000000', '2019-10-18 13:59:02', 'rachid1194@hotmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'NJ'),
-('000000', '2019-10-18 14:59:02', 'rachid1194@hotmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'NJ'),
-('000000', '2019-10-18 15:59:02', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'NJ'),
-('000001', '2019-10-18 13:59:02', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'NJ'),
-('000001', '2019-10-18 16:59:02', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'NJ');
+('000000', '2019-10-27 20:15:00', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'NJ');
 
 -- --------------------------------------------------------
 
@@ -237,11 +227,11 @@ CREATE TABLE `pistas` (
 --
 
 INSERT INTO `pistas` (`codigoPista`, `fecha`, `tipo`) VALUES
-('000000', '2019-10-18 13:59:02', 'EXT'),
-('000000', '2019-10-18 14:59:02', 'EXT'),
-('000000', '2019-10-18 15:59:02', 'EXT'),
-('000001', '2019-10-18 13:59:02', 'EXT'),
-('000001', '2019-10-18 16:59:02', 'EXT');
+('000000', '2019-10-27 20:15:00', 'INT'),
+('000000', '2019-10-28 15:00:00', 'INT'),
+('000000', '2019-10-28 17:30:00', 'EXT'),
+('000001', '2019-10-27 15:00:00', 'EXT'),
+('000001', '2019-10-28 20:00:00', 'INT');
 
 -- --------------------------------------------------------
 
@@ -365,7 +355,7 @@ ALTER TABLE `pistas`
 -- Indices de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  ADD PRIMARY KEY (`email`,`codigoPista`);
+  ADD PRIMARY KEY (`email`,`codigoPista`,`fecha`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -382,6 +372,14 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `contenido`
   MODIFY `idContenido` int(6) NOT NULL AUTO_INCREMENT;
+
+DELIMITER $$
+--
+-- Eventos
+--
+CREATE DEFINER=`root`@`localhost` EVENT `Reserva_Caducidad` ON SCHEDULE EVERY 1 MINUTE STARTS '2019-10-27 19:11:03' ON COMPLETION PRESERVE ENABLE DO DELETE FROM reservas WHERE UNIX_TIMESTAMP(`fecha`) < (UNIX_TIMESTAMP()-90*60)$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
