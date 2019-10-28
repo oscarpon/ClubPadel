@@ -1,11 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2019 a las 18:09:02
--- Versión del servidor: 10.1.36-MariaDB
--- Versión de PHP: 7.2.10
+-- Tiempo de generación: 28-10-2019 a las 18:30:45
+-- Versión del servidor: 10.4.6-MariaDB
+-- Versión de PHP: 7.3.9
+DROP DATABASE IF EXISTS `abp23`;
+CREATE DATABASE `abp23` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+USE `abp23`;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -86,6 +90,14 @@ CREATE TABLE `contenido` (
   `descripcion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `contenido`
+--
+
+INSERT INTO `contenido` (`idContenido`, `titulo`, `descripcion`) VALUES
+(1, 'Hola', 'Esto es una prueba de noticia'),
+(2, 'Prueba de ', 'Esto es otra oprueba de niticiaaaaa aaa aa ');
+
 -- --------------------------------------------------------
 
 --
@@ -120,7 +132,10 @@ CREATE TABLE `oferprompartidos` (
 --
 
 INSERT INTO `oferprompartidos` (`email`, `fecha`, `partic1`, `partic2`, `partic3`, `partic4`, `numpart`, `tipo`) VALUES
-('brmartinez@esei.uvigo.es', '2019-10-24 19:37:37', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 0, 'PROM');
+('brmartinez@esei.uvigo.es', '2019-10-18 13:59:02', 'trelo@gmail.com', 'rachid1194@hotmail.com', 'Puesto vacio', 'Puesto vacio', 2, 'PROM'),
+('brmartinez@esei.uvigo.es', '2019-10-18 15:59:02', 'trelo@gmail.com', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 1, 'PROM'),
+('trelo@gmail.com', '2019-10-18 13:59:02', 'trelo@gmail.com', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 1, 'OFER'),
+('trelo@gmail.com', '2019-10-18 15:59:02', 'trelo@gmail.com', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 1, 'OFER');
 
 -- --------------------------------------------------------
 
@@ -208,7 +223,9 @@ CREATE TABLE `partidos` (
 --
 
 INSERT INTO `partidos` (`codigoPista`, `fecha`, `miembro1Par1`, `miembro2Par1`, `miembro1Par2`, `miembro2Par2`, `resultado`) VALUES
-('000000', '2019-10-27 20:15:00', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'NJ');
+('000000', '2019-10-18 13:59:02', 'rachid1194@hotmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'NJ'),
+('000000', '2019-10-18 14:59:02', 'rachid1194@hotmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'NJ'),
+('000001', '2019-10-18 16:59:02', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'NJ');
 
 -- --------------------------------------------------------
 
@@ -227,11 +244,11 @@ CREATE TABLE `pistas` (
 --
 
 INSERT INTO `pistas` (`codigoPista`, `fecha`, `tipo`) VALUES
-('000000', '2019-10-27 20:15:00', 'INT'),
-('000000', '2019-10-28 15:00:00', 'INT'),
-('000000', '2019-10-28 17:30:00', 'EXT'),
-('000001', '2019-10-27 15:00:00', 'EXT'),
-('000001', '2019-10-28 20:00:00', 'INT');
+('000000', '2019-10-18 13:59:02', 'EXT'),
+('000000', '2019-10-18 14:59:02', 'EXT'),
+('000000', '2019-10-18 15:59:02', 'EXT'),
+('000001', '2019-10-18 13:59:02', 'EXT'),
+('000001', '2019-10-18 16:59:02', 'EXT');
 
 -- --------------------------------------------------------
 
@@ -244,6 +261,13 @@ CREATE TABLE `reservas` (
   `codigoPista` char(6) NOT NULL,
   `fecha` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `reservas`
+--
+
+INSERT INTO `reservas` (`email`, `codigoPista`, `fecha`) VALUES
+('trelo@gmail.com', '000001', '2019-10-18 13:59:02');
 
 -- --------------------------------------------------------
 
@@ -355,7 +379,7 @@ ALTER TABLE `pistas`
 -- Indices de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  ADD PRIMARY KEY (`email`,`codigoPista`,`fecha`);
+  ADD PRIMARY KEY (`email`,`codigoPista`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -371,15 +395,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `contenido`
 --
 ALTER TABLE `contenido`
-  MODIFY `idContenido` int(6) NOT NULL AUTO_INCREMENT;
-
-DELIMITER $$
---
--- Eventos
---
-CREATE DEFINER=`root`@`localhost` EVENT `Reserva_Caducidad` ON SCHEDULE EVERY 1 MINUTE STARTS '2019-10-27 19:11:03' ON COMPLETION PRESERVE ENABLE DO DELETE FROM reservas WHERE UNIX_TIMESTAMP(`fecha`) < (UNIX_TIMESTAMP()-90*60)$$
-
-DELIMITER ;
+  MODIFY `idContenido` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
