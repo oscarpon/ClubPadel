@@ -36,14 +36,22 @@ if(!isset($_REQUEST['action'])){
 switch ($_REQUEST['action']){
   case "ADD":
     if(!$_POST){
-      new PromocionPartidoAddView();
+      $PROMOCIONPARTIDO = new OferPromPartidoModel('', '', '', '', '', '', '', '');
+      $arrayFechas = $PROMOCIONPARTIDO->comprobarDispFechas();
+      if(empty($arrayFechas)){
+        new MessageView("No hay pistas disponibles, no es posible promocionar partidos",
+        '../controllers/PromocionPartido_Controller.php');
+      }
+      else{
+        new PromocionPartidoAddView($arrayFechas);
+      }
     }else{
-      $PROMOCIONPARTIDO = new OferPromPartidoModel($_SESSION['email'], '', 'Puesto vacio', '', '', '', 0,'PROM');
+      $PROMOCIONPARTIDO = new OferPromPartidoModel($_SESSION['email'], $_REQUEST['fecha'], 'Puesto vacio', '', '', '', 0,'PROM');
       $respuesta = $PROMOCIONPARTIDO->ADD();
       new MessageView($respuesta, '../controllers/PromocionPartido_Controller.php');
     }
     break;
-
+/*
     case 'EDIT':
         //$OFERTAPARTIDO = get_data_form();
         $PROMOCIONPARTIDO = new OferPromPartidoModel('rachid1194@hotmail.com', '2019-10-20 18:46:54', '', '', '', '','', 'PROM');
@@ -64,7 +72,7 @@ switch ($_REQUEST['action']){
           new MessageView('NADA', '../controllers/Usuario_Controller.php');
         }
       break;
-
+*/
   case 'DELETE':
     if(!$_POST){
       $PROMOCIONPARTIDO = new OferPromPartidoModel($_REQUEST['email'], $_REQUEST['fecha'], '', '', '', '', '', '');
