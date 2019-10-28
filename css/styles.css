@@ -45,7 +45,7 @@ nav a{
   text-decoration: none;
   padding: 10px 20px;
   line-height: normal;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bold;
   -webkit-transition:all 500ms ease;
   -o-transition:all 0.5s ease;
@@ -133,7 +133,28 @@ body{
   padding: 18px;
   background-color: #fff4;
 }
-
+.formularioOfertarAdd{
+  top: 30%;
+  left: 30%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  font-family: 'Rajdhani', sans-serif;
+}
+.formularioAñadirProm{
+  top: 30%;
+  left: 30%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  width: 30%;
+}
 .formularioRegister, .formularioAñadir{
   top: 30%;
   left: 40%;
@@ -153,6 +174,77 @@ body{
 #tablaGenero{
   width: 25%;
 }
+/*Personaliza label*/
+.tablaFecha {
+  position: relative;
+  max-width: 190px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  padding: 7px 10px;
+  height: 40px;
+  outline:0;
+  border: 0;
+  border-radius: 0;
+  background: #f0f0f0;
+	color: #7b7b7b;
+	font-size: 16px;
+	color: #999;
+	font-family:
+	'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+    margin-left: 19%;
+    margin-top: 10%;
+}
+.tablaFecha:hover, .tablaFechaOfPart:hover{
+  background: #DDD9FB;
+}
+/*elimina flecha por defecto*/
+.tablaFecha::-ms-expand {
+  display: none;
+}
+.tablaFechaOfPart::-ms-expand {
+  display: none;
+}
+.tablaFechaOfPart{
+  position: relative;
+  max-width: 190px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  padding: 7px 10px;
+  height: 40px;
+  outline:0;
+  border: 0;
+  border-radius: 0;
+  background: #f0f0f0;
+	color: #7b7b7b;
+	font-size: 16px;
+	color: #999;
+	font-family:
+	'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+    margin-left: 19%;
+    margin-top: 10%;
+}
+
+.botonVolverProm{
+  top: 68%;
+  position: absolute;
+  left: 90%;
+}
 .botonRegistrar, .botonAñadir{
   margin-bottom: 0;
   background: #5264BA;
@@ -165,9 +257,25 @@ body{
   float: none;
   text-align: center;
 }
-.botonRegistrar:hover, .botonAñadir:hover{
+.botonRegistrar:hover, .botonAñadir:hover, .botonAñadirProm:hover{
   background: #727DB0;
   cursor: pointer;
+}
+.botonAñadirProm{
+  margin-bottom: 0;
+  background: #5264BA;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 9px;
+  padding: 1.4%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  position: absolute;
+  top: 57%;
+  left: 66%;
+  margin-top: 4%;
 }
 .botonOfertar{
   margin-bottom: 0;
@@ -180,6 +288,7 @@ body{
   margin-top: 8%;
   float: none;
   text-align: center;
+  font-family: 'Rajdhani', sans-serif;
 }
 .botonOfertar:hover{
   background: #727DB0;
@@ -294,7 +403,7 @@ body{
   background: #9CDBA0;
   cursor: pointer;
 }
-#letraUsuarios{
+#letraUsuarios, #letraPromocionAd{
   font-family: 'Rajdhani', sans-serif;
   font-size: 20px;
 }
