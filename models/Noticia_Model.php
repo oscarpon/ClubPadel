@@ -6,6 +6,7 @@ class NoticiaModel{
 	var $titulo;
 	var $descripcion;
 
+	/*******/
 
 	function __construct($idContenido,$titulo,$descripcion){
 		$this->idContenido = $idContenido;
