@@ -15,8 +15,8 @@
 
       $RESERVA = new ReservaModel(
         $email,
-        $fecha,
-        $codigoPista
+        $codigoPista,
+        $fecha
       );
         return $RESERVA;
   }
@@ -31,10 +31,19 @@
     //Caso añadir
     case 'ADD':
       if(!$_POST){
-        new ReservaAddView();
+        $RESERVA = new ReservaModel('', '', '');
+        $arrayFechas = $RESERVA->comprobarDispFechas();
+        if(empty($arrayFechas)){
+          new MessageView("No hay pistas disponibles, no es posible realizar la reserva.",
+          '../controllers/Reserva_Controller.php');
+        }
+        else{
+          new ReservaAddView($arrayFechas);
+        }
       }
+
       else{
-        $RESERVA = new ReservaModel($_SESSION ['email'],'','');
+        $RESERVA = new ReservaModel($_SESSION ['email'],'',$_REQUEST ['fecha']);
         $arrayPistas = $RESERVA->comprobarDispPistas();
 
         if(!empty($arrayPistas)){

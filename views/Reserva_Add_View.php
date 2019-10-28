@@ -1,17 +1,22 @@
 <?php
 class ReservaAddView{
-  function __construct(){
-    $this->render();
+  function __construct($query){
+    $this->render($query);
   }
-  function render(){
+  function render($query){
     include '../views/Header.php';
 ?>
 
 <div class="formularioReservar">
   <form id="añadir" action='../controllers/Reserva_Controller.php' method='post'>
-    <h3 id="nuevaReserva">Como deportista puedes realizar reservas de pistas pagando
-                          una cuota optando al uso de la pista durante 90 minutos.
-                          La cuota es de 25,99 euros.</h3>
+    <label>Seleccione la fecha en la que desea reservar la pista</label>
+        <select id="tablaFecha" name="fecha">
+          <?php
+          while ($valores = mysqli_fetch_array($query)) {
+            echo '<option>'.$valores[fecha].'</option>';
+          }
+        ?>
+        </select>
     <a href="../controllers/Reserva_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolver" ></a>
   </div>
 

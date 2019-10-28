@@ -123,6 +123,16 @@ body{
   top: 100%;
   font-weight: bold;
 }
+.formularioOfertar{
+  top: 30%;
+  left: 40%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+}
 
 .formularioRegister, .formularioAñadir{
   top: 30%;
@@ -159,6 +169,23 @@ body{
   background: #727DB0;
   cursor: pointer;
 }
+.botonOfertar{
+  margin-bottom: 0;
+  background: #5264BA;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 3.5%;
+  margin-top: 8%;
+  float: none;
+  text-align: center;
+}
+.botonOfertar:hover{
+  background: #727DB0;
+  cursor: pointer;
+}
+
 .tablaUsuarios {
   top: 30%;
   left: 35%;
@@ -206,10 +233,22 @@ body{
   border-collapse: collapse;
   width: 65%;
 }
+.tablaReserva{
+  top: 30%;
+  left: 30%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 22px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 43%;
+}
 .usuariosVisibles td, .ofertasVisibles td{
   width: 10%;
 }
-.letraOferta th{
+.letraOferta th, .letraReserva th{
   width: 10%;
 }
 
@@ -259,7 +298,7 @@ body{
   font-family: 'Rajdhani', sans-serif;
   font-size: 20px;
 }
-.usuariosVisibles, #nombresTabEl, .letraOferta, .ofertasVisibles, #letraPromocion{
+.usuariosVisibles, #nombresTabEl, .letraOferta, .ofertasVisibles, #letraPromocion, .letraReserva{
   font-family: 'Rajdhani', sans-serif;
   font-size: 17px;
   text-align: center;
