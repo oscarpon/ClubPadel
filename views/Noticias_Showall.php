@@ -32,6 +32,7 @@ class Noticias_Showall
     <th>Código</th>
     <th>Titulo</th>
     <th>Contenido</th>
+		<th>Opciones</th>
 
 
   </tr>
@@ -50,6 +51,11 @@ class Noticias_Showall
 
 
 ?>
+<td>
+	<a href="../controllers/Noticias_Controller.php?action=DELETE&idContenido=<?php  echo $fila['idContenido'] ?>">DELETE</a>
+
+</td>
+
 
 
 
