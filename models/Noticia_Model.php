@@ -31,5 +31,25 @@ class NoticiaModel{
 
 	}
 
+	function eliminarNoticia(){
+		$sql = "SELECT * FROM contenido  WHERE
+		   (idContenido = '$this->idContenido')";
+
+		    $result = $this->mysqli->query($sql);
+
+		    if ($result->num_rows > 0)
+		    {
+
+		       $sql = "DELETE FROM contenido WHERE
+		       (idContenido = '$this->idContenido')";
+
+		        $this->mysqli->query($sql);
+
+		    	return "Borrado correctamente";
+		    }
+		    else
+		        return "No existe";
+	}
+
 }
 ?>
