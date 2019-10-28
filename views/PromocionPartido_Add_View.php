@@ -7,20 +7,22 @@ class PromocionPartidoAddView{
     include '../views/Header.php';
 ?>
 
-<div class="formularioAñadir">
+<div class="formularioAñadirProm">
   <form id="añadir" action='../controllers/PromocionPartido_Controller.php' method='post'>
-    <label>Seleccione la fecha en la que desea que se juegue el partido</label>
-    <select id="tablaFecha" name="fecha">
+    <label id="letraPromocionAd">Seleccione la fecha en la que desea que se juegue el partido</label>
+    <select class="tablaFecha" name="fecha">
       <?php
       while ($valores = mysqli_fetch_array($query)) {
         echo '<option>'.$valores[fecha].'</option>';
       }
     ?>
     </select>
-    <a href="../controllers/PromocionPartido_Controller"><img src="../img/volver.png" width="24px" height="24px" class="botonVolver" ></a>
+    <a href="../controllers/PromocionPartido_Controller"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverProm" ></a>
+    <button name="action" value="ADD" type="submit" class="botonAñadirProm">Promocionar</button>
+
   </div>
 
-  <button name="action" value="ADD" type="submit" class="botonAñadir">Promocionar</button>
+
 
   </form>
 

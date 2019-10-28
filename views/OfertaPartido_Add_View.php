@@ -7,10 +7,10 @@ class OfertaPartidoAddView{
     include '../views/Header.php';
 ?>
 
-<div class="formularioOfertar">
+<div class="formularioOfertarAdd">
   <form id="añadir" action='../controllers/OfertaPartido_Controller.php' method='post'>
         <label>Seleccione la fecha en la que desea que se juegue el partido</label>
-        <select id="tablaFecha" name="fecha">
+        <select class="tablaFechaOfPart" name="fecha">
           <?php
           while ($valores = mysqli_fetch_array($query)) {
             echo '<option>'.$valores[fecha].'</option>';
