@@ -9,7 +9,7 @@
  ?>
 
 <table class="tablaReserva">
-        <tr id="letraReserva">
+        <tr class="letraReserva">
             <th>Email</th>
             <th>Codigo de pista</th>
             <th>Fecha</th>

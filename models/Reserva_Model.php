@@ -90,10 +90,26 @@
               FROM partidocamp as t3 WHERE t1.codigoPista = t3.codigoPista
               AND t1.fecha = t3.fecha AND t3.resultado = 'NJ') AND NOT EXISTS (SELECT t4.codigoPista, t4.fecha
               FROM reservas as t4 WHERE t1.codigoPista = t4.codigoPista
-              AND t1.fecha = t4.fecha)";
+              AND t1.fecha = t4.fecha) AND t1.fecha='$this->fecha'";
       if($resultado=$this->mysqli->query($sql)){
         $arrayPistas = $resultado->fetch_array();
         return $arrayPistas;
+      }
+    }
+    function comprobarDispFechas(){
+      $sql = "SELECT DISTINCT t1.fecha
+              FROM pistas as t1
+              WHERE NOT EXISTS (SELECT t2.fecha
+              FROM reservas as t2 WHERE t1.codigoPista = t2.codigoPista
+              AND t1.fecha = t2.fecha) AND NOT EXISTS (SELECT t3.fecha
+              FROM partidos as t3 WHERE t1.codigoPista = t3.codigoPista
+              AND t1.fecha = t3.fecha AND t3.resultado = 'NJ') AND NOT EXISTS (SELECT t4.fecha
+              FROM partidocamp as t4 WHERE t1.codigoPista = t4.codigoPista
+              AND t1.fecha = t4.fecha AND t4.resultado = 'NJ') ORDER BY t1.fecha";
+      if($resultado=$this->mysqli->query($sql)){
+        if($resultado->num_rows != 0){
+            return $resultado;
+        }
       }
     }
   }
