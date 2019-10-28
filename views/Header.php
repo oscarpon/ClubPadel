@@ -37,6 +37,7 @@ if (!isAuthenticated()) {
           <a href="../controllers/OfertaPartido_Controller.php">Mis partidos ofertados</a>
           <a href="../controllers/InscripcionPartido_Controller.php">Inscribirme a un partido</a>
           <a href="#">Contacto</a>
+          <a id="desconectar" href="../functions/Desconectar.php"> <img src="../img/desconectar.png" width="24px" height="24px" > </a>
         </nav>
     </div>
 <?php } else if ($_SESSION['rol'] == 'A'){ ?>
