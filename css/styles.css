@@ -20,25 +20,43 @@
 *{margin: 0; padding: 0}
 
 .nav{
+  position: absolute;
   width: 100%;
-  height: 15%;
+  height: 12%;
   overflow: hidden;
   background-color:#fff2;
   margin-bottom: 20px;
 }
+/*Personaliza el titulo de la cabecera*/
 .tituloPadel{
-  font-size: 35px;
+  font-size: 44px;
   line-height: 100px;
   float:left;
   font-family: 'Permanent Marker', cursive;
   color: #ccc;
-  margin-left: 13%;
+  margin-left: 12%;
+  top: -12%;
+  position: absolute;
 }
 nav{
   float: right;
   line-height: 100px;
-  margin-right: 3%;
+  margin-right: 2%;
+  position: absolute;
+  top: -4%;
+  left: 40%;
 }
+/*
+.navLogin{
+  float: right;
+  line-height: 100px;
+  margin-right: 2%;
+  position: absolute;
+  top: -4%;
+  left: 40%;
+}*/
+
+/*Personaliza las opciones de la cabecera*/
 nav a{
   display: inline-block;
   color:black;
@@ -52,12 +70,12 @@ nav a{
   transition:all 0.5s ease;
   font-family: 'Cuprum', sans-serif;
 }
-
+/*Crea fondo cuando se pone el cursor encima*/
 nav a:hover{
   background-color: #D7DB6F;
   border-radius: 50px;
 }
-
+/*Personaliza formulario login*/
 .formularioLogin{
   top: 40%;
   left: 40%;
@@ -68,7 +86,7 @@ nav a:hover{
   padding: 20px;
   background-color: #fff4;
 }
-label{
+.formularioLogin label{
   width: 100%;
   display: block;
   font-size: 18px;
@@ -86,6 +104,7 @@ input{
 input:focus{
   border: 1px solid #6F8AD4;
 }
+/*Personaliza boton "acceder"*/
 .botonAcceder{
   margin-bottom: 0;
   background: #5264BA;
@@ -99,6 +118,7 @@ input:focus{
   background: #727DB0;
   cursor: pointer;
 }
+/*Crea la imagen de fondo*/
 body{
   background-image:url(http://www.padellasede.com/wp-content/uploads/2018/04/1TTf_900-1080x675.jpg);
   background-attachment: fixed;
@@ -106,6 +126,7 @@ body{
   background-size:cover;
 
 }
+/*scrollbar personalizable*/
 ::-webkit-scrollbar{
     width: 12px;
 }
@@ -114,7 +135,7 @@ body{
     background-color: #898D9F;
     border-radius: 10px;
 }
-
+/*Personaliza el footer*/
 .pie{
   position:absolute;
   left:45%;
@@ -123,6 +144,7 @@ body{
   top: 100%;
   font-weight: bold;
 }
+/*Personalizaclos diferentes formularios*/
 .formularioOfertar{
   top: 30%;
   left: 40%;
@@ -165,16 +187,28 @@ body{
   padding: 18px;
   background-color: #fff4;
 }
-
+.formularioReservar{
+  top: 30%;
+  left: 34%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  width: 32%;
+}
+/*Personaliza la fuente*/
 #email, #clave, #nombre, #apellidos, #genero, #rol, #mensajeEliminar {
   font-family: 'Rajdhani', sans-serif;
   font-size: 15px;
   width: 325px;
 }
+/*Personaliza la tabla*/
 #tablaGenero{
   width: 25%;
 }
-/*Personaliza label*/
+/*Personaliza select*/
 .tablaFecha {
   position: relative;
   max-width: 190px;
@@ -202,6 +236,23 @@ body{
     margin-left: 19%;
     margin-top: 10%;
 }
+/*flecha select
+.tablaFecha i{
+  position: absolute;
+	right: 20px;
+	top: calc(50% - 13px);
+	width: 16px;
+	height: 16px;
+	display: block;
+	border-left:4px solid #2AC176;
+	border-bottom:4px solid #2AC176;
+	transform: rotate(-45deg);
+	transition: all 0.25s ease;
+}
+.tablaFecha:hover i{
+	margin-top: 3px;
+}
+*/
 .tablaFecha:hover, .tablaFechaOfPart:hover{
   background: #DDD9FB;
 }
@@ -212,6 +263,7 @@ body{
 .tablaFechaOfPart::-ms-expand {
   display: none;
 }
+/*Personaliza select OfertaPartido*/
 .tablaFechaOfPart{
   position: relative;
   max-width: 190px;
@@ -239,11 +291,16 @@ body{
     margin-left: 19%;
     margin-top: 10%;
 }
-
+/*Personaliza los botones existentes al gusto*/
 .botonVolverProm{
   top: 68%;
   position: absolute;
   left: 90%;
+}
+.botonVolverOfPar{
+  position: absolute;
+  top: 64%;
+  left: 91%;
 }
 .botonRegistrar, .botonAñadir{
   margin-bottom: 0;
@@ -283,8 +340,8 @@ body{
   color: #fff;
   border: none;
   font-size: 16px;
-  border-radius: 5px;
-  padding: 3.5%;
+  border-radius: 9px;
+  padding: 1.5%;
   margin-top: 8%;
   float: none;
   text-align: center;
@@ -294,7 +351,26 @@ body{
   background: #727DB0;
   cursor: pointer;
 }
-
+.botonReservar{
+  position: absolute;
+  margin-bottom: 0;
+  background: #5264BA;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 9px;
+  padding: 1.5%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  left: 64%;
+  top: 61%;
+}
+.botonReservar:hover{
+  background: #727DB0;
+  cursor: pointer;
+}
+/*Personaliza las diferentes tablas*/
 .tablaUsuarios {
   top: 30%;
   left: 35%;
@@ -306,6 +382,7 @@ body{
   background-color: #fff4;
   border-collapse: collapse;
 }
+/*tabla usuarios eliminados*/
 .tablaUsuariosEl{
   top: 30%;
   left: 33%;
@@ -360,11 +437,11 @@ body{
 .letraOferta th, .letraReserva th{
   width: 10%;
 }
-
+/*Crea un borde en las tablas especificadas*/
 .tablaUsuarios td, .tablaUsuariosEl td{
     border: 1px solid black;
 }
-
+/*Personaliza los botones de las tablas*/
 .botonEliminar{
   margin-bottom: 0;
   background: #E64747;
@@ -403,7 +480,12 @@ body{
   background: #9CDBA0;
   cursor: pointer;
 }
-#letraUsuarios, #letraPromocionAd{
+/*Personaliza las letras*/
+#letraUsuarios, #letraPromocionAd {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+}
+.letraReservaAdd{
   font-family: 'Rajdhani', sans-serif;
   font-size: 20px;
 }
@@ -418,15 +500,23 @@ body{
 .botonVolverEl{
   margin-right: 25%;
 }
+.botonVolverReserva{
+  position: absolute;
+  left: 89%;
+  top: 64%;
+}
+/*Icono tic*/
 #ticConfirmar{
   border: none;
   background: none;
   cursor: pointer;
 }
+/*Titulos de la tabla eliminar*/
 #titulosTabEl{
   font-family: 'Rajdhani', sans-serif;
   font-size: 20px;
 }
+/*letra mensaje confirmacion*/
 #confirmacionEliminar{
   font-family: 'Rajdhani', sans-serif;
   font-size: 20px;
