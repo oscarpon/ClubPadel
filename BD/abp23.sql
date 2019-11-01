@@ -58,7 +58,8 @@ CREATE TABLE `campeonato` (
   `nombre` varchar(25) NOT NULL,
   `fechaFinIns` date NOT NULL,
   `categoria` char(1) NOT NULL,
-  `genero` char(1) NOT NULL
+  `genero` char(1) NOT NULL,
+  `estado` char(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
