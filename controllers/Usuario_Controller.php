@@ -27,7 +27,7 @@
       );
         return $USUARIO;
   }
-  //Comprueba si se accede con una acción
+  //Comprueba si se accede con sesión o con rol correcto
   if(!isset($_SESSION['email'])){
     header('Location: ../index.php');
   }else if($_SESSION['rol'] != 'A'){
