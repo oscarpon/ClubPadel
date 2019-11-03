@@ -94,21 +94,45 @@ class OferPromPartidoModel{
         return 'Error de base de datos';
       }else{
         if($resultado->num_rows == 1){
-          if($this->numpart<4){
-            $participantes=$this->numpart;
-            $participantes++;
-            if($this->partic1!='Puesto vacio'){
-              if($this->partic2!='Puesto vacio'){
-                if($this->partic3!='Puesto vacio'){
-                  if($this->partic4!='Puesto vacio'){
-                    return 'El partido esta completo.';
+          if($usuario <> $this->partic1 && $usuario <> $this->partic2 && $usuario <> $this->partic3 &&
+            $usuario <> $this->partic4){
+              if($this->numpart<4){
+                $participantes=$this->numpart;
+                $participantes++;
+                if($this->partic1!='Puesto vacio'){
+                  if($this->partic2!='Puesto vacio'){
+                    if($this->partic3!='Puesto vacio'){
+                      if($this->partic4!='Puesto vacio'){
+                        return 'El partido esta completo.';
+                      }else {
+                        $sql = "UPDATE oferprompartidos SET email='$this->email',
+                                                            fecha='$this->fecha',
+                                                            partic1='$this->partic1',
+                                                            partic2='$this->partic2',
+                                                            partic3='$this->partic3',
+                                                            partic4='$usuario',
+                                                            numpart='$participantes',
+                                                            tipo='$this->tipo'
+                                                        WHERE(email='$this->email' AND fecha='$this->fecha')";
+                      }
+                    }else {
+                      $sql = "UPDATE oferprompartidos SET email='$this->email',
+                                                          fecha='$this->fecha',
+                                                          partic1='$this->partic1',
+                                                          partic2='$this->partic2',
+                                                          partic3='$usuario',
+                                                          partic4='$this->partic4',
+                                                          numpart='$participantes',
+                                                          tipo='$this->tipo'
+                                                      WHERE(email='$this->email' AND fecha='$this->fecha')";
+                    }
                   }else {
                     $sql = "UPDATE oferprompartidos SET email='$this->email',
                                                         fecha='$this->fecha',
                                                         partic1='$this->partic1',
-                                                        partic2='$this->partic2',
+                                                        partic2='$usuario',
                                                         partic3='$this->partic3',
-                                                        partic4='$usuario',
+                                                        partic4='$this->partic4',
                                                         numpart='$participantes',
                                                         tipo='$this->tipo'
                                                     WHERE(email='$this->email' AND fecha='$this->fecha')";
@@ -116,46 +140,26 @@ class OferPromPartidoModel{
                 }else {
                   $sql = "UPDATE oferprompartidos SET email='$this->email',
                                                       fecha='$this->fecha',
-                                                      partic1='$this->partic1',
+                                                      partic1='$usuario',
                                                       partic2='$this->partic2',
-                                                      partic3='$usuario',
+                                                      partic3='$this->partic3',
                                                       partic4='$this->partic4',
                                                       numpart='$participantes',
                                                       tipo='$this->tipo'
                                                   WHERE(email='$this->email' AND fecha='$this->fecha')";
                 }
+                if(!$this->mysqli->query($sql)){
+                  return 'Error en la base de datos.';
+                }else{
+                  return 'Insercion realizada satisfactoriamente.';
+                }
+
               }else {
-                $sql = "UPDATE oferprompartidos SET email='$this->email',
-                                                    fecha='$this->fecha',
-                                                    partic1='$this->partic1',
-                                                    partic2='$usuario',
-                                                    partic3='$this->partic3',
-                                                    partic4='$this->partic4',
-                                                    numpart='$participantes',
-                                                    tipo='$this->tipo'
-                                                WHERE(email='$this->email' AND fecha='$this->fecha')";
+                return 'El partido esta completo.';
               }
-            }else {
-              $sql = "UPDATE oferprompartidos SET email='$this->email',
-                                                  fecha='$this->fecha',
-                                                  partic1='$usuario',
-                                                  partic2='$this->partic2',
-                                                  partic3='$this->partic3',
-                                                  partic4='$this->partic4',
-                                                  numpart='$participantes',
-                                                  tipo='$this->tipo'
-                                              WHERE(email='$this->email' AND fecha='$this->fecha')";
-            }
-            if(!$this->mysqli->query($sql)){
-              return 'Error en la base de datos.';
-            }else{
-              return 'Insercion realizada satisfactoriamente.';
-            }
-
-          }else {
-            return 'El partido esta completo.';
+          }else{
+            return 'Ya estás inscrito a este partido.';
           }
-
         }else{
           return 'No existe esta fila en la BD.';
         }
