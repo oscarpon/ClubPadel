@@ -45,7 +45,7 @@ switch ($_REQUEST['action']) {
 					include_once '../models/Campeonato_Model.php';
 			}
 			$datos = $modelo->SEARCH();
-			$lista = array('Identificador de Pista','Inicio Campeonato', 'Límite de Inscripción', 'ID Normativa', 'ID Grupo');
+			$array = array('Identificador de Pista','Inicio Campeonato', 'Límite de Inscripción', 'ID Normativa', 'ID Grupo');
 
 			new CampeonatoShowall($lista, $datos);
 	}
