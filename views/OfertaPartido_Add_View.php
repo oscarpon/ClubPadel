@@ -18,7 +18,7 @@ class OfertaPartidoAddView{
         ?>
         </select>
       <button name="action" value="ADD" type="submit" class="botonOfertar">Ofertar</button>
-    <a href="../controllers/OfertaPartido_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolver" ></a>
+    <a href="../controllers/OfertaPartido_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverOfPar" ></a>
   </div>
 
 

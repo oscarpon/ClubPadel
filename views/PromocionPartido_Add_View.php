@@ -17,7 +17,7 @@ class PromocionPartidoAddView{
       }
     ?>
     </select>
-    <a href="../controllers/PromocionPartido_Controller"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverProm" ></a>
+    <a href="../controllers/PromocionPartido_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverProm" ></a>
     <button name="action" value="ADD" type="submit" class="botonAñadirProm">Promocionar</button>
 
   </div>

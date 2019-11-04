@@ -29,6 +29,13 @@ function get_data_form(){
   return $PROMOCIONPARTIDO;
 }
 
+//Comprueba si se accede con sesión o con rol correcto
+if(!isset($_SESSION['email'])){
+  header('Location: ../index.php');
+}else if($_SESSION['rol'] != 'A'){
+  header('Location: ../index.php');
+}
+
 if(!isset($_REQUEST['action'])){
   $_REQUEST['action'] = '';
 }
