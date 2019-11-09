@@ -23,21 +23,20 @@ class Noticias_Showall
 
 </div>
 -->
-<a href="../controllers/Noticias_Controller.php?action=ADD"><button type="button" name="button">Añadir Noticia</button></a>
 
 
-  <table border="1" class="formularioLogin">
-  <thead>
-  <tr>
-    <th>Código</th>
-    <th>Titulo</th>
-    <th>Contenido</th>
-		<th>Opciones</th>
+  <table class="tablaNoticiasTodo">
+	  <tr>
+	    <th>Código</th>
+	    <th>Titulo</th>
+	    <th>Contenido</th>
+			<th>
+				<div>
+					<a href="../controllers/Noticias_Controller.php?action=ADD" action="ADD" id = "añadirNoticia"><img src="../img/añadir.png" width="24px" height="24px" ></a>
+				</div>
+			</th>
+	  </tr>
 
-
-  </tr>
-
-</thead>
 
 <?php
 
@@ -51,22 +50,18 @@ class Noticias_Showall
 
 
 ?>
-<td>
-	<a href="../controllers/Noticias_Controller.php?action=DELETE&idContenido=<?php  echo $fila['idContenido'] ?>">DELETE</a>
-
-</td>
-
-
+	<td>
+		<form action="../controllers/PromocionPartido_Controller.php" name ='DELETE'>
+      <button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
+    </form>
+	</td>
 
 
 <?php
       echo "</tr>";
      }
 
-
 ?>
-
-
   </table>
 
 
