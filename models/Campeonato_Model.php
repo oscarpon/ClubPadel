@@ -7,15 +7,15 @@ class CampeonatoModel
 {
 
   var $nombre;
-  var $FechaFinIns;
+  var $fechaFinIns;
   var $categoria;
   var $genero;
   var $estado;
 
-  function __construct($nombre, $FechaFinIns, $categoria, $genero, $estado)
+  function __construct($nombre, $fechaFinIns, $categoria, $genero, $estado)
   {
     $this->nombre = $nombre;
-    $this->fechaFinIns = $FechaFinIns;
+    $this->fechaFinIns = $fechaFinIns;
     $this->categoria = $categoria;
     $this->genero = $genero;
     $this->estado = $estado;
@@ -106,6 +106,12 @@ class CampeonatoModel
   			$result = $resultado->fetch_array();
   			return $result;
 		  }
+    }
+
+    function Showall(){
+      $sql = "SELECT * FROM campeonato";
+  		$resultado = $this->mysqli->query($sql);
+  		return $resultado;
     }
 }
 

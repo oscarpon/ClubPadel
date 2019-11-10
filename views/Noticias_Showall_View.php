@@ -14,16 +14,6 @@ class NoticiasShowallView
 
 ?>
 
-<!--
-<div class="iconos-superiores">
-
-    <a href="../Controllers/Post_Controller.php?action=ADD"><span class="lnr lnr-file-add" style="font-size: 35px"></span></a>
-    <a href="../Controllers/Post_Controller.php?action=SEARCH"><span class="lnr lnr-magnifier" style="font-size: 35px"></span></a>
-    <a href="../Controllers/Post_Controller.php"><span class="lnr lnr-exit" style="font-size: 35px"></span></a>
-
-</div>
--->
-
 
   <table class="tablaNoticiasTodo">
 	  <tr>
