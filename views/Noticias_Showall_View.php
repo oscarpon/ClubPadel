@@ -36,7 +36,7 @@ class NoticiasShowallView
       echo "<tr>";
       echo "<td>".$fila['idContenido']."</td>";
       echo "<td>".$fila["titulo"]."</td>";
-      echo "<td>".substr($fila["descripcion"], 0, 20)."</td>";
+      echo "<td>".$fila["descripcion"]."</td>";
 
 
 ?>

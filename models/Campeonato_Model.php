@@ -35,12 +35,14 @@ class CampeonatoModel
 			if ($result->num_rows == 0){
 
 				$sql = "INSERT INTO campeonato (
+          nombre,
 					fechaFinIns,
 					categoria,
 					genero,
 					estado
 					)
 						VALUES (
+            '$this->nombre',
 						'$this->fechaFinIns',
 						'$this->categoria',
 						'$this->genero',
@@ -108,7 +110,7 @@ class CampeonatoModel
 		  }
     }
 
-    function Showall(){
+    function showAll(){
       $sql = "SELECT * FROM campeonato";
   		$resultado = $this->mysqli->query($sql);
   		return $resultado;

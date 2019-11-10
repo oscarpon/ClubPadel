@@ -48,14 +48,14 @@ switch ($_REQUEST['action']) {
 
   default:
 	if (!$_POST){
-		include_once '../models/Noticia_Model.php';
-		$modelo = new NoticiaModel(' ' ,' ' ,' ', ' ', ' ');
+		include_once '../models/Campeonato_Model.php';
+		$modelo = new CampeonatoModel(' ' ,' ' ,' ', ' ', ' ');
 	}
 	else{
-			include_once '../models/Noticia_Model.php';
+			include_once '../models/Campeonato_Model.php';
 	}
 	$contenido = $modelo->showAll();
-	$lista = array('  nombre  ', '  fechaFinIns  ', '  categoria  ', ' genero ', ' estado ');
+	$lista = array('nombre', 'fechaFinIns', 'categoria', 'genero', 'estado');
 
 	new CampeonatoShowallView($lista, $contenido);
 }

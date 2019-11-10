@@ -16,13 +16,17 @@ class CampeonatoShowallView
 
 ?>
 
-<table>
+<table border="1" class="tablaNoticiasTodo">
 <tr>
   <th>nombre</th>
   <th>Fecha Fin Inscripcion</th>
   <th>Categoria</th>
   <th>Genero</th>
   <th>Estado</th>
+  <th>Opciones</th>
+  <div>
+    <a href="../controllers/Campeonato_Controller.php?action=añadir" action="añadir" id = "añadirCampeonato" class="botonAñadirProm"><img src="../img/añadir.png" width="24px" height="24px" ></a>
+  </div>
 </tr>
 
 <?php
@@ -39,8 +43,8 @@ while ($fila = $resultado->fetch_assoc()) {
  ?>
 
 <td>
-  <a href="../controllers/Campeonato_Controller.php?action=borrar&nombre=<?php  echo $fila['nombre'] ?>">Borrar</a>
-  <a href="../controllers/Campeonato_Controller.php?action=registrar&nombre=<?php  echo $fila['nombre'] ?>">Registrar</a>
+  <a href="../controllers/Campeonato_Controller.php?action=borrar=<?php  echo $fila['nombre'] ?>">Borrar</a>
+  <a href="../controllers/Campeonato_Controller.php?action=registrar=<?php  echo $fila['nombre'] ?>">Registrar</a>
 </td>
 
 <?php echo "</tr>"; } ?>
