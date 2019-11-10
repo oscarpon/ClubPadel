@@ -1,5 +1,5 @@
 <?php
-class Noticias_Showall
+class NoticiasShowallView
 {
 
 	function __construct($fila, $resultado)
