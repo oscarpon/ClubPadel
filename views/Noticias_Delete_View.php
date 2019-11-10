@@ -1,5 +1,5 @@
 <?php
-class Noticias_Eliminar
+class NoticiasDeleteView
 {
 
 	function __construct($datos)

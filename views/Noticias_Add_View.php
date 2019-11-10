@@ -2,7 +2,7 @@
   /**
    *
    */
-  class Noticias_Add
+  class NoticiasAddView
   {
 
     function __construct()

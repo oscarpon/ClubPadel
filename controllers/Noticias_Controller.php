@@ -5,11 +5,11 @@ if (!isset($_REQUEST['action'])){
 	$_REQUEST['action'] = '';
 }
 
-include '../views/Noticias_Add.php';
-include '../views/Noticias_Showall.php';
+include '../views/Noticias_Add_View.php';
+include '../views/Noticias_Showall_View.php';
 include '../models/Noticia_Model.php';
 include '../views/Message_View.php';
-include '../views/Noticias_Eliminar.php';
+include '../views/Noticias_Delete_View.php';
 
 function get_data(){
 	$idContenido = $_REQUEST['idContenido'];
@@ -29,7 +29,7 @@ Switch ($_REQUEST['action']){
 		case 'ADD':
 				if (!$_POST){
 					include_once '../models/Noticia_Model.php';
-					new Noticias_Add();
+					new NoticiasAddView();
 
 				}
 				else{
@@ -51,7 +51,7 @@ Switch ($_REQUEST['action']){
 
                      $respuesta = $modelo->SEARCH();
 					$lista = array('Código', 'Titulo ', 'Descripcion ');
-					new Noticias_Showall($lista, $respuesta);
+					new NoticiasShowallView($lista, $respuesta);
 
 				}
 		       break;
@@ -76,7 +76,7 @@ Switch ($_REQUEST['action']){
 					 include_once '../models/Noticia_Model.php';
 					$modelo= new NoticiaModel($_REQUEST['idContenido'],'', '');
 					$datos= $modelo ->eliminarNoticia();
-					new Noticias_Eliminar($datos);
+					new NoticiasDeleteView($datos);
 				}
 				else{
 					include_once '../models/Noticia_Model.php';
@@ -103,7 +103,7 @@ Switch ($_REQUEST['action']){
 				$contenido = $modelo->showAll();
 				$lista = array('  Código  ', '  Titulo  ', '  Descripcion  ');
 
-				new Noticias_Showall($lista,$contenido);
+				new NoticiasShowallView($lista,$contenido);
 
 }
  ?>
