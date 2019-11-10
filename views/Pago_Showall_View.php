@@ -8,7 +8,7 @@
 
  ?>
 
-<table class="tablaPagos">
+<table class="tablaPagoTodo">
         <tr id="letraPago">
             <th>Email</th>
             <th>Fecha operación</th>

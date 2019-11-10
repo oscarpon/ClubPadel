@@ -19,13 +19,26 @@
 
 *{margin: 0; padding: 0}
 
-.nav{
+.nav, .gestionarTitulo{
   position: absolute;
   width: 100%;
   height: 12%;
   overflow: hidden;
   background-color:#fff2;
   margin-bottom: 20px;
+}
+.submenu{
+  background-color:#fff2;
+  font-family: 'Cuprum', sans-serif;
+  display: none;
+  position: absolute;
+  width: 150px;
+}
+.submenu:hover{
+  background-color: white;
+}
+.submenu li{
+  display: block;
 }
 /*Personaliza el titulo de la cabecera*/
 .tituloPadel{
@@ -177,6 +190,18 @@ body{
   background-color: #fff4;
   width: 30%;
 }
+.formularioAñadirPago{
+  top: 30%;
+  left: 40%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+}
 .formularioRegister, .formularioAñadir{
   top: 30%;
   left: 40%;
@@ -198,11 +223,50 @@ body{
   background-color: #fff4;
   width: 32%;
 }
+.tablaNoticiasTodo{
+  top: 30%;
+  left: 35%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  width: auto;
+}
+/*Separacion columnas
+.tablaNoticiasTodo tr{
+  border-collapse: separate;
+  border-spacing: 10px 5px;
+}
+*/
+.tablaPagoTodo{
+  top: 30%;
+  left: 32%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  width: 39%;
+}
+
 /*Personaliza la fuente*/
 #email, #clave, #nombre, #apellidos, #genero, #rol, #mensajeEliminar {
   font-family: 'Rajdhani', sans-serif;
   font-size: 15px;
   width: 325px;
+}
+#importe{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  width: 200px;
+}
+#emailPago{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  width: 250px;
 }
 /*Personaliza la tabla*/
 #tablaGenero{
@@ -407,7 +471,31 @@ body{
   border-collapse: collapse;
   width: 64%;
 }
+.tablaOfertasEl{
+  top: 30%;
+  left: 22%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 64%;
+}
 .tablaPromocion{
+  top: 30%;
+  left: 19%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 22px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 65%;
+}
+.tablaPromocionesEl{
   top: 30%;
   left: 19%;
   position: absolute;
@@ -461,7 +549,7 @@ body{
   background: #E56464;
   cursor: pointer;
 }
-.botonInscribir{
+.botonInscribir, .botonConfirmar{
   margin-bottom: 7%;
   background: #65E56E;
   color: black;
@@ -476,7 +564,7 @@ body{
   outline: none;
   margin-left: 20%;
 }
-.botonInscribir:hover{
+.botonInscribir:hover, .botonConfirmar:hover{
   background: #9CDBA0;
   cursor: pointer;
 }
@@ -489,7 +577,7 @@ body{
   font-family: 'Rajdhani', sans-serif;
   font-size: 20px;
 }
-.usuariosVisibles, #nombresTabEl, .letraOferta, .ofertasVisibles, #letraPromocion, .letraReserva{
+.usuariosVisibles, #nombresTabEl, .letraOferta, .ofertasVisibles, #letraPromocion, .letraReserva, .tablaNoticiasTodo, .tablaPagoTodo{
   font-family: 'Rajdhani', sans-serif;
   font-size: 17px;
   text-align: center;

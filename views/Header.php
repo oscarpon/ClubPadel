@@ -43,14 +43,17 @@ if (!isAuthenticated()) {
 <?php } else if ($_SESSION['rol'] == 'A'){ ?>
   <body>
     <div class="nav">
-      <div class="wrapper"></div>
         <div class="tituloPadel">Club de padel</div>
         <nav>
           <a href="#">Inicio</a>
           <a href="../controllers/Usuario_Controller.php">Usuarios</a>
           <a href="../controllers/PromocionPartido_Controller.php">Promociones de partidos</a>
-          <a href="../controllers/Noticia_Controller.php">Gestionar noticias</a>
-          <a href="../controllers/Pago_Controller.php">Gestionar pagos</a>
+          <li class="gestionarTitulo"><a href=""> Gestionar </a>
+            <ul class="submenu">
+              <li><a href="../controllers/Noticia_Controller.php">Gestionar noticias</a></li>
+              <li><a href="../controllers/Pago_Controller.php">Gestionar pagos</a></li>
+            </ul>
+          </li>
           <a href="#">Contacto</a>
           <a id="desconectar" href="../functions/Desconectar.php"> <img src="../img/desconectar.png" width="24px" height="24px" > </a>
         </nav>
