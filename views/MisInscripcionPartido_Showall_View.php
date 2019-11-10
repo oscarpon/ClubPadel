@@ -1,5 +1,5 @@
 <?php
-  class InscripcionPartidoShowallView{
+  class MisInscripcionPartidoShowallView{
     function __construct($datos){
       $this->render($datos);
     }
@@ -15,11 +15,11 @@
             <th>Participante 2</th>
             <th>Participante 3</th>
             <th>Participante 4</th>
-            <!--<th>
+            <th>
               <div>
-                <a href="../controllers/PromocionPartido_Controller.php?action=ADD" action="ADD" id = "añadirPromocion"><img src="../img/añadir.png" width="24px" height="24px" ></a>
+                <a href="../controllers/InscripcionPartido_Controller.php?action=SHOWINSCRIP" action="ADD" id = "showInscrip"><img src="../img/añadir.png" width="24px" height="24px" ></a>
               </div>
-            </th>-->
+            </th>
         </tr>
 <?php
   while($fila = mysqli_fetch_array($datos)){
@@ -32,7 +32,7 @@
     <td><?php echo $fila['partic3']?> </td>
     <td><?php echo $fila['partic4']?> </td>
 
-    <td> <form action="../controllers/InscripcionPartido_Controller.php" name ='EDIT'>
+    <td> <form action="../controllers/InscripcionPartido_Controller.php" name ='DESAPUNTARSE'>
             <input type="hidden" name = 'email' value="<?php echo $fila['email'] ?>" readonly>
             <input type="hidden" name = 'fecha' value="<?php echo $fila['fecha'] ?>" readonly>
             <input type="hidden" name = 'tipo' value="<?php echo $fila['tipo'] ?>" readonly>
@@ -41,7 +41,7 @@
             <input type="hidden" name = 'partic3' value="<?php echo $fila['partic3'] ?>" readonly>
             <input type="hidden" name = 'partic4' value="<?php echo $fila['partic4'] ?>" readonly>
             <input type="hidden" name = 'numpart' value="<?php echo $fila['numpart'] ?>" readonly>
-            <button class="botonInscribir" name = "action" value = "EDIT">Inscribirse</button>
+            <button class="botonInscribir" name = "action" value = "DESAPUNTARSE">Desincribirse</button>
             </form>
     </td>
 </tr>

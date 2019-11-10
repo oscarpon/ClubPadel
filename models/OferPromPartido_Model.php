@@ -86,7 +86,6 @@ class OferPromPartidoModel{
       }
     }
   }
-//TODO: que un usuario no se inscriba varias veces en la misma oferprom
   function EDIT($usuario){
     if($this->email <> '' && $this->fecha <> ''){
       $sql = "SELECT * FROM oferprompartidos WHERE(email='$this->email' AND fecha='$this->fecha')";
@@ -261,6 +260,76 @@ class OferPromPartidoModel{
       }
     }else{
       return 'Se necesita un codigo de pista y una fecha.';
+    }
+  }
+
+  function misInscripSEARCH($emailusu){
+    $sql = "SELECT * FROM oferprompartidos WHERE(email LIKE '%$this->email%'
+                                                AND fecha LIKE '%$this->fecha%'
+                                                AND (partic1='$emailusu'
+                                                OR partic2='$emailusu'
+                                                OR partic3='$emailusu'
+                                                OR partic4='$emailusu')
+                                                AND numpart LIKE '%$this->numpart%'
+                                                AND tipo LIKE '%$this->tipo%')";
+    if(!($resultado=$this->mysqli->query($sql))){
+      return 'Error en la consulta a la base de datos';
+    }else{
+      return $resultado;
+    }
+  }
+
+  function DESAPUNTARSE($emailusu){
+    $participantes=$this->numpart;
+    $participantes--;
+    if($this->partic1 == $emailusu){
+      $sql = "UPDATE oferprompartidos SET email='$this->email',
+                                          fecha='$this->fecha',
+                                          partic1='Puesto vacio',
+                                          partic2='$this->partic2',
+                                          partic3='$this->partic3',
+                                          partic4='$this->partic4',
+                                          numpart='$participantes',
+                                          tipo='$this->tipo'
+                                          WHERE(email='$this->email' AND fecha='$this->fecha')";
+    }
+    else if($this->partic2 == $emailusu){
+      $sql = "UPDATE oferprompartidos SET email='$this->email',
+                                          fecha='$this->fecha',
+                                          partic1='$this->partic1',
+                                          partic2='Puesto vacio',
+                                          partic3='$this->partic3',
+                                          partic4='$this->partic4',
+                                          numpart='$participantes',
+                                          tipo='$this->tipo'
+                                          WHERE(email='$this->email' AND fecha='$this->fecha')";
+    }
+    else if($this->partic3 == $emailusu){
+      $sql = "UPDATE oferprompartidos SET email='$this->email',
+                                          fecha='$this->fecha',
+                                          partic1='$this->partic1',
+                                          partic2='$this->partic2',
+                                          partic3='Puesto vacio',
+                                          partic4='$this->partic4',
+                                          numpart='$participantes',
+                                          tipo='$this->tipo'
+                                          WHERE(email='$this->email' AND fecha='$this->fecha')";
+    }
+    else{
+      $sql = "UPDATE oferprompartidos SET email='$this->email',
+                                          fecha='$this->fecha',
+                                          partic1='$this->partic1',
+                                          partic2='$this->partic2',
+                                          partic3='$this->partic3',
+                                          partic4='Puesto vacio',
+                                          numpart='$participantes',
+                                          tipo='$this->tipo'
+                                          WHERE(email='$this->email' AND fecha='$this->fecha')";
+    }
+    if(!($resultado=$this->mysqli->query($sql))){
+      return 'Error en la consulta a la base de datos';
+    }else{
+      return 'Has sido desapuntado correctamente.';
     }
   }
 
