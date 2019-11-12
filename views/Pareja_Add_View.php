@@ -7,7 +7,7 @@ class ParejaAddView{
     include '../views/Header.php';
 ?>
 
-<div class="formularioAñadir">
+<div class="formularioAñadirPareja">
   <form id="añadir" action='../controllers/Pareja_Controller.php' method='post'>
     <h3 id="nuevaPareja">Añadir pareja</h3>
     <a href="../controllers/Pareja_Controller"><img src="../img/volver.png" width="24px" height="24px" class="botonVolver" ></a>
@@ -18,7 +18,7 @@ class ParejaAddView{
       </div>
     <div>
       <label></label>
-      <input id="miembro2" name="miembro2" type="text" aria-describedby="" placeholder="&#128273;  Compañero">
+      <input id="miembro2" name="miembro2" type="text" aria-describedby="" placeholder="&#x1F464;  Compañero">
     </div>
   </div>
   <div id="nivel">

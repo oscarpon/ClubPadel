@@ -8,7 +8,7 @@
 
  ?>
 
-<table class="tablaPromocion">
+<table class="tablaInscribirShowall">
         <tr id="letraPromocion">
             <th>Fecha de oferta</th>
             <th>Participante 1</th>

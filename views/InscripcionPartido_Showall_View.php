@@ -15,11 +15,11 @@
              <th>Participante 2</th>
              <th>Participante 3</th>
              <th>Participante 4</th>
-             <th>
+             <!--<th>
                <div>
                  <a href="../controllers/PromocionPartido_Controller.php?action=ADD" action="ADD" id = "añadirPromocion"><img src="../img/añadir.png" width="24px" height="24px" ></a>
                </div>
-             </th>
+             </th>-->
          </tr>
         </tr>
 <?php
