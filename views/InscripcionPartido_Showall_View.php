@@ -8,18 +8,19 @@
 
  ?>
 
-<table class="tablaPromocion">
-        <tr id="letraPromocion">
-            <th>Fecha de oferta</th>
-            <th>Participante 1</th>
-            <th>Participante 2</th>
-            <th>Participante 3</th>
-            <th>Participante 4</th>
-            <!--<th>
-              <div>
-                <a href="../controllers/PromocionPartido_Controller.php?action=ADD" action="ADD" id = "añadirPromocion"><img src="../img/añadir.png" width="24px" height="24px" ></a>
-              </div>
-            </th>-->
+ <table class="tablaInscribirShowall">
+         <tr id="letraPromocion">
+             <th>Fecha de oferta</th>
+             <th>Participante 1</th>
+             <th>Participante 2</th>
+             <th>Participante 3</th>
+             <th>Participante 4</th>
+             <th>
+               <div>
+                 <a href="../controllers/PromocionPartido_Controller.php?action=ADD" action="ADD" id = "añadirPromocion"><img src="../img/añadir.png" width="24px" height="24px" ></a>
+               </div>
+             </th>
+         </tr>
         </tr>
 <?php
   while($fila = mysqli_fetch_array($datos)){
