@@ -386,9 +386,9 @@ body{
 }
 /*Personaliza los botones existentes al gusto*/
 .botonVolverProm{
-  top: 67%;
+  top: 100px;
   position: absolute;
-  left: 92%;
+  left: 479px;
 }
 .botonVolverOfPar{
   position: absolute;
