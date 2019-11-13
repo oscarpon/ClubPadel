@@ -16,12 +16,12 @@ class CampeonatoAddView
   ?>
 
 <div class="">
-  <form class="formularioAñadir" action="../controllers/Campeonato_Controller.php?action=añadir" method="post">
+  <form class="formularioAñadir" action="../controllers/Campeonato_Controller.php?action=ADD" method="post">
       <input type="text" name="nombre" placeholder="Nombre Campeonato">
       <input type="date" name="fechaFinIns" placeholder="Fecha fin Inscripcion">
       <input type="text" name="categoria" placeholder="Categoria">
       <input type="text" name="estado" placeholder="estado">
-      <button type="submit" name="button">Añadir</button>
+      <button type="submit" name="button" >Añadir</button>
   </form>
 </div>
 

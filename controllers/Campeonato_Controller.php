@@ -37,7 +37,7 @@ switch ($_REQUEST['action']) {
     		new CampeonatoAddView();
     	}
 			else{
-				include '../models/Campeonato_Model.php';
+
 				$sql = new CampeonatoModel($_REQUEST['nombre'], $_REQUEST['fechaFinIns'],$_REQUEST['categoria'], $_REQUEST['genero'], $_REQUEST['estado']);
 				$result = $sql->añadirCampeonato();
 					new MessageView($result,'./Campeonato_Controller.php');
@@ -46,13 +46,11 @@ switch ($_REQUEST['action']) {
 
   case 'DELETE':
 	if (!$_POST) {
-		include_once '../models/Campeonato_Model.php';
 		$modelo= new CampeonatoModel($_REQUEST['nombre'],'', '', '', '');
 		$datos= $modelo ->eliminarCampeonato();
 		new CampeonatoDeleteView($datos);
 	}
 	else{
-		include_once '../models/Campeonato_Model.php';
 		$modelo= new CampenatoModel($_REQUEST['nombre'],$_REQUEST['fechaFinIns'], $_REQUEST['categoria'], $_REQUEST['genero'], $_REQUEST['estado']);
 		$respuesta = $modelo->eliminarCampenato();
 		new MessageView($respuesta,'./Campeonato_Controller.php');
@@ -61,12 +59,9 @@ switch ($_REQUEST['action']) {
 
   default:
 	if (!$_POST){
-		include_once '../models/Campeonato_Model.php';
 		$modelo = new CampeonatoModel(' ' ,' ' ,' ', ' ', ' ');
 	}
-	else{
-			include_once '../models/Campeonato_Model.php';
-	}
+
 	$contenido = $modelo->showAll();
 	$lista = array('nombre', 'fechaFinIns', 'categoria', 'genero', 'estado');
 
