@@ -21,7 +21,7 @@
   while($fila = mysqli_fetch_array($datos)){
 ?>
 
-<tr class="usuariosVisibles">
+<tr class="usuariosVisiblesCamp">
     <td><?php echo $fila['nombre']?> </td>
     <td><?php echo $fila['fechaFinIns']?> </td>
     <td><?php echo $fila['genero']?> </td>

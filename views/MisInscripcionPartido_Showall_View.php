@@ -41,7 +41,7 @@
             <input type="hidden" name = 'partic3' value="<?php echo $fila['partic3'] ?>" readonly>
             <input type="hidden" name = 'partic4' value="<?php echo $fila['partic4'] ?>" readonly>
             <input type="hidden" name = 'numpart' value="<?php echo $fila['numpart'] ?>" readonly>
-            <button class="botonInscribir" name = "action" value = "DESAPUNTARSE">Desincribirse</button>
+            <button class="botonDesinscribir" name = "action" value = "DESAPUNTARSE">Desincribirse</button>
             </form>
     </td>
 </tr>

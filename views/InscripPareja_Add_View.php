@@ -8,8 +8,8 @@
 
  ?>
 
-<table class="tablaParejas">
-        <tr id="letraParejas">
+<table class="tablaParejasCamp">
+        <tr id="letraParejasCamp">
             <th>Miembro 1</th>
             <th>Miembro 2</th>
             <th>Categoria</th>

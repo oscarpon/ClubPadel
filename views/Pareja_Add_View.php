@@ -10,7 +10,7 @@ class ParejaAddView{
 <div class="formularioAñadirPareja">
   <form id="añadir" action='../controllers/Pareja_Controller.php' method='post'>
     <h3 id="nuevaPareja">Añadir pareja</h3>
-    <a href="../controllers/Pareja_Controller"><img src="../img/volver.png" width="24px" height="24px" class="botonVolver" ></a>
+    <a href="../controllers/Pareja_Controller"><img src="../img/volver.png" width="20px" height="20px" class="botonVolverPareja" ></a>
     <div>
       <div>
         <label></label>
