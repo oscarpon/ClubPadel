@@ -202,7 +202,7 @@ body{
   border-radius: 10px;
   padding: 18px;
   background-color: #fff4;
-  width: 30%;
+  width: 489px;
 }
 .formularioAñadirPago{
   top: 30%;
@@ -386,9 +386,9 @@ body{
 }
 /*Personaliza los botones existentes al gusto*/
 .botonVolverProm{
-  top: 68%;
+  top: 67%;
   position: absolute;
-  left: 90%;
+  left: 92%;
 }
 .botonVolverOfPar{
   position: absolute;
@@ -428,7 +428,7 @@ body{
   text-align: center;
   font-family: 'Rajdhani', sans-serif;
   position: absolute;
-  top: 57%;
+  top: 49%;
   left: 66%;
   margin-top: 4%;
 }
