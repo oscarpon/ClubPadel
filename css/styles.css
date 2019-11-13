@@ -471,7 +471,7 @@ body{
 /*Personaliza las diferentes tablas*/
 .tablaUsuarios {
   top: 30%;
-  left: 35%;
+  left: 436px;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
@@ -479,6 +479,9 @@ body{
   padding: 18px;
   background-color: #fff4;
   border-collapse: collapse;
+  overflow:scroll;
+  height:331px;
+  overflow-x: hidden;
 }
 /*tabla usuarios eliminados*/
 .tablaUsuariosEl{
