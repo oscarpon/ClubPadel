@@ -40,11 +40,11 @@ class NoticiasShowallView
 
 
 ?>
-	<td>
-		<form action="../controllers/PromocionPartido_Controller.php" name ='DELETE'>
-      <button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
-    </form>
-	</td>
+<td> <form action="../controllers/Noticias_Controller.php" name ='DELETE'>
+				<input type="hidden" name = 'nombre' value="<?php echo $fila['idContenido'] ?>" readonly>
+				<button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
+				</form>
+</td>
 
 
 <?php

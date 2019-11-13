@@ -76,9 +76,9 @@ class CampeonatoModel
 		    {
 
 		       $sql = "DELETE FROM campeonato  WHERE
-		       (campeonato = '$this->campeonato')";
+		       (nombre = '$this->nombre')";
 
-		        $this->bd->query($sql);
+		        $this->mysqli->query($sql);
 
 		    	return "Eliminado correctamente";
 		    }

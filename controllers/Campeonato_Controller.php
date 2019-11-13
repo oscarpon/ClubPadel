@@ -9,6 +9,8 @@ if (!isset($_REQUEST['action'])){
 include '../views/Campeonato_Showall_View.php';
 include '../views/Campeonato_Add_View.php';
 include '../models/Campeonato_Model.php';
+include '../views/Campeonato_Delete_View.php';
+include '../views/Message_View.php';
 
 
 function get_data(){
@@ -30,7 +32,7 @@ function get_data(){
 }
 
 switch ($_REQUEST['action']) {
-  case 'añadir':
+  case 'ADD':
     	if (!$_POST) {
     		new CampeonatoAddView();
     	}
@@ -42,8 +44,19 @@ switch ($_REQUEST['action']) {
 			}
     break;
 
-  case 'borrar':
-    // code...
+  case 'DELETE':
+	if (!$_POST) {
+		include_once '../models/Campeonato_Model.php';
+		$modelo= new CampeonatoModel($_REQUEST['nombre'],'', '', '', '');
+		$datos= $modelo ->eliminarCampeonato();
+		new CampeonatoDeleteView($datos);
+	}
+	else{
+		include_once '../models/Campeonato_Model.php';
+		$modelo= new CampenatoModel($_REQUEST['nombre'],$_REQUEST['fechaFinIns'], $_REQUEST['categoria'], $_REQUEST['genero'], $_REQUEST['estado']);
+		$respuesta = $modelo->eliminarCampenato();
+		new MessageView($respuesta,'./Campeonato_Controller.php');
+	}
     break;
 
   default:

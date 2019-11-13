@@ -25,7 +25,7 @@ class CampeonatoShowallView
   <th>Estado</th>
   <th>Opciones</th>
   <div>
-    <a href="../controllers/Campeonato_Controller.php?action=añadir" action="añadir" id = "añadirCampeonato" class="botonAñadirProm"><img src="../img/añadir.png" width="24px" height="24px" ></a>
+    <a href="../controllers/Campeonato_Controller.php?action=ADD" action="añadir" id = "añadirCampeonato" class="botonAñadirProm"><img src="../img/añadir.png" width="24px" height="24px" ></a>
   </div>
 </tr>
 
@@ -42,10 +42,11 @@ while ($fila = $resultado->fetch_assoc()) {
 
  ?>
 
-<td>
-  <a href="../controllers/Campeonato_Controller.php?action=borrar=<?php  echo $fila['nombre'] ?>">Borrar</a>
-  <a href="../controllers/Campeonato_Controller.php?action=registrar=<?php  echo $fila['nombre'] ?>">Registrar</a>
-</td>
+ <td> <form action="../controllers/Campeonato_Controller.php" name ='DELETE'>
+         <input type="hidden" name = 'nombre' value="<?php echo $fila['nombre'] ?>" readonly>
+         <button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
+         </form>
+ </td>
 
 <?php echo "</tr>"; } ?>
 
