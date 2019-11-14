@@ -71,7 +71,7 @@ Switch ($_REQUEST['action']){
 		case 'DELETE':
 				if (!$_POST) {
 					$modelo= new NoticiaModel($_REQUEST['idContenido'],'', '', '');
-					$datos= $modelo ->eliminarNoticia();
+					$datos= $modelo ->RellenaDatos();
 					new NoticiasDeleteView($datos);
 				}
 				else{

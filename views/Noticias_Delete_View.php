@@ -2,35 +2,48 @@
 class NoticiasDeleteView
 {
 
-	function __construct($datos)
+	function __construct($valores)
 	{
-		$this->mostrarFila($datos);
+		$this->mostrarFila($valores);
 	}
 
-	function mostrarFila($datos){
+	function mostrarFila($valores){
     include '../views/Header.php';
 ?>
 
-<form name="x" method="post" action="../controllers/Noticias_Controller.php?action=DELETE">
+<cuerpo>
+<div class="tablaNoticiasTodo">
+<center>
+<table>
+	<tr id="titulosTabCampeonato">
+		<th>idContenido</th>
+		<th>Titulo</th>
+		<th>Descripcion</th>
+		<th>Email</th>
+	</tr>
+	<tr>
+		<td><?php echo $valores['idContenido']?></td>
+		<td><?php echo $valores['titulo']?></td>
+		<td><?php echo $valores['descripcion']?></td>
+		<td><?php echo $valores['email']?></td>
+	</tr>
+</table>
 
-           <input type="hidden" name="idContenido" value="<?php echo $datos[0];?>">
 
-</form>
-    <table>
-               <tr>
-                <th>Codigo</th>
-                <td><?php echo $datos[0];?></td>
-              </tr>
-               <tr>
-                <th>Titulo</th>
-                <td><?php echo $datos[1];?></td>
-              </tr>
-               <tr>
-                <th>Descripcion</th>
-                <td><?php echo $datos[2];?></td>
-              </tr>
-  </table>
+<form name="x" method="post" action="../controllers/Noticias_Controller.php" name ='DELETE' method="post">
+	 <h4 id="mensajeEliminar">¿Desea borrar esta noticia?</h4>
+	 <input type="hidden" name = 'idContenido' value="<?php echo $valores['idContenido'] ?>" readonly>
+	 <input type="hidden" name = 'titulo' value="<?php echo $valores['titulo'] ?>" readonly>
+	 <input type="hidden" name = 'descripcion' value="<?php echo $valores['descripcion'] ?>" readonly>
+	 <input type="hidden" name = 'email' value="<?php echo $valores['email'] ?>" readonly>
+				<button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmar"></button>
+				</form>
+<center>
+	<a href="../controllers/Noticias_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverEl"></a></center>
 
+</center>
+		</div>
+</cuerpo>
 
 
 <?php
