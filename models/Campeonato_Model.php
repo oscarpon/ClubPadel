@@ -65,7 +65,7 @@ class CampeonatoModel
 
   }
 
-  function eliminarCampeonato()
+  function DELETE()
 		{
 		   $sql = "SELECT * FROM campeonato  WHERE
 		   (nombre = '$this->nombre')";

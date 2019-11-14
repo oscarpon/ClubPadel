@@ -20,8 +20,8 @@ class CampeonatoShowallView
 <tr>
   <th>nombre</th>
   <th>Fecha Fin Inscripcion</th>
-  <th>Categoria</th>
-  <th>Genero</th>
+  <th>Nivel</th>
+  <th>Categoría</th>
   <th>Estado</th>
   <th>Opciones</th>
   <div>

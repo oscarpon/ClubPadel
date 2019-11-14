@@ -47,7 +47,7 @@ switch ($_REQUEST['action']) {
   case 'DELETE':
 	if (!$_POST) {
 		$modelo= new CampeonatoModel($_REQUEST['nombre'],'', '', '', '');
-		$datos= $modelo ->eliminarCampeonato();
+		$datos= $modelo ->DELETE();
 		new CampeonatoDeleteView($datos);
 	}
 	else{
