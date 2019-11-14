@@ -36,7 +36,7 @@ class LigaEditView
 
 
 
-		   <button type="submit" class="btn btn-light">Guardar</button>
+		   <button type="submit" class="">Guardar</button>
 		   <p>
 
 		   </p>
