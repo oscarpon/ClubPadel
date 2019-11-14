@@ -537,19 +537,22 @@ body{
   width: 64%;
 }
 .tablaPromocion{
-  top: 30%;
-  left: 19%;
+  top: 200px;
+  left: 127px;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
   border-radius: 10px;
-  padding: 22px;
+  padding: 20px;
   background-color: #fff4;
   border-collapse: collapse;
   width: auto;
   overflow:scroll;
   height:auto;
   overflow-x: hidden;
+}
+.tablaPromocion th,td{
+  width: 129px;
 }
 .tablaInscribirShowall{
   top: 180px;
@@ -565,6 +568,9 @@ body{
   overflow:scroll;
   height:340px;
   overflow-x: hidden;
+}
+.tablaInscribirShowall th,td{
+  width: 200px;
 }
 .tablaPromocionesEl{
   top: 30%;
