@@ -16,17 +16,19 @@ class CampeonatoShowallView
 
 ?>
 
-<table border="1" class="tablaNoticiasTodo">
+<table class="tablaNoticiasTodo">
 <tr>
-  <th>nombre</th>
+  <th>Nombre</th>
   <th>Fecha Fin Inscripcion</th>
   <th>Nivel</th>
   <th>Categoría</th>
   <th>Estado</th>
   <th>Opciones</th>
-  <div>
-    <a href="../controllers/Campeonato_Controller.php?action=ADD" action="añadir" id = "añadirCampeonato" class="botonAñadirProm"><img src="../img/añadir.png" width="24px" height="24px" ></a>
-  </div>
+  <th>
+    <div>
+      <a href="../controllers/Campeonato_Controller.php?action=ADD" action="añadir"><img src="../img/añadir.png" width="24px" height="24px" ></a>
+    </div>
+  </th>
 </tr>
 
 <?php
