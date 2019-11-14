@@ -37,12 +37,14 @@ class LigaEditView
 
 
 		   <button type="submit" class="">Guardar</button>
+
 		   <p>
 
 		   </p>
 		   <br>
 		   <br>
 		</form>
+    <a href="../controllers/Liga_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverOfPar" ></a>
 
 
 
