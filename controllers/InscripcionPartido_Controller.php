@@ -2,9 +2,9 @@
 session_start();
 
 include '../models/OferPromPartido_Model.php';
+include '../models/Pago_Model.php';
 include '../views/InscripcionPartido_Showall_View.php';
 include '../views/MisInscripcionPartido_Showall_View.php';
-
 include '../views/Message_View.php';
 
 function get_data_form(){
@@ -46,6 +46,10 @@ switch ($_REQUEST['action']){
         $arrayPistas = $OFERTAPARTIDO->comprobarDispPistas();
         if(!empty($arrayPistas)){
           $respuestaCrear = $OFERTAPARTIDO->crearPartido($arrayPistas);
+          if($_REQUEST['tipo'] == 'PROM'){
+            $PAGO = new PAGO($_SESSION['email'],'',12,'N');
+            $PAGO->ADD();
+          }
           new MessageView($respuestaCrear, '../controllers/InscripcionPartido_Controller.php');
         }else{
           new MessageView("No hay pistas disponibles actualmente, el partido ha
@@ -58,9 +62,9 @@ switch ($_REQUEST['action']){
   break;
 
   case 'DESAPUNTARSE':
-    $OFERPROMPARTIDO = get_data_form();
-    $respuesta = $OFERPROMPARTIDO->DESAPUNTARSE($_SESSION['email']);
-    new MessageView($respuesta, '../controllers/InscripcionPartido_Controller.php');
+      $OFERPROMPARTIDO = get_data_form();
+      $respuesta = $OFERPROMPARTIDO->DESAPUNTARSE($_SESSION['email']);
+      new MessageView($respuesta, '../controllers/InscripcionPartido_Controller.php');
     break;
 
   default:

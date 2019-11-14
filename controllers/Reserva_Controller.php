@@ -48,7 +48,7 @@
         $arrayPistas = $RESERVA->comprobarDispPistas();
 
         if(!empty($arrayPistas)){
-          $PAGO = new PagoModel($_SESSION['email'],'',25,'N');
+          $PAGO = new PagoModel($_SESSION['email'],'',35,'N');
           $PAGO->ADD();
           $respuesta = $RESERVA -> ADD($arrayPistas);
           new MessageView($respuesta, '../controllers/Reserva_Controller.php');

@@ -39,22 +39,27 @@
         }
         else{//2
             if($resultado->num_rows == 0){//3
-                $sql="SELECT * FROM USUARIOS WHERE (email='$this->miembro2')";
+                $sql="SELECT * FROM USUARIOS WHERE (email='$this->miembro2' AND rol='D')";
                 if (!($resultado=$this->mysqli->query($sql))){//4
                     return 'Error en la conexion a la base de datos';
                 }
                 else{//4
                   if($resultado->num_rows == 1){//5
-                    if($genero1 == $genero2){
-                      $generoPareja = $genero1;
+                    if($this->miembro1 == $this->miembro2){
+                      return 'No puedes formar pareja contigo mismo.';
                     }
                     else{
-                      $generoPareja = 'X';
+                      if($genero1 == $genero2){
+                        $generoPareja = $genero1;
+                      }
+                      else{
+                        $generoPareja = 'X';
+                      }
+                      $sql="INSERT INTO PAREJAS (miembro1,miembro2,genero,nivel) VALUES('$this->miembro1','$this->miembro2','$generoPareja','$this->nivel')";
                     }
-                    $sql="INSERT INTO PAREJAS (miembro1,miembro2,genero,nivel) VALUES('$this->miembro1','$this->miembro2','$generoPareja','$this->nivel')";
                   }
                   else {//5
-                    return 'No existe el usuario';
+                    return 'No existe este deportista';
                   }
 
                   if (!$this->mysqli->query($sql)){//6
