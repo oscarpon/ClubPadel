@@ -6,6 +6,7 @@
   include '../views/Reserva_Add_View.php';
   include '../views/Reserva_Showall_View.php';
   include '../views/Message_View.php';
+  include '../models/Pago_Model.php';
 
   //Función que recoge la información del formulario
   function get_data_form(){
@@ -47,6 +48,8 @@
         $arrayPistas = $RESERVA->comprobarDispPistas();
 
         if(!empty($arrayPistas)){
+          $PAGO = new PagoModel($_SESSION['email'],'',25,'N');
+          $PAGO->ADD();
           $respuesta = $RESERVA -> ADD($arrayPistas);
           new MessageView($respuesta, '../controllers/Reserva_Controller.php');
         }else{

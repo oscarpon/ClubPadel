@@ -3,6 +3,7 @@ session_start();
 
 include '../models/OferPromPartido_Model.php';
 include '../views/InscripcionPartido_Showall_View.php';
+include '../views/MisInscripcionPartido_Showall_View.php';
 
 include '../views/Message_View.php';
 
@@ -32,6 +33,11 @@ if(!isset($_REQUEST['action'])){
 }
 
 switch ($_REQUEST['action']){
+  case 'SHOWINSCRIP':
+    $OFERPROMPARTIDO = new OferPromPartidoModel('', '', '', '', '', '', '', '');
+    $datos = $OFERPROMPARTIDO->SEARCH();
+    new InscripcionPartidoShowallView($datos);
+    break;
   case 'EDIT':
       $OFERTAPARTIDO = get_data_form();
       $respuestaEdit = $OFERTAPARTIDO->EDIT($_SESSION['email']);
@@ -51,10 +57,16 @@ switch ($_REQUEST['action']){
       }
   break;
 
+  case 'DESAPUNTARSE':
+    $OFERPROMPARTIDO = get_data_form();
+    $respuesta = $OFERPROMPARTIDO->DESAPUNTARSE($_SESSION['email']);
+    new MessageView($respuesta, '../controllers/InscripcionPartido_Controller.php');
+    break;
+
   default:
     $OFERPROMPARTIDO = new OferPromPartidoModel('', '', '', '', '', '', '', '');
-    $datos = $OFERPROMPARTIDO->SEARCH();
-    new InscripcionPartidoShowallView($datos);
+    $datos = $OFERPROMPARTIDO->misInscripSEARCH($_SESSION['email']);
+    new MisInscripcionPartidoShowallView($datos);
     break;
 }
 
