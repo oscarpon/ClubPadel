@@ -58,5 +58,15 @@ class NoticiaModel{
 		        return "No existe";
 	}
 
+	function RellenaDatos(){
+		$sql = "SELECT * FROM contenido WHERE (idContenido = '$this->idContenido' )";
+		if ( !( $resultado = $this->mysqli->query( $sql ) ) ) {
+		 return 'No existe en la base de datos'; //
+		} else {
+			$result = $resultado->fetch_array();
+			return $result;
+		}
+	}
+
 }
 ?>
