@@ -77,7 +77,7 @@ class LigaModel
     }
 
     function EDIT(){
-	$sql = "SELECT * FROM clasificacion  WHERE (miembro1 = '$this->miembro1') ";
+	$sql = "SELECT * FROM clasificacion  WHERE (miembro1 = '$this->miembro1' AND miembro2 = '$this->miembro2') ";
 
     $result = $this->mysqli->query($sql);
 
@@ -92,7 +92,7 @@ class LigaModel
 				grupo = '$this->grupo',
 				puntos = '$this->puntos'
 
-				WHERE ( miembro1 = '$this->miembro1')";
+				WHERE ( miembro1 = '$this->miembro1' AND miembro2 = '$this->miembro2')";
         if (!($resultado = $this->mysqli->query($sql))){
 			return 'Error en la modificación';
 		}
