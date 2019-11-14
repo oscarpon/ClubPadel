@@ -27,23 +27,28 @@ class LigaModel
 
   function DELETE()
 		{
-		   $sql = "SELECT * FROM clasificacion  WHERE
-		   (miembro1 = '$this->miembro1')";
+		   $sql = "SELECT * FROM clasificacion WHERE (miembro1 = '$this->miembro1'
+                                                  AND miembro2 = '$this->miembro2'
+                                                  AND nombreCamp = '$this->nombreCamp')";
+       if (!($result = $this->mysqli->query($sql))) {
 
-		    $result = $this->mysqli->query($sql);
+         return "error en la base de datos";
+      }else{
 
-		    if ($result->num_rows == 1)
-		    {
+        if ($result->num_rows == 1)
+        {
 
-		       $sql = "DELETE FROM clasificacion  WHERE
-		       (miembro1 = '$this->miembro1')";
+           $sql = "DELETE FROM clasificacion  WHERE
+           (miembro1 = '$this->miembro1' AND miembro2 = '$this->miembro2' AND nombreCamp = '$this->nombreCamp')";
 
-		        $this->mysqli->query($sql);
+            $this->mysqli->query($sql);
 
-		    	return "Eliminado correctamente";
-		    }
-		    else
-		        return "No se encuentra la pareja";
+          return "Eliminado correctamente";
+        }
+        else
+            return "No se encuentra la pareja";
+      }
+
 		}
   /*  function SEARCH(){
       $sql="SELECT miembro1, miembro2, nombreCamp, grupo, estado
@@ -61,7 +66,7 @@ class LigaModel
           }
     }*/
     function RellenaDatos(){
-      $sql = "SELECT * FROM clasificacion WHERE (miembro1 = '$this->miembro1')";
+      $sql = "SELECT * FROM clasificacion WHERE (miembro1 = '$this->miembro1' AND miembro2 = '$this->miembro2' AND nombreCamp = '$this->nombreCamp')";
 		  if ( !( $resultado = $this->mysqli->query( $sql ) ) ) {
 			 return 'No existe en la base de datos'; //
 		  } else {
@@ -77,12 +82,11 @@ class LigaModel
     }
 
     function EDIT(){
-	$sql = "SELECT * FROM clasificacion  WHERE (miembro1 = '$this->miembro1' AND miembro2 = '$this->miembro2') ";
+	     $sql = "SELECT * FROM clasificacion  WHERE (miembro1 = '$this->miembro1' AND miembro2 = '$this->miembro2' AND nombreCamp = '$this->nombreCamp') ";
 
     $result = $this->mysqli->query($sql);
 
     if ($result->num_rows == 1)
-
     {
 
 		$sql = "UPDATE clasificacion  SET
@@ -92,13 +96,13 @@ class LigaModel
 				grupo = '$this->grupo',
 				puntos = '$this->puntos'
 
-				WHERE ( miembro1 = '$this->miembro1' AND miembro2 = '$this->miembro2')";
+				WHERE ( miembro1 = '$this->miembro1'  AND miembro2 = '$this->miembro2' AND nombreCamp = '$this->nombreCamp')";
         if (!($resultado = $this->mysqli->query($sql))){
 			return 'Error en la modificación';
-		}
+		    }
 		else{
 			return 'Modificado correctamente';
-		}
+		  }
     }
     else{
 

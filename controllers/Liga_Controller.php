@@ -15,8 +15,8 @@ include '../views/Message_View.php';
 
 function get_data(){
 	$miembro1 = $_REQUEST['miembro1'];
-	$miembro2 ='';
-	$nombreCamp ='';
+	$miembro2 = $_REQUEST['miembro2'];
+	$nombreCamp = $_REQUEST['nombreCamp'];
 	$grupo = '' ;
 	$puntos='';
 	$action = $_REQUEST['action'];
@@ -46,8 +46,8 @@ switch ($_REQUEST['action']) {
 
   case 'DELETE':
 	if (!$_POST) {
-		$modelo= new LigaModel($_REQUEST['miembro1'],'', '', '', '');
-		$datos= $modelo ->DELETE();
+		$modelo= new LigaModel($_REQUEST['miembro1'],$_REQUEST['miembro2'], $_REQUEST['nombreCamp'], '', '');
+		$datos= $modelo ->RellenaDatos();
 		new LigaDeleteView($datos);
 	}
 	else{
