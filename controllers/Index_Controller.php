@@ -10,9 +10,7 @@ if (!IsAuthenticated()){//if
 }
 //esta autenticado
 else{
-
-	include '../views/Register_View.php';
-	new Register();
+	header('Location: ../controllers/Noticias_Controller.php?action=PagPrincipal');
 
 }
 
