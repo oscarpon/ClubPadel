@@ -216,9 +216,19 @@ body{
   font-family: 'Rajdhani', sans-serif;
   font-size: 17px;
 }
-.formularioRegister, .formularioAñadir{
+.formularioRegister{
   top: 30%;
   left: 40%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+}
+.formularioAñadir{
+  top: 181px;
+  left: 524px;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
@@ -282,10 +292,16 @@ body{
 }
 
 /*Personaliza la fuente*/
-#email, #clave, #nombre, #apellidos, #genero, #rol, #mensajeEliminar {
+#email, #clave, #nombre, #apellidos, #genero, #mensajeEliminar {
   font-family: 'Rajdhani', sans-serif;
   font-size: 15px;
   width: 325px;
+}
+#rol{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  width: 325px;
+  margin-bottom: 14px;
 }
 #importe{
   font-family: 'Rajdhani', sans-serif;
@@ -536,8 +552,8 @@ body{
   overflow-x: hidden;
 }
 .tablaInscribirShowall{
-  top: 30%;
-  left: 25%;
+  top: 180px;
+  left: 312px;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
@@ -545,7 +561,7 @@ body{
   padding: 22px;
   background-color: #fff4;
   border-collapse: collapse;
-  width: auto;
+  width: 723px;
   overflow:scroll;
   height:340px;
   overflow-x: hidden;
@@ -763,6 +779,11 @@ body{
 }
 .botonVolver{
   margin-left: 90%;
+}
+.botonVolverAñadUsu{
+  position: absolute;
+  top:20px;
+  left:320px;
 }
 .botonVolverEl{
   margin-right: 25%;
