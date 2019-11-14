@@ -39,7 +39,7 @@ switch ($_REQUEST['action']){
       $datos = $CAMP -> SEARCH();
       new InscripCampAddView($datos);
     }else{
-      $PAGO = new PAGO($_SESSION['email'],'',25,'N');
+      $PAGO = new PagoModel($_SESSION['email'],'',25,'N');
       $PAGO->ADD();
       $PARTCAMP = get_data_form();
       $respuesta = $PARTCAMP -> ADD();
