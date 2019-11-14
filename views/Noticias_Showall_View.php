@@ -14,16 +14,6 @@ class NoticiasShowallView
 
 ?>
 
-<!--
-<div class="iconos-superiores">
-
-    <a href="../Controllers/Post_Controller.php?action=ADD"><span class="lnr lnr-file-add" style="font-size: 35px"></span></a>
-    <a href="../Controllers/Post_Controller.php?action=SEARCH"><span class="lnr lnr-magnifier" style="font-size: 35px"></span></a>
-    <a href="../Controllers/Post_Controller.php"><span class="lnr lnr-exit" style="font-size: 35px"></span></a>
-
-</div>
--->
-
 
   <table class="tablaNoticiasTodo">
 	  <tr>
@@ -46,15 +36,15 @@ class NoticiasShowallView
       echo "<tr>";
       echo "<td>".$fila['idContenido']."</td>";
       echo "<td>".$fila["titulo"]."</td>";
-      echo "<td>".substr($fila["descripcion"], 0, 20)."</td>";
+      echo "<td>".$fila["descripcion"]."</td>";
 
 
 ?>
-	<td>
-		<form action="../controllers/PromocionPartido_Controller.php" name ='DELETE'>
-      <button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
-    </form>
-	</td>
+<td> <form action="../controllers/Noticias_Controller.php" name ='DELETE'>
+				<input type="hidden" name = 'nombre' value="<?php echo $fila['idContenido'] ?>" readonly>
+				<button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
+				</form>
+</td>
 
 
 <?php

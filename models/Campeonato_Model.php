@@ -7,15 +7,15 @@ class CampeonatoModel
 {
 
   var $nombre;
-  var $FechaFinIns;
+  var $fechaFinIns;
   var $categoria;
   var $genero;
   var $estado;
 
-  function __construct($nombre, $FechaFinIns, $categoria, $genero, $estado)
+  function __construct($nombre, $fechaFinIns, $categoria, $genero, $estado)
   {
     $this->nombre = $nombre;
-    $this->fechaFinIns = $FechaFinIns;
+    $this->fechaFinIns = $fechaFinIns;
     $this->categoria = $categoria;
     $this->genero = $genero;
     $this->estado = $estado;
@@ -35,12 +35,14 @@ class CampeonatoModel
 			if ($result->num_rows == 0){
 
 				$sql = "INSERT INTO campeonato (
+          nombre,
 					fechaFinIns,
 					categoria,
 					genero,
 					estado
 					)
 						VALUES (
+            '$this->nombre',
 						'$this->fechaFinIns',
 						'$this->categoria',
 						'$this->genero',
@@ -63,7 +65,7 @@ class CampeonatoModel
 
   }
 
-  function eliminarCampeonato()
+  function DELETE()
 		{
 		   $sql = "SELECT * FROM campeonato  WHERE
 		   (nombre = '$this->nombre')";
@@ -74,9 +76,9 @@ class CampeonatoModel
 		    {
 
 		       $sql = "DELETE FROM campeonato  WHERE
-		       (campeonato = '$this->campeonato')";
+		       (nombre = '$this->nombre')";
 
-		        $this->bd->query($sql);
+		        $this->mysqli->query($sql);
 
 		    	return "Eliminado correctamente";
 		    }
@@ -106,6 +108,12 @@ class CampeonatoModel
   			$result = $resultado->fetch_array();
   			return $result;
 		  }
+    }
+
+    function showAll(){
+      $sql = "SELECT * FROM campeonato";
+  		$resultado = $this->mysqli->query($sql);
+  		return $resultado;
     }
 }
 
