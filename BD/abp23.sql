@@ -3,9 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2019 a las 19:49:02
+-- Tiempo de generación: 14-11-2019 a las 21:00:04
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
+
 DROP DATABASE IF EXISTS `abp23`;
 CREATE DATABASE `abp23` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
@@ -146,25 +147,16 @@ INSERT INTO `clasificacion` (`miembro1`, `miembro2`, `nombreCamp`, `grupo`, `pun
 CREATE TABLE `contenido` (
   `idContenido` int(6) NOT NULL,
   `titulo` varchar(10) NOT NULL,
-  `descripcion` varchar(100) NOT NULL
+  `descripcion` varchar(100) NOT NULL,
+  `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `contenido`
 --
 
-INSERT INTO `contenido` (`idContenido`, `titulo`, `descripcion`) VALUES
-(2, 'Prueba de ', 'Esto es otra oprueba de niticiaaaaa aaa aa '),
-(3, 'Prueba 2', 'Esto es una noticia'),
-(4, 'Prueba 3', 'Esto es una noticia'),
-(5, 'Prueba 4', 'Esto es una noticia'),
-(6, 'Prueba 5', 'Esto es una noticia'),
-(7, 'Prueba 6', 'Esto es una noticia'),
-(8, 'Prueba 7', 'Esto es una noticia'),
-(9, 'Prueba 8', 'Esto es una noticia'),
-(10, 'Prueba 9', 'Esto es una noticia'),
-(11, 'Prueba 11', 'Esto es una noticia'),
-(12, 'Prueba 12', 'Esto es una noticia');
+INSERT INTO `contenido` (`idContenido`, `titulo`, `descripcion`, `email`) VALUES
+(14, 'Nuevo pago', 'Nuevo pago de reserva pendiente', 'trelo@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -218,11 +210,7 @@ CREATE TABLE `oferprompartidos` (
 --
 
 INSERT INTO `oferprompartidos` (`email`, `fecha`, `partic1`, `partic2`, `partic3`, `partic4`, `numpart`, `tipo`) VALUES
-('hey@mail.com', '2019-11-02 00:00:00', 'trelo@gmail.com', 'rachid1194@hotmail.com', 'Puesto vacio', 'Puesto vacio', 2, 'PROM'),
-('rachid1194@hotmail.com', '2019-10-18 13:59:02', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 0, 'OFER'),
-('rachid1194@hotmail.com', '2019-10-18 16:59:02', 'Puesto vacio', 'trelo@gmail.com', 'Puesto vacio', 'Puesto vacio', 1, 'OFER'),
-('trelo@gmail.com', '2019-10-18 13:59:02', 'trelo@gmail.com', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 1, 'OFER'),
-('trelo@gmail.com', '2019-11-04 00:00:00', 'trelo@gmail.com', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 1, 'OFER');
+('trelo@gmail.com', '2019-11-18 18:00:00', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 0, 'OFER');
 
 -- --------------------------------------------------------
 
@@ -242,19 +230,8 @@ CREATE TABLE `pagos` (
 --
 
 INSERT INTO `pagos` (`email`, `fecha`, `importe`, `pagado`) VALUES
-('mail1@mail.com', '2019-10-31 00:00:00', 5, 'S'),
-('mail1@mail.com', '2019-11-01 00:00:00', 5, 'S'),
-('mail1@mail.com', '2019-11-02 00:00:00', 5, 'S'),
-('mail1@mail.com', '2019-11-03 00:00:00', 5, 'S'),
-('mail1@mail.com', '2019-11-04 00:00:00', 5, 'S'),
-('mail1@mail.com', '2019-11-05 00:00:00', 5, 'S'),
-('mail1@mail.com', '2019-11-06 00:00:00', 5, 'S'),
-('mail1@mail.com', '2019-11-07 00:00:00', 5, 'S'),
-('mail1@mail.com', '2019-11-08 00:00:00', 5, 'S'),
-('rachid1194@hotmail.com', '2019-10-22 19:00:55', 25, 'S'),
-('rachid1194@hotmail.com', '2019-10-22 19:03:50', 50, 'S'),
-('rachid1194@hotmail.com', '2019-10-22 19:04:15', 60, 'S'),
-('trelo@gmail.com', '2019-10-22 19:15:39', 25, 'S');
+('trelo@gmail.com', '2019-11-14 20:16:44', 35, 'N'),
+('trelo@gmail.com', '2019-11-14 20:19:18', 35, 'N');
 
 -- --------------------------------------------------------
 
@@ -305,7 +282,8 @@ CREATE TABLE `partcampeonatos` (
 --
 
 INSERT INTO `partcampeonatos` (`miembro1`, `miembro2`, `nombreCamp`) VALUES
-('rachid1194@hotmail.com', 'raul@mail.com', 'Open Mail');
+('rachid1194@hotmail.com', 'raul@mail.com', 'Open Mail'),
+('trelo@gmail.com', 'marta@mail.com', 'Open Pontevedra');
 
 -- --------------------------------------------------------
 
@@ -324,22 +302,6 @@ CREATE TABLE `partidocamp` (
   `resultado` char(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `partidocamp`
---
-
-INSERT INTO `partidocamp` (`codigoPista`, `fecha`, `miembro1Par1`, `miembro2Par1`, `miembro1Par2`, `miembro2Par2`, `nombreCamp`, `resultado`) VALUES
-('000001', '2019-01-11 00:00:00', 'mail1@mail.com', 'mail2@mail.com', 'brais@mail.com', 'oscar@mail.com', 'Open Vigo', 'P2'),
-('000001', '2019-10-31 00:00:00', 'mail1@mail.com', 'mail2@mail.com', 'brais@mail.com', 'oscar@mail.com', 'Open Coruña', 'P1'),
-('1', '2019-10-31 00:00:00', 'mail@mail.com', 'mail2@mail.com', 'raul@mail.com', 'oscar@mail.com', 'Open Ourense', 'P1'),
-('1', '2019-11-01 00:00:00', 'mail@mail.com', 'mail2@mail.com', 'raul@mail.com', 'oscar@mail.com', 'Open Ourense', 'P1'),
-('1', '2019-11-03 00:00:00', 'mail@mail.com', 'mail2@mail.com', 'raul@mail.com', 'oscar@mail.com', 'Open Ourense', 'P1'),
-('1', '2019-11-04 00:00:00', 'mail@mail.com', 'mail2@mail.com', 'raul@mail.com', 'oscar@mail.com', 'Open Ourense', 'P1'),
-('1', '2019-11-05 00:00:00', 'mail@mail.com', 'mail2@mail.com', 'raul@mail.com', 'oscar@mail.com', 'Open Ourense', 'P1'),
-('1', '2019-11-06 00:00:00', 'mail@mail.com', 'mail2@mail.com', 'raul@mail.com', 'oscar@mail.com', 'Open Ourense', 'P1'),
-('2', '2019-10-31 00:00:00', 'mail@mail.com', 'mail2@mail.com', 'raul@mail.com', 'oscar@mail.com', 'Open Ourense', 'P1'),
-('3', '2019-11-02 00:00:00', 'mail@mail.com', 'mail2@mail.com', 'raul@mail.com', 'oscar@mail.com', 'Open Ourense', 'P1');
-
 -- --------------------------------------------------------
 
 --
@@ -355,13 +317,6 @@ CREATE TABLE `partidos` (
   `miembro2Par2` varchar(50) NOT NULL,
   `resultado` char(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `partidos`
---
-
-INSERT INTO `partidos` (`codigoPista`, `fecha`, `miembro1Par1`, `miembro2Par1`, `miembro1Par2`, `miembro2Par2`, `resultado`) VALUES
-('000000', '2019-10-18 15:59:02', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'trelo@gmail.com', 'NJ');
 
 -- --------------------------------------------------------
 
@@ -380,28 +335,24 @@ CREATE TABLE `pistas` (
 --
 
 INSERT INTO `pistas` (`codigoPista`, `fecha`, `tipo`) VALUES
-('000000', '2019-10-18 13:59:02', 'EXT'),
-('000000', '2019-10-18 14:59:02', 'EXT'),
-('000000', '2019-10-18 15:59:02', 'EXT'),
-('000001', '2019-10-18 13:59:02', 'EXT'),
-('000001', '2019-10-18 16:59:02', 'EXT'),
-('000002', '2019-10-31 00:00:00', 'EXT'),
-('000003', '2019-10-31 00:00:00', 'EXT'),
-('000003', '2019-11-01 00:00:00', 'EXT'),
-('000003', '2019-11-02 00:00:00', 'EXT'),
-('000003', '2019-11-03 00:00:00', 'EXT'),
-('000003', '2019-11-04 00:00:00', 'EXT'),
-('000003', '2019-11-06 00:00:00', 'EXT'),
-('000004', '2019-10-31 00:00:00', 'EXT'),
-('000004', '2019-11-01 00:00:00', 'EXT'),
-('000004', '2019-11-02 00:00:00', 'EXT'),
-('000005', '2019-11-01 00:00:00', 'EXT'),
-('000005', '2019-11-02 00:00:00', 'EXT'),
-('000005', '2019-11-03 00:00:00', 'EXT'),
-('000006', '2019-11-01 00:00:00', 'EXT'),
-('000006', '2019-11-02 00:00:00', 'EXT'),
-('000006', '2019-11-13 00:00:00', 'EXT'),
-('000006', '2019-11-22 00:00:00', 'INT');
+('000000', '2019-11-18 18:00:00', 'INT'),
+('000000', '2019-11-18 20:00:00', 'INT'),
+('000000', '2019-11-20 14:00:00', 'EXT'),
+('000000', '2019-11-20 16:00:00', 'EXT'),
+('000001', '2019-11-19 14:00:00', 'INT'),
+('000001', '2019-11-19 17:00:00', 'INT'),
+('000001', '2019-11-20 14:00:00', 'EXT'),
+('000002', '2019-11-18 19:00:00', 'INT'),
+('000002', '2019-11-21 09:00:00', 'INT'),
+('000002', '2019-11-22 10:00:00', 'EXT'),
+('000003', '2019-11-19 09:00:00', 'INT'),
+('000003', '2019-11-19 11:00:00', 'EXT'),
+('000003', '2019-11-20 11:00:00', 'INT'),
+('000003', '2019-11-22 15:00:00', 'EXT'),
+('000004', '2019-11-21 13:00:00', 'EXT'),
+('000004', '2019-11-22 16:00:00', 'INT'),
+('000004', '2019-11-23 10:00:00', 'EXT'),
+('000004', '2019-11-23 18:00:00', 'EXT');
 
 -- --------------------------------------------------------
 
@@ -420,8 +371,8 @@ CREATE TABLE `reservas` (
 --
 
 INSERT INTO `reservas` (`email`, `codigoPista`, `fecha`) VALUES
-('trelo@gmail.com', '000000', '2019-10-18 13:59:02'),
-('trelo@gmail.com', '000000', '2019-10-18 14:59:02');
+('trelo@gmail.com', '000000', '2019-11-18 18:00:00'),
+('trelo@gmail.com', '000002', '2019-11-18 19:00:00');
 
 -- --------------------------------------------------------
 
@@ -559,7 +510,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `contenido`
 --
 ALTER TABLE `contenido`
-  MODIFY `idContenido` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idContenido` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
