@@ -54,6 +54,7 @@ class OferPromPartidoModel{
   }
 
   function SEARCH(){
+    $fechaActual = date("Y/m/d H:i:s");
     $sql = "SELECT * FROM oferprompartidos WHERE(email LIKE '%$this->email%'
                                                 AND fecha LIKE '%$this->fecha%'
                                                 AND partic1 LIKE '%$this->partic1%'
@@ -61,7 +62,8 @@ class OferPromPartidoModel{
                                                 AND partic3 LIKE '%$this->partic3%'
                                                 AND partic4 LIKE '%$this->partic4%'
                                                 AND numpart LIKE '%$this->numpart%'
-                                                AND tipo LIKE '%$this->tipo%')";
+                                                AND tipo LIKE '%$this->tipo%'
+                                                AND TIMESTAMPDIFF(hour, fecha, '$fechaActual') < -12)";
     if(!($resultado=$this->mysqli->query($sql))){
       return 'Error en la consulta a la base de datos';
     }else{
@@ -88,6 +90,8 @@ class OferPromPartidoModel{
   }
   function EDIT($usuario){
     if($this->email <> '' && $this->fecha <> ''){
+      $fechaActual = date("Y-m-d H:i:s");
+
       $sql = "SELECT * FROM oferprompartidos WHERE(email='$this->email' AND fecha='$this->fecha')";
       if(!($resultado=$this->mysqli->query($sql))){
         return 'Error de base de datos';
@@ -208,6 +212,7 @@ class OferPromPartidoModel{
   }
 
   function comprobarDispFechas(){
+    $fecha = date("Y-m-d H:i:s");
     $sql = "SELECT DISTINCT t1.fecha
             FROM pistas as t1
             WHERE NOT EXISTS (SELECT t2.fecha
@@ -216,7 +221,8 @@ class OferPromPartidoModel{
             FROM partidos as t3 WHERE t1.codigoPista = t3.codigoPista
             AND t1.fecha = t3.fecha AND t3.resultado = 'NJ') AND NOT EXISTS (SELECT t4.fecha
             FROM partidocamp as t4 WHERE t1.codigoPista = t4.codigoPista
-            AND t1.fecha = t4.fecha AND t4.resultado = 'NJ') ORDER BY t1.fecha";
+            AND t1.fecha = t4.fecha AND t4.resultado = 'NJ') AND t1.fecha >= '$fecha'
+            ORDER BY t1.fecha";
     if($resultado=$this->mysqli->query($sql)){
       if($resultado->num_rows != 0){
           return $resultado;
@@ -264,6 +270,7 @@ class OferPromPartidoModel{
   }
 
   function misInscripSEARCH($emailusu){
+    $fechaActual = date("Y/m/d H:i:s");
     $sql = "SELECT * FROM oferprompartidos WHERE(email LIKE '%$this->email%'
                                                 AND fecha LIKE '%$this->fecha%'
                                                 AND (partic1='$emailusu'
@@ -271,7 +278,8 @@ class OferPromPartidoModel{
                                                 OR partic3='$emailusu'
                                                 OR partic4='$emailusu')
                                                 AND numpart LIKE '%$this->numpart%'
-                                                AND tipo LIKE '%$this->tipo%')";
+                                                AND tipo LIKE '%$this->tipo%'
+                                                AND TIMESTAMPDIFF(hour, fecha, '$fechaActual') < -12)";
     if(!($resultado=$this->mysqli->query($sql))){
       return 'Error en la consulta a la base de datos';
     }else{

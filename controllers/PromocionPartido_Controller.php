@@ -58,28 +58,7 @@ switch ($_REQUEST['action']){
       new MessageView($respuesta, '../controllers/PromocionPartido_Controller.php');
     }
     break;
-/*
-    case 'EDIT':
-        //$OFERTAPARTIDO = get_data_form();
-        $PROMOCIONPARTIDO = new OferPromPartidoModel('rachid1194@hotmail.com', '2019-10-20 18:46:54', '', '', '', '','', 'PROM');
-        //$respuestaEdit = $OFERTAPARTIDO->EDIT();
-        $arrayPart = $PROMOCIONPARTIDO->comprobarParticipacion();
-        if($arrayPart[0] == 4){
-          $arrayPistas = $PROMOCIONPARTIDO->comprobarDispPistas();
-          if(!empty($arrayPistas)){
-            $respuestaCrear = $PROMOCIONPARTIDO->crearPartido($arrayPistas);
-            //new MessageView($respuestaCrear, '../controllers/OfertaPartido_Controller.php');
-            new MessageView($respuestaCrear, '../controllers/Register_Controller.php');
-          }else{
-            new MessageView("No hay pistas disponibles actualmente, el partido ha
-            sido cancelado.", '../controllers/PromocionPartido_Controller.php');
-          }
-        }else{
-          //new MessageView($respuestaEdit, '../controllers/OfertaPartido_Controller.php');
-          new MessageView('NADA', '../controllers/Usuario_Controller.php');
-        }
-      break;
-*/
+    
   case 'DELETE':
     if(!$_POST){
       $PROMOCIONPARTIDO = new OferPromPartidoModel($_REQUEST['email'], $_REQUEST['fecha'], '', '', '', '', '', '');

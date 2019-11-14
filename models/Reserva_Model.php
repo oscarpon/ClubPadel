@@ -18,25 +18,37 @@
       $fechaElegida = $arrayPistas[1];
 
       if($pistaElegida <> '' && $fechaElegida <> '' && $this->email <> ''){
-        $sql = "SELECT * FROM reservas WHERE(email='$this->email' AND codigoPista='$pistaElegida' AND fecha='$fechaElegida')";
+        $sql = "SELECT * FROM reservas WHERE(email='$this->email')";
         if(!($resultado=$this->mysqli->query($sql))){
           return 'Error de base de datos';
         }else{
-          if($resultado->num_rows == 0){
-            $sql = "INSERT INTO reservas VALUES('$this->email',
+          if($resultado->num_rows == 5){
+            return 'No puedes reservar más de 5 pistas.';
+          }
+          else{
+            $sql = "SELECT * FROM reservas WHERE(email='$this->email' AND codigoPista='$pistaElegida' AND fecha='$fechaElegida')";
+            if(!($resultado=$this->mysqli->query($sql))){
+              return 'Error de base de datos';
+            }else{
+              if($resultado->num_rows == 0){
+                $sql = "INSERT INTO reservas VALUES('$this->email',
                                                 '$pistaElegida',
                                                 '$fechaElegida'
                                                 )";
-          }else{
-            return 'Ya existe una reserva con ese email, para esa fecha y pista.';
-          }
-          if(!($resultado=$this->mysqli->query($sql))){
-            return 'Error en la base de datos.';
-          }else{
-            return 'Pista reservarda satisfactoriamente.';
+              }
+              else{
+                return 'Ya existe una reserva con ese email, para esa fecha y pista.';
+              }
+              if(!($resultado=$this->mysqli->query($sql))){
+                return 'Error en la base de datos.';
+              }else{
+                return 'Pista reservarda satisfactoriamente.';
+              }
+            }
           }
         }
-      }else{
+      }
+      else{
         return 'Se necesita un email, código de pista y una fecha.';
       }
     }
@@ -97,6 +109,7 @@
       }
     }
     function comprobarDispFechas(){
+      $fecha = date("Y-m-d H:i:s");
       $sql = "SELECT DISTINCT t1.fecha
               FROM pistas as t1
               WHERE NOT EXISTS (SELECT t2.fecha
@@ -105,7 +118,7 @@
               FROM partidos as t3 WHERE t1.codigoPista = t3.codigoPista
               AND t1.fecha = t3.fecha AND t3.resultado = 'NJ') AND NOT EXISTS (SELECT t4.fecha
               FROM partidocamp as t4 WHERE t1.codigoPista = t4.codigoPista
-              AND t1.fecha = t4.fecha AND t4.resultado = 'NJ') ORDER BY t1.fecha";
+              AND t1.fecha = t4.fecha AND t4.resultado = 'NJ') AND t1.fecha >= '$fecha' ORDER BY t1.fecha";
       if($resultado=$this->mysqli->query($sql)){
         if($resultado->num_rows != 0){
             return $resultado;

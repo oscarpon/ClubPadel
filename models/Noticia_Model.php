@@ -9,23 +9,28 @@ class NoticiaModel{
 
 	/*******/
 
-	function __construct($idContenido,$titulo,$descripcion){
+	function __construct($idContenido,$titulo,$descripcion,$email){
 		$this->idContenido = $idContenido;
 		$this->titulo = $titulo;
 		$this->descripcion = $descripcion;
+		$this->email = $email;
     include_once '../functions/BdAdmin.php';
     $this->mysqli=ConectarBD();
 	}
 
 	function showAll(){
-		$sql = "SELECT * FROM contenido";
+		$sql = "SELECT * FROM contenido WHERE (idContenido LIKE '%$this->idContenido%'
+																				AND titulo LIKE '%$this->titulo%'
+																				AND descripcion LIKE '%$this->descripcion%'
+																				AND email LIKE '%$this->email%'
+																				)";
 		$resultado = $this->mysqli->query($sql);
 		return $resultado;
 	}
 
 	function insertarNoticia(){
-		$sql = "INSERT INTO contenido(idContenido,titulo,descripcion) VALUES('$this->idContenido',
-			'$this->titulo', '$this->descripcion')";
+		$sql = "INSERT INTO contenido(idContenido,titulo,descripcion,email) VALUES('$this->idContenido',
+			'$this->titulo', '$this->descripcion', '$this->email')";
 		$resultado = $this->mysqli->query($sql);
 		if(!$resultado) return "No se ha insertado";
 		else return "Inserción OK";

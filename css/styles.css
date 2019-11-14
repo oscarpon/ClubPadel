@@ -216,9 +216,19 @@ body{
   font-family: 'Rajdhani', sans-serif;
   font-size: 17px;
 }
-.formularioRegister, .formularioAñadir{
+.formularioRegister{
   top: 30%;
   left: 40%;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+}
+.formularioAñadir{
+  top: 181px;
+  left: 524px;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
@@ -252,6 +262,54 @@ body{
 #miembro1{
   margin-top: 12%;
 }
+.formularioAñadirCamp{
+  top: 200px;
+  left: 551px;
+  width: 199px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+}
+.formularioAñadirCamp input{
+  margin-bottom: 20px;
+  width:200px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+.formularioAñadirCamp select{
+  position: relative;
+  max-width: 97px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  padding: 0px 6px;
+  height: 33px;
+  outline:0;
+  border: 0;
+  border-radius: 0;
+  background: #f0f0f0;
+	color: #7b7b7b;
+	font-size: 13px;
+	color: #999;
+	font-family:
+	'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+    margin-top: 3%;
+}
 .tablaNoticiasTodo{
   top: 30%;
   left: 35%;
@@ -282,10 +340,16 @@ body{
 }
 
 /*Personaliza la fuente*/
-#email, #clave, #nombre, #apellidos, #genero, #rol, #mensajeEliminar {
+#email, #clave, #nombre, #apellidos, #genero, #mensajeEliminar {
   font-family: 'Rajdhani', sans-serif;
   font-size: 15px;
   width: 325px;
+}
+#rol{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  width: 325px;
+  margin-bottom: 14px;
 }
 #importe{
   font-family: 'Rajdhani', sans-serif;
@@ -412,6 +476,18 @@ body{
   float: none;
   text-align: center;
 }
+.botonAñadirCamp{
+  margin-bottom: 0;
+  background: #5264BA;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 7px;
+  margin-top: 10%;
+  float: none;
+  text-align: center;
+}
 .botonRegistrar:hover, .botonAñadir:hover, .botonAñadirProm:hover{
   background: #727DB0;
   cursor: pointer;
@@ -497,8 +573,8 @@ body{
 }
 
 .tablaOferta{
-  top: 30%;
-  left: 22%;
+  top: 200px;
+  left: 268px;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
@@ -507,6 +583,9 @@ body{
   background-color: #fff4;
   border-collapse: collapse;
   width: 64%;
+  overflow:scroll;
+  height:auto;
+  overflow-x: hidden;
 }
 .tablaOfertasEl{
   top: 30%;
@@ -521,13 +600,13 @@ body{
   width: 64%;
 }
 .tablaPromocion{
-  top: 30%;
-  left: 19%;
+  top: 200px;
+  left: 127px;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
   border-radius: 10px;
-  padding: 22px;
+  padding: 20px;
   background-color: #fff4;
   border-collapse: collapse;
   width: auto;
@@ -535,9 +614,12 @@ body{
   height:auto;
   overflow-x: hidden;
 }
+.tablaPromocion th,td{
+  width: 129px;
+}
 .tablaInscribirShowall{
-  top: 30%;
-  left: 25%;
+  top: 180px;
+  left: 330px;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
@@ -545,10 +627,13 @@ body{
   padding: 22px;
   background-color: #fff4;
   border-collapse: collapse;
-  width: auto;
+  width: 723px;
   overflow:scroll;
   height:340px;
   overflow-x: hidden;
+}
+.tablaInscribirShowall th,td{
+  width: 200px;
 }
 .tablaPromocionesEl{
   top: 30%;
@@ -625,9 +710,9 @@ body{
 #letraParejasCamp{
   margin-right: 10%;
 }
-.tablaInscripCamp{
-  top: 30%;
-  left: 25%;
+.tablaMisInscripCamp{
+  top: 192px;
+  left: 382px;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
@@ -635,14 +720,56 @@ body{
   padding: 22px;
   background-color: #fff4;
   border-collapse: collapse;
-  width: 57%;
+  width: 600px;
   overflow:scroll;
-  height:340px;
+  height:auto;
   overflow-x: hidden;
   font-family: 'Rajdhani', sans-serif;
 }
+.tablaMisInscripCamp th,td{
+  width: 225px;
+  height: 40px;
+}
 #letraInscripCamp{
   font-size: 17px;
+}
+.tablaInscripCamp{
+  top: 192px;
+  left: 409px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 29px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 584px;
+  overflow:scroll;
+  height:333px;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+}
+.tablaInscripCamp th,td{
+  width: 200px;
+}
+.tablaNoticiasTodo{
+  top: 192px;
+  left: 409px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 29px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 584px;
+  overflow:scroll;
+  height:333px;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+}
+.tablaNoticiasTodo th,td{
+  width: 150px;
 }
 /*Personaliza los botones de las tablas*/
 .botonEliminar{
@@ -763,6 +890,11 @@ body{
 }
 .botonVolver{
   margin-left: 90%;
+}
+.botonVolverAñadUsu{
+  position: absolute;
+  top:20px;
+  left:320px;
 }
 .botonVolverEl{
   margin-right: 25%;

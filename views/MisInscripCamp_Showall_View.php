@@ -8,7 +8,7 @@
 
  ?>
 
-<table class="tablaInscripCamp">
+<table class="tablaMisInscripCamp">
         <tr id="letraInscripCamp">
             <th>Miembro 1</th>
             <th>Miembro 2</th>

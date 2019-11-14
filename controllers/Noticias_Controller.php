@@ -9,18 +9,20 @@ include '../views/Noticias_Add_View.php';
 include '../views/Noticias_Showall_View.php';
 include '../models/Noticia_Model.php';
 include '../views/Message_View.php';
+include '../views/Principal_View.php';
 include '../views/Noticias_Delete_View.php';
 
 function get_data(){
 	$idContenido = $_REQUEST['idContenido'];
 	$titulo ='';
 	$descripcion = '';
+	$email = '';
 	$action = $_REQUEST['action'];
 	$NEW = new NoticiaModel(
 		$idContenido,
 		$titulo,
 		$descripcion,
-		$action
+		$email
 	);
 	return $NEW;
 }
@@ -28,13 +30,11 @@ Switch ($_REQUEST['action']){
 
 		case 'ADD':
 				if (!$_POST){
-					include_once '../models/Noticia_Model.php';
 					new NoticiasAddView();
 
 				}
 				else{
-				 include_once '../models/Noticia_Model.php';
-				  $modelo= new NoticiaModel($_REQUEST['idContenido'],$_REQUEST['titulo'], $_REQUEST['descripcion']);
+				  $modelo= new NoticiaModel($_REQUEST['idContenido'],$_REQUEST['titulo'], $_REQUEST['descripcion'],$_REQUEST['email']);
 					$respuesta = $modelo->insertarNoticia();
 					new MessageView($respuesta,'./Noticias_Controller.php');
 
@@ -46,8 +46,7 @@ Switch ($_REQUEST['action']){
 					new SEARCH_VIEW();
 				}
 				else{
-					 include_once '../models/Noticia_Model.php';
-					$modelo= new NoticiaModel($_REQUEST['id_noticia'],$_REQUEST['titulo'], $_REQUEST['descripcion']);
+					$modelo= new NoticiaModel($_REQUEST['id_noticia'],$_REQUEST['titulo'], $_REQUEST['descripcion'],$_REQUEST['email']);
 
                      $respuesta = $modelo->SEARCH();
 					$lista = array('Código', 'Titulo ', 'Descripcion ');
@@ -58,14 +57,12 @@ Switch ($_REQUEST['action']){
 
 		case 'EDIT':
 				if (!$_POST) {
-					 include_once '../models/Noticia_Model.php';
-					$modelo= new NoticiaModel($_REQUEST['idContenido'],'', '', '');
+					$modelo= new NoticiaModel($_REQUEST['idContenido'],'', '', '','');
 					$valores= $modelo ->RellenaDatos();
 					new Noticias_Edit($valores);
 				}
 				else{
-					 include '../models/Noticia_Model.php';
-					$modelo = new NoticiaModel($_REQUEST['idContenido'],$_REQUEST['titulo'], $_REQUEST['descripcion']);
+					$modelo = new NoticiaModel($_REQUEST['idContenido'],$_REQUEST['titulo'], $_REQUEST['descripcion'],$_REQUEST['email']);
 					$respuesta = $modelo->EDIT();
 					new MessageView($respuesta, './Noticias_Controller.php');
 				}
@@ -73,37 +70,37 @@ Switch ($_REQUEST['action']){
 				break;
 		case 'DELETE':
 				if (!$_POST) {
-					 include_once '../models/Noticia_Model.php';
-					$modelo= new NoticiaModel($_REQUEST['idContenido'],'', '');
+					$modelo= new NoticiaModel($_REQUEST['idContenido'],'', '', '');
 					$datos= $modelo ->eliminarNoticia();
 					new NoticiasDeleteView($datos);
 				}
 				else{
-					include_once '../models/Noticia_Model.php';
-					$modelo= new NoticiaModel($_REQUEST['idContenido'],$_REQUEST['titulo'], $_REQUEST['descripcion']);
+					$modelo= new NoticiaModel($_REQUEST['idContenido'],$_REQUEST['titulo'], $_REQUEST['descripcion'],$_REQUEST['email']);
 					$respuesta = $modelo->eliminarNoticia();
 					new MessageView($respuesta,'./Noticias_Controller.php');
 				}
 
 					break;
 		case 'SHOWCURRENT':
-				 include_once '../models/Noticia_Model.php';
 			    $modelo = new NoticiaModel($_REQUEST['id_noticia'],'','','');
 				$valores = $modelo->RellenaDatos();
 				new SHOWCURRENT_VIEW($valores);
 				break;
+
+		case 'PagPrincipal':
+			$modelo = new NoticiaModel('' ,'' ,'', $_SESSION['email']);
+			$contenido = $modelo->showAll();
+			$lista = array('  Código  ', '  Titulo  ', '  Descripcion  ');
+
+			new PrincipalView($lista,$contenido);
+			break;
+
 		 default:
-				if (!$_POST){
-					include_once '../models/Noticia_Model.php';
-					$modelo = new NoticiaModel(' ' ,' ' ,' ', ' ', ' ');
-				}
-				else{
-					  include_once '../models/Noticia_Model.php';
-				}
+				$modelo = new NoticiaModel('' ,'' ,'', '');
 				$contenido = $modelo->showAll();
 				$lista = array('  Código  ', '  Titulo  ', '  Descripcion  ');
 
 				new NoticiasShowallView($lista,$contenido);
-
+				break;
 }
  ?>

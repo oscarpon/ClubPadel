@@ -10,7 +10,7 @@ class UsuarioAddView{
 <div class="formularioAñadir">
   <form id="añadir" action='../controllers/Usuario_Controller.php' method='post'>
     <h3 id="nuevoUsuario">Añadir usuario</h3>
-    <a href="../controllers/Usuario_Controller"><img src="../img/volver.png" width="24px" height="24px" class="botonVolver" ></a>
+    <a href="../controllers/Usuario_Controller"><img src="../img/volver.png" width="22px" height="22px" class="botonVolverAñadUsu" ></a>
     <div>
       <div>
         <label></label>

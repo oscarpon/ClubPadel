@@ -4,6 +4,7 @@ session_start();
 include '../models/InscripCamp_Model.php';
 include '../models/Campeonato_Model.php';
 include '../models/Pareja_Model.php';
+include '../models/Pago_Model.php';
 include '../views/InscripCamp_Add_View.php';
 include '../views/InscripCamp_Delete_View.php';
 include '../views/MisInscripCamp_Showall_View.php';
@@ -38,6 +39,8 @@ switch ($_REQUEST['action']){
       $datos = $CAMP -> SEARCH();
       new InscripCampAddView($datos);
     }else{
+      $PAGO = new PagoModel($_SESSION['email'],'',25,'N');
+      $PAGO->ADD();
       $PARTCAMP = get_data_form();
       $respuesta = $PARTCAMP -> ADD();
       new MessageView($respuesta, '../controllers/InscripcionCampeonato_Controller.php');
