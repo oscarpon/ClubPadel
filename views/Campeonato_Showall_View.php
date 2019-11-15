@@ -44,10 +44,26 @@ while ($fila = $resultado->fetch_assoc()) {
 
  ?>
 
- <td> <form action="../controllers/Campeonato_Controller.php" name ='DELETE'>
-         <input type="hidden" name = 'nombre' value="<?php echo $fila['nombre'] ?>" readonly>
-         <button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
-         </form>
+ <td>
+  <form action="../controllers/Campeonato_Controller.php" name ='DELETE'>
+  <input type="hidden" name = 'nombre' value="<?php echo $fila['nombre'] ?>" readonly>
+  <button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
+  </form>
+  </td>
+  <td>
+    <form action="../controllers/Campeonato_Controller.php" name ='crearGrupos'>
+   <input type="hidden" name = 'nombre' value="<?php echo $fila['nombre'] ?>" readonly>
+   <button class="botonEliminar" name = "action" value = "crearGrupos">Grupos</button>
+   </form>
+  </td>
+      <td>
+        <form action="../controllers/Campeonato_Controller.php" name ='verGrupos'>
+       <input type="hidden" name = 'nombre' value="<?php echo $fila['nombre'] ?>" readonly>
+       <button class="botonEliminar" name = "action" value = "verGrupos">Ver</button>
+       </form>
+      </td>
+
+
  </td>
 
 <?php echo "</tr>"; } ?>

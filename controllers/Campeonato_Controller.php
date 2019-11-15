@@ -47,12 +47,12 @@ switch ($_REQUEST['action']) {
   case 'DELETE':
 	if (!$_POST) {
 		$modelo= new CampeonatoModel($_REQUEST['nombre'],'', '', '', '');
-		$datos= $modelo ->DELETE();
+		$datos= $modelo ->RellenaDatos();
 		new CampeonatoDeleteView($datos);
 	}
 	else{
-		$modelo= new CampenatoModel($_REQUEST['nombre'],$_REQUEST['fechaFinIns'], $_REQUEST['categoria'], $_REQUEST['genero'], $_REQUEST['estado']);
-		$respuesta = $modelo->eliminarCampenato();
+		$modelo= new CampeonatoModel($_REQUEST['nombre'],$_REQUEST['fechaFinIns'], $_REQUEST['categoria'], $_REQUEST['genero'], $_REQUEST['estado']);
+		$respuesta = $modelo->DELETE();
 		new MessageView($respuesta,'./Campeonato_Controller.php');
 	}
     break;
