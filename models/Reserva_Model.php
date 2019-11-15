@@ -104,8 +104,7 @@
               FROM reservas as t4 WHERE t1.codigoPista = t4.codigoPista
               AND t1.fecha = t4.fecha) AND t1.fecha='$this->fecha'";
       if($resultado=$this->mysqli->query($sql)){
-        $arrayPistas = $resultado->fetch_array();
-        return $arrayPistas;
+        return $resultado;
       }
     }
     function comprobarDispFechas(){
@@ -118,7 +117,8 @@
               FROM partidos as t3 WHERE t1.codigoPista = t3.codigoPista
               AND t1.fecha = t3.fecha AND t3.resultado = 'NJ') AND NOT EXISTS (SELECT t4.fecha
               FROM partidocamp as t4 WHERE t1.codigoPista = t4.codigoPista
-              AND t1.fecha = t4.fecha AND t4.resultado = 'NJ') AND t1.fecha >= '$fecha' ORDER BY t1.fecha";
+              AND t1.fecha = t4.fecha AND t4.resultado = 'NJ') AND TIMESTAMPDIFF(day, t1.fecha, '$fecha') <= -7
+              ORDER BY t1.fecha";
       if($resultado=$this->mysqli->query($sql)){
         if($resultado->num_rows != 0){
             return $resultado;

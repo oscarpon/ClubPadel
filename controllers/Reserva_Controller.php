@@ -8,6 +8,7 @@
   include '../views/Message_View.php';
   include '../models/Pago_Model.php';
   include '../models/Noticia_Model.php';
+  include '../models/OferPromPartido_Model.php';
 
   //Función que recoge la información del formulario
   function get_data_form(){
@@ -48,9 +49,10 @@
 
       else{
         $RESERVA = new ReservaModel($_SESSION ['email'],'',$_REQUEST ['fecha']);
-        $arrayPistas = $RESERVA->comprobarDispPistas();
+        $pistas = $RESERVA->comprobarDispPistas();
         //Comprueba si hay pistas disponibles
-        if(!empty($arrayPistas)){
+        if($pistas -> num_rows > 0){
+          $arrayPistas = $pistas->fetch_array();
           //Se inserta el pago
           $PAGO = new PagoModel($_SESSION['email'],'',35,'N');
           $PAGO->ADD();
@@ -59,6 +61,13 @@
           $NOTIF->insertarNoticia();
           //Crea la reserva
           $respuesta = $RESERVA -> ADD($arrayPistas);
+          //Consulta las ofertas y promociones que hay para esa fecha
+          $OFERPROM = new OferPromPartidoModel('',$_REQUEST['fecha'],'','','','','','');
+          $oferprompartido = $OFERPROM->SEARCH();
+          //Comprueba si era la última pista y hay ofertas y promociones en esa fecha
+          if($pistas -> num_rows == 1 && $oferprompartido -> num_rows > 0){
+             $OFERPROM->DELETEALL();
+          }
           new MessageView($respuesta, '../controllers/Reserva_Controller.php');
         }else{
           new MessageView("No hay pistas disponibles actualmente.", '../controllers/Reserva_Controller.php');
