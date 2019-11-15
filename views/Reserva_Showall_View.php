@@ -27,6 +27,13 @@
     <td><?php echo $fila['email']?> </td>
     <td><?php echo $fila['codigoPista']?> </td>
     <td><?php echo $fila['fecha']?> </td>
+    <td> <form action="../controllers/Reserva_Controller.php" name ='DELETE'>
+            <input type="hidden" name = 'email' value="<?php echo $fila['email'] ?>" readonly>
+            <input type="hidden" name = 'codigoPista' value="<?php echo $fila['codigoPista'] ?>" readonly>
+            <input type="hidden" name = 'fecha' value="<?php echo $fila['fecha'] ?>" readonly>
+            <button class="botonEliminar" name = "action" value = "DELETE">Cancelar</button>
+            </form>
+    </td>
 </tr>
 
 <?php

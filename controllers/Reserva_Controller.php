@@ -5,6 +5,7 @@
   include '../models/Reserva_Model.php';
   include '../views/Reserva_Add_View.php';
   include '../views/Reserva_Showall_View.php';
+  include '../views/Reserva_Delete_View.php';
   include '../views/Message_View.php';
   include '../models/Pago_Model.php';
   include '../models/Noticia_Model.php';
@@ -77,9 +78,16 @@
 
     //Caso borrar
     case 'DELETE':
-        $RESERVA = get_data_form();
-        $respuesta = $RESERVA->DELETE();
-        new MessageView($respuesta, '../controllers/Reserva_Controller.php');
+        if(!$_POST){
+          $RESERVA = get_data_form();
+          $datos = $RESERVA->RellenaDatos();
+          new ReservaDeleteView($datos);
+        }
+        else{
+          $RESERVA = get_data_form();
+          $respuesta = $RESERVA->DELETE();
+          new MessageView($respuesta, '../controllers/Reserva_Controller.php');
+        }
       break;
 
     //Caso por defecto
