@@ -341,6 +341,15 @@ class OferPromPartidoModel{
     }
   }
 
+  function DELETEALL(){
+    $sql = "DELETE FROM OFERPROMPARTIDOS WHERE (fecha='$this->fecha')";
+    if(!($resultado=$this->mysqli->query($sql))){
+      return 'Error en la eliminación';
+    }else{
+      return 'Todas las promociones han sido borradas';
+    }
+  }
+
 }
 
 
