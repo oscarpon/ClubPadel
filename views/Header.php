@@ -44,18 +44,21 @@ if (!isAuthenticated()) {
   <body>
     <div class="nav">
         <div class="tituloPadel">Club de padel</div>
-        <nav>
-          <a href="#">Inicio</a>
-          <a href="../controllers/Usuario_Controller.php">Usuarios</a>
-          <a href="../controllers/PromocionPartido_Controller.php">Promociones de partidos</a>
-          <li class="gestionarTitulo"><a href=""> Gestionar </a>
-            <ul class="submenu">
+        <nav class="navAdmin">
+        <ul class="submenu">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="../controllers/Usuario_Controller.php">Usuarios</a></li>
+          <li><a href="../controllers/PromocionPartido_Controller.php">Promociones de partidos</a></li>
+          <li><a href=""> Gestionar </a>
+            <ul>
               <li><a href="../controllers/Noticia_Controller.php">Gestionar noticias</a></li>
               <li><a href="../controllers/Pago_Controller.php">Gestionar pagos</a></li>
             </ul>
           </li>
-          <a href="#">Contacto</a>
-          <a id="desconectar" href="../functions/Desconectar.php"> <img src="../img/desconectar.png" width="24px" height="24px" > </a>
+          <li><a href="#">Contacto</a></li>
+          <li><a id="desconectar" href="../functions/Desconectar.php"> <img src="../img/desconectar.png" width="24px" height="24px" > </a></li>
+        </ul>
+
         </nav>
     </div>
 
