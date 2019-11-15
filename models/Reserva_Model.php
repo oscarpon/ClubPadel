@@ -65,12 +65,14 @@
     }
 
     function DELETE(){
-      $sql = "SELECT * FROM reservas WHERE(email='$this->email' AND codigoPista='$this->codigoPista' AND fecha='$this->fecha')";
+      $fechaActual = date("Y-m-d H:i:s");
+      $sql = "SELECT * FROM reservas WHERE(email='$this->email' AND codigoPista='$this->codigoPista' AND fecha='$this->fecha'
+      AND TIMESTAMPDIFF(hour, fecha, '$fechaActual') <= -12)";
       if(!($resultado=$this->mysqli->query($sql))){
         return 'Error en la base de datos.';
       }else{
         if($resultado->num_rows == 0){
-          return 'No existe la reserva.';
+          return 'No puedes cancelar la reserva con menos de 12 horas de diferencia.';
         }else{
           $sql = "DELETE FROM reservas WHERE(email='$this->email' AND codigoPista='$this->codigoPista' AND fecha='$this->fecha')";
           if(!($resultado=$this->mysqli->query($sql))){

@@ -65,6 +65,7 @@
     }
 
     function DELETE(){
+      $fechaActual = date("Y-m-d H:i:s");
       $sql="SELECT * FROM PARTCAMPEONATOS WHERE (miembro1='$this->miembro1' AND miembro2='$this->miembro2' AND nombreCamp='$this->nombreCamp')";
       $resultado=$this->mysqli->query($sql);
 
@@ -73,7 +74,7 @@
         $this->mysqli->query( $sql );
         return 'Eliminado correctamente';
       } else{
-        return 'No existe';
+        return 'No puedes dejar el campeonato con menos de 12 horas de diferencia.';
       }
     }
     function RellenaDatos(){
