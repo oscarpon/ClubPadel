@@ -380,6 +380,9 @@ body{
   padding: 18px;
   background-color: #fff4;
   width: 39%;
+  overflow:scroll;
+  height:auto;
+  overflow-x: hidden;
 }
 
 /*Personaliza la fuente*/
@@ -712,6 +715,18 @@ body{
 .letraOferta th, .letraReserva th{
   width: 10%;
 }
+.tablaReservasEl{
+  top: 200px;
+  left: 461px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 22px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 390px;
+}
 /*Crea un borde en las tablas especificadas*/
 .tablaUsuarios td, .tablaUsuariosEl td{
     border: 1px solid black;
@@ -798,6 +813,18 @@ body{
 }
 .tablaInscripCamp th,td{
   width: 200px;
+}
+.tablaInscripCampEl{
+  top: 192px;
+  left: 451px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 430px;
 }
 .tablaNoticiasTodo{
   top: 192px;

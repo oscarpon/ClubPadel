@@ -10,7 +10,7 @@
 
 ?>
     <cuerpo>
-<div class="tablaInscripEl">
+<div class="tablaInscripCampEl">
     <center>
 		<table>
 			<tr id="titulosTabEl">
