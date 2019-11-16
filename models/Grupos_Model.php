@@ -3,7 +3,7 @@
 /**
  *
  */
-class CampeonatoModel
+class GrupoModel
 {
 
   var $codigoPista;
@@ -29,6 +29,50 @@ class CampeonatoModel
     include_once '../functions/BdAdmin.php';
     $this->mysqli = ConectarBD();
 
+  }
+
+  function ADD(){
+
+        $sql = "SELECT * FROM partidocamp WHERE (codigoPista = '$this->codigoPista' AND fecha = '$this->fecha')";
+		if (!$result = $this->mysqli->query($sql)){
+			return 'No se ha podido conectar con la base de datos';
+		}
+		else {
+			if ($result->num_rows == 0){
+
+				$sql = "INSERT INTO partidocamp (
+					caodigoPista,
+					fecha,
+					miembro1Par1,
+					miembro2Par1,
+					miembro1Par2,
+					miembro2Par2,
+					nombreCamp,
+					resultado
+					)
+						VALUES (
+						'$this->codigoPista',
+						'$this->fecha',
+						'$this->miembro1Par1',
+						'$this->miembro2Par1',
+						'$this->miembro1Par2',
+						'$this->miembro2Par2',
+						'$this->nombreCamp',
+						'$this->result'
+						)";
+
+
+				if (!$this->mysqli->query($sql)) {
+					return 'Error en la inserción';
+				}
+				else{
+					return 'Inserción realizada con éxito';
+				}
+
+			}
+			else
+				return 'Ya existe en la base de datos';
+		}
   }
 
     function RellenaDatos(){

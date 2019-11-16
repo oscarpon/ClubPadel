@@ -47,12 +47,12 @@ class CampeonatoCurrentView
    <input type="hidden" name = 'miembro2Par2' value="<?php echo $valores['miembro2Par2'] ?>" readonly>
    <input type="hidden" name = 'nombreCamp' value="<?php echo $valores['nombreCamp'] ?>" readonly>
    <input type="hidden" name = 'resultado' value="<?php echo $valores['resultado'] ?>" readonly>
-        </form>
+ </form>
 
 
  </td>
 
-<?php echo "</tr>"; } ?>
+
 <center><a href="../controllers/Campeonato_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverEl"></a></center>
 
 </table>

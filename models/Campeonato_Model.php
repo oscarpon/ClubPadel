@@ -122,6 +122,7 @@ class CampeonatoModel
       return $resultado;
     }
 
+
 }
 
 

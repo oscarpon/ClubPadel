@@ -51,9 +51,9 @@ while ($fila = $resultado->fetch_assoc()) {
   </form>
   </td>
   <td>
-    <form action="../controllers/Grupo_Controller.php" name ='crearGrupos'>
+    <form action="../controllers/Campeonato_Controller.php" name ='crearGrupos'>
    <input type="hidden" name = 'nombre' value="<?php echo $fila['nombre'] ?>" readonly>
-   <button class="botonEliminar" name = "action" value = "crearGrupos">Grupos</button>
+   <button class="botonEliminar" name = "action" value = "generarGrupos">Grupos</button>
    </form>
   </td>
       <td>

@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 
 if (!isset($_REQUEST['action'])){
 	$_REQUEST['action'] = '';
@@ -12,7 +12,7 @@ include '../views/Campeonato_Delete_View.php';
 include '../views/Message_View.php';
 
 
-function get_data(){
+function get_data2(){
 	$codigoPista = $_REQUEST['codigoPista'];
 	$fecha ='';
 	$miembro1Par1 ='';
@@ -22,38 +22,29 @@ function get_data(){
   $nombreCamp='';
   $resultado='';
 	$action = $_REQUEST['action'];
-	$campeonato = new CampeonatoModel(
-		$nombre,
-		$fechaFinIns,
-		$categoria,
-		$genero,
-		$estado,
-		$action
+	$grupo = new GrupoModel(
+		$codigoPista,
+		$fecha,
+		$miembro1Par1,
+		$miembro2Par1,
+		$miembro1Par2,
+		$miembro2Par2,
+		$nombreCamp,
+		$resultado
 	);
-	return $campeonato;
+	return $grupo;
 }
 
 switch ($_REQUEST['action']) {
-  case 'ADD':
-    	if (!$_POST) {
-    		new CampeonatoAddView();
-    	}
-			else{
 
-				$sql = new CampeonatoModel($_REQUEST['nombre'], $_REQUEST['fechaFinIns'],$_REQUEST['categoria'], $_REQUEST['genero'], $_REQUEST['estado']);
-				$result = $sql->añadirCampeonato();
-					new MessageView($result,'./Campeonato_Controller.php');
-			}
-    break;
-
-  case 'DELETE':
+  case 'hacerGrupos':
 	if (!$_POST) {
-		$modelo= new CampeonatoModel($_REQUEST['nombre'],'', '', '', '');
+		$modelo= new GrupoModel($_REQUEST['nombre'],'', '', '', '');
 		$datos= $modelo ->RellenaDatos();
 		new CampeonatoDeleteView($datos);
 	}
 	else{
-		$modelo= new CampeonatoModel($_REQUEST['nombre'],$_REQUEST['fechaFinIns'], $_REQUEST['categoria'], $_REQUEST['genero'], $_REQUEST['estado']);
+		$modelo= new GrupoModel($_REQUEST['nombre'],$_REQUEST['fechaFinIns'], $_REQUEST['categoria'], $_REQUEST['genero'], $_REQUEST['estado']);
 		$respuesta = $modelo->DELETE();
 		new MessageView($respuesta,'./Campeonato_Controller.php');
 	}
@@ -61,13 +52,13 @@ switch ($_REQUEST['action']) {
 
   default:
 	if (!$_POST){
-		$modelo = new CampeonatoModel(' ' ,' ' ,' ', ' ', ' ');
+		$modelo = new GrupoModel(' ' ,' ' ,' ', ' ', ' ');
 	}
 
 	$contenido = $modelo->showAll();
 	$lista = array('nombre', 'fechaFinIns', 'categoria', 'genero', 'estado');
 
-	new CampeonatoShowallView($lista, $contenido);
+	new CampeonatoCurrentView($lista, $contenido);
 }
 
 
