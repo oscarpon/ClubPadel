@@ -11,8 +11,7 @@ include '../views/Campeonato_Add_View.php';
 include '../models/Campeonato_Model.php';
 include '../views/Campeonato_Delete_View.php';
 include '../views/Message_View.php';
-include '../controllers/Grupo_Controller.php';
-include '../models/Grupos_Model.php';
+include '../models/PartidoCamp_Model.php';
 
 
 function get_data(){
@@ -61,7 +60,7 @@ switch ($_REQUEST['action']) {
 
 		case 'generarGrupos':
 
-		if(!$_POST){
+		/*if(!$_POST){
 
 			$arrayAscendiente = getGruposAsc($_REQUEST['nombre'], $_REQUEST['categoria'], $_REQUEST['genero']);
 			$arrayDescendiente = getGruposDes($_REQUEST['nombre'], $_REQUEST['categoria'], $_REQUEST['genero']);
@@ -85,6 +84,11 @@ switch ($_REQUEST['action']) {
 			new CampeonatoCurrentView($datos, $resultado);
 		}
 		}
+		break;*/
+		$modelo = new CampeonatoModel ($_REQUEST['nombre'], '', '', '', '');
+		$respuesta = $modelo -> crearGrupo() ;
+		new MessageView($respuesta, './Campeonato_Controller.php');
+
 		break;
 
   default:

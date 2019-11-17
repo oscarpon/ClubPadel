@@ -1,15 +1,16 @@
 <?php
 
-
+session_start();
 
 if (!isset($_REQUEST['action'])){
 	$_REQUEST['action'] = '';
 }
 
 include '../views/Campeonato_Current_View.php';
-include '../models/Campeonato_Model.php';
-include '../views/Campeonato_Delete_View.php';
-include '../views/Message_View.php';
+//include '../models/Campeonato_Model.php';
+//include '../views/Campeonato_Delete_View.php';
+//include '../views/Message_View.php';
+include '../models/PartidoCamp_Model.php';
 
 
 function get_data2(){

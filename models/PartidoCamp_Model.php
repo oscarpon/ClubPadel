@@ -3,7 +3,7 @@
 /**
  *
  */
-class GrupoModel
+class PartidoCampModel
 {
 
   var $codigoPista;
@@ -15,7 +15,7 @@ class GrupoModel
   var $nombreCamp;
   var $resultado;
 
-  function __construct($codigoPista, $fecha, $miembro1Par1, $miembro2Par1, $miembro2Par1, $miembro2Par2, $nombreCamp, $resultado)
+  function __construct($codigoPista, $fecha, $miembro1Par1, $miembro2Par1, $miembro1Par2, $miembro2Par2, $nombreCamp, $resultado)
   {
     $this->codigoPista = $codigoPista;
     $this->fecha = $fecha;
