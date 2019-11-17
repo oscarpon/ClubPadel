@@ -574,7 +574,7 @@ body{
   float: none;
   text-align: center;
 }
-.botonRegistrar:hover, .botonAñadir:hover, .botonAñadirProm:hover{
+.botonRegistrar:hover, .botonAñadir:hover, .botonAñadirProm:hover, .botonGenerar:hover{
   background: #727DB0;
   cursor: pointer;
 }
@@ -633,6 +633,20 @@ body{
 .botonReservar:hover{
   background: #727DB0;
   cursor: pointer;
+}
+.botonGenerar{
+  margin-bottom: 0;
+  background: #5264BA;
+  color: #fff;
+  border: none;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 1.5%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  left: 64%;
+  top: 61%;
 }
 /*Personaliza las diferentes tablas*/
 .tablaUsuarios {
