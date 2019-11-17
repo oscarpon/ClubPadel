@@ -39,14 +39,13 @@ class PrincipalView
       echo "<tr>";
       echo "<td>".$fila["titulo"]."</td>";
       echo "<td>".$fila["descripcion"]."</td>";
-      echo "</tr>";
-
 ?>
 
-<td> <form action="../controllers/Noticias_Controller.php" name ='DELETE'>
-				<input type="hidden" name = 'idContenido' value="<?php echo $fila['idContenido'] ?>" readonly>
-				<button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
-				</form>
+<td>
+	<form action="../controllers/Noticias_Controller.php" name ='DELETE'>
+		<input type="hidden" name = 'idContenido' value="<?php echo $fila['idContenido'] ?>" readonly>
+		<button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
+	</form>
 </td>
 
 
