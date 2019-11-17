@@ -18,10 +18,9 @@ if (!isAuthenticated()) {
   ?>
   <body>
     <div class="nav">
-      <div class="wrapper"></div>
-        <div class="tituloPadel">Club de padel</div>
-        <nav>
-          <a href="#">Inicio</a>
+      <div class="tituloPadel">Club de padel</div>
+        <nav class="navPrincipio">
+          <a href="../controllers/Index_Controller.php">Inicio</a>
           <a href="#">Contacto</a>
         </nav>
     </div>
@@ -76,8 +75,7 @@ if (!isAuthenticated()) {
 <?php } else if ($_SESSION['rol'] == 'E'){?>
   <body>
     <div class="nav">
-      <div class="wrapper"></div>
-        <div class="tituloPadel">Club de padel</div>
+      <div class="tituloPadel">Club de padel</div>
         <nav>
           <a href="#">Inicio</a>
           <a href="#">Contacto</a>
@@ -88,8 +86,7 @@ if (!isAuthenticated()) {
 <?php }else{?>
   <body>
     <div class="nav">
-      <div class="wrapper"></div>
-        <div class="tituloPadel">Club de padel</div>
+      <div class="tituloPadel">Club de padel</div>
         <nav>
           <a href="#">Inicio</a>
         </nav>

@@ -12,7 +12,7 @@ class NoticiasDeleteView
 ?>
 
 <cuerpo>
-<div class="tablaNoticiasTodo">
+<div class="tablaNoticiasEl">
 <center>
 <table>
 	<tr id="titulosTabCampeonato">
@@ -31,15 +31,15 @@ class NoticiasDeleteView
 
 
 <form name="x" method="post" action="../controllers/Noticias_Controller.php" name ='DELETE' method="post">
-	 <h4 id="mensajeEliminar">¿Desea borrar esta noticia?</h4>
+	 <h4 id="mensajeEliminarNoticia">¿Desea borrar esta noticia?</h4>
 	 <input type="hidden" name = 'idContenido' value="<?php echo $valores['idContenido'] ?>" readonly>
 	 <input type="hidden" name = 'titulo' value="<?php echo $valores['titulo'] ?>" readonly>
 	 <input type="hidden" name = 'descripcion' value="<?php echo $valores['descripcion'] ?>" readonly>
 	 <input type="hidden" name = 'email' value="<?php echo $valores['email'] ?>" readonly>
-				<button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmar"></button>
+				<button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmarNoticia"></button>
 				</form>
 <center>
-	<a href="../controllers/Noticias_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverEl"></a></center>
+	<a href="../controllers/Noticias_Controller.php"><img src="../img/volver.png" width="21px" height="21px" class="botonVolverEl"></a></center>
 
 </center>
 		</div>

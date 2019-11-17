@@ -23,11 +23,6 @@ class LigaShowallView
   <th>Campeonato</th>
   <th>Grupo</th>
   <th>Puntos</th>
-  <th id="columnaAñadirLiga">
-    <div>
-      <a href="../controllers/Campeonato_Controller.php?action=ADD" action="añadir"><img src="../img/añadir.png" width="24px" height="24px" ></a>
-    </div>
-  </th>
 </tr>
 
 <?php
