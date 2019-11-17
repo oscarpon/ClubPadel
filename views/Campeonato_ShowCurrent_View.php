@@ -23,6 +23,12 @@ class CampeonatoShowCurrentView
   <th>Campeonato</th>
   <th>Grupo</th>
   <th>Puntos</th>
+  <th>
+      <form action="../controllers/Campeonato_Controller.php" name ='generarPartidos'>
+      <input type="hidden" name = 'nombre' value="<?php echo $fila['nombre'] ?>" readonly>
+      <button class="botonGenerar" name = "action" value = "generarPartidos">Generar partidos</button>
+      </form>
+  </th>
 </tr>
 
 <?php
@@ -38,30 +44,9 @@ while ($fila = $resultado->fetch_assoc()) {
 
  ?>
 
- <td> <form action="../controllers/Liga_Controller.php" name ='DELETE'>
-         <input type="hidden" name = 'miembro1' value="<?php echo $fila['miembro1'] ?>" readonly>
-         <input type="hidden" name = 'miembro2' value="<?php echo $fila['miembro2'] ?>" readonly>
-         <input type="hidden" name = 'nombreCamp' value="<?php echo $fila['nombreCamp'] ?>" readonly>
-         <button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
-         </form>
- </td>
- <td>
-   <form action="../controllers/Liga_Controller.php" name ='EDIT'>
-           <input type="hidden" name = 'miembro1' value="<?php echo $fila['miembro1'] ?>" readonly>
-           <input type="hidden" name = 'miembro2' value="<?php echo $fila['miembro2'] ?>" readonly>
-           <input type="hidden" name = 'nombreCamp' value="<?php echo $fila['nombreCamp'] ?>" readonly>
-           <button class="botonEliminar" name = "action" value = "EDIT">Editar</button>
-           </form>
- </td>
-
-
 <?php echo "</tr>"; } ?>
 
 </table>
-
-
-
-
 
 <?php
 include '../views/Footer.php';
