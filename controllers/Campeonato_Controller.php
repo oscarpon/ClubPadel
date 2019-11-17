@@ -74,8 +74,8 @@ switch ($_REQUEST['action']) {
 
 	case 'generarPartidos':
 		$modelo = new CampeonatoModel($_REQUEST['nombre'], '', '', '', '');
-		$respuesta = $modelo -> generarPartidos();
-		new MessageView($respuesta,'./Campeonato_Model.php');
+		$modelo -> generarPartidos();
+		new MessageView('Partidos generados.','./Campeonato_Model.php');
 	break;
 
   default:

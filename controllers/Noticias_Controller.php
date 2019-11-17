@@ -34,7 +34,7 @@ Switch ($_REQUEST['action']){
 
 				}
 				else{
-				  $modelo= new NoticiaModel($_REQUEST['idContenido'],$_REQUEST['titulo'], $_REQUEST['descripcion'],$_REQUEST['email']);
+				  $modelo= new NoticiaModel($_REQUEST['idContenido'],$_REQUEST['titulo'], $_REQUEST['descripcion'],$_SESSION['email']);
 					$respuesta = $modelo->insertarNoticia();
 					new MessageView($respuesta,'./Noticias_Controller.php');
 
@@ -46,7 +46,7 @@ Switch ($_REQUEST['action']){
 					new SEARCH_VIEW();
 				}
 				else{
-					$modelo= new NoticiaModel($_REQUEST['id_noticia'],$_REQUEST['titulo'], $_REQUEST['descripcion'],$_REQUEST['email']);
+					$modelo= new NoticiaModel($_REQUEST['id_noticia'],$_REQUEST['titulo'], $_REQUEST['descripcion'],$_SESSION['email']);
 
                      $respuesta = $modelo->SEARCH();
 					$lista = array('Código', 'Titulo ', 'Descripcion ');
@@ -62,7 +62,7 @@ Switch ($_REQUEST['action']){
 					new Noticias_Edit($valores);
 				}
 				else{
-					$modelo = new NoticiaModel($_REQUEST['idContenido'],$_REQUEST['titulo'], $_REQUEST['descripcion'],$_REQUEST['email']);
+					$modelo = new NoticiaModel($_REQUEST['idContenido'],$_REQUEST['titulo'], $_REQUEST['descripcion'],$_SESSION['email']);
 					$respuesta = $modelo->EDIT();
 					new MessageView($respuesta, './Noticias_Controller.php');
 				}
@@ -75,7 +75,7 @@ Switch ($_REQUEST['action']){
 					new NoticiasDeleteView($datos);
 				}
 				else{
-					$modelo= new NoticiaModel($_REQUEST['idContenido'],$_REQUEST['titulo'], $_REQUEST['descripcion'],$_REQUEST['email']);
+					$modelo= new NoticiaModel($_REQUEST['idContenido'],$_REQUEST['titulo'], $_REQUEST['descripcion'],$_SESSION['email']);
 					$respuesta = $modelo->eliminarNoticia();
 					new MessageView($respuesta,'./Noticias_Controller.php');
 				}
