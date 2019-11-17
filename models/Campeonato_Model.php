@@ -172,6 +172,56 @@ class CampeonatoModel
         }
       }
     }
+    //Devuelve las pistas que están libres
+    function comprobarDispPistas(){
+      $sql = "SELECT t1.codigoPista, t1.fecha
+              FROM pistas as t1
+              WHERE NOT EXISTS (SELECT t2.codigoPista, t2.fecha
+              FROM partidos as t2 WHERE t1.codigoPista = t2.codigoPista
+              AND t1.fecha = t2.fecha AND t2.resultado = 'NJ') AND NOT EXISTS (SELECT t3.codigoPista, t3.fecha
+              FROM partidocamp as t3 WHERE t1.codigoPista = t3.codigoPista
+              AND t1.fecha = t3.fecha AND t3.resultado = 'NJ') AND NOT EXISTS (SELECT t4.codigoPista, t4.fecha
+              FROM reservas as t4 WHERE t1.codigoPista = t4.codigoPista
+              AND t1.fecha = t4.fecha) AND t1.fecha='$this->fecha'";
+      if($resultado=$this->mysqli->query($sql)){
+        return $resultado;
+      }
+    }
+
+    function generarPartidos(){
+      $hora = 0;
+      $minuto = 0;
+      $segundo = 0;
+      $arrayPistas = array('000010', '000011', '000012', '000013', '000014');
+        $grupo = 1;
+        $sql = "SELECT * FROM clasificacion WHERE nombreCamp='$this->nombre' AND grupo='$grupo' ORDER BY puntos ASC";
+        $resultado = $this->mysqli->query($sql);
+        $sql2 = "SELECT * FROM clasificacion WHERE nombreCamp='$this->nombre' AND grupo='$grupo' ORDER BY puntos DESC";
+        $resultado2 = $this->mysqli->query($sql2);
+        if($resultado->num_rows > 0){
+          while ($fila = mysqli_fetch_array($resultado)) {
+              while ($fila2 = mysqli_fetch_array($resultado2)) {
+                  //$fecha = date("Y-m-d H:i:s");
+                  $fecha = new DateTime('now');
+                  $hora = $hora + 4;
+                  $fecha->setTime($hora, $minuto, $segundo);
+                  $fechaString = $fecha->format('Y-m-d H:i:s');
+                  $pista = $arrayPistas[array_rand($arrayPistas)];
+                  $miembro1Par1 = $fila['miembro1'];
+                  $miembro2Par1 = $fila['miembro2'];
+                  $miembro1Par2 = $fila2['miembro1'];
+                  $miembro2Par2 = $fila2['miembro2'];
+                  if($miembro1Par1 != $miembro1Par2){
+                    $insertSQL = "INSERT INTO partidocamp VALUES('$pista', '$fechaString', '$miembro1Par1','$miembro2Par1',
+                      '$miembro1Par2', '$miembro2Par2', '$this->nombre', 'NJ')";
+                      if(!($resultadoSQL=$this->mysqli->query($insertSQL))){
+                        return 'Error';
+                      }
+                  }
+              }
+          }
+        }
+    }
 }
 
 

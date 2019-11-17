@@ -72,6 +72,12 @@ switch ($_REQUEST['action']) {
 		new CampeonatoShowCurrentView($datos);
 		break;
 
+	case 'generarPartidos':
+		$modelo = new CampeonatoModel($_REQUEST['nombre'], '', '', '', '');
+		$respuesta = $modelo -> generarPartidos();
+		new MessageView($respuesta,'./Campeonato_Model.php');
+	break;
+
   default:
 	if (!$_POST){
 		$modelo = new CampeonatoModel(' ' ,' ' ,' ', ' ', ' ');
