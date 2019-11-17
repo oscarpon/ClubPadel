@@ -25,22 +25,32 @@
   height: 12%;
   background-color:#fff2;
   margin-bottom: 20px;
-}/*
-.submenu{
-  background-color:#fff2;
-  font-family: 'Cuprum', sans-serif;
-  display: none;
-  position: absolute;
-  width: 150px;
 }
-.submenu:hover{
-  background-color: white;
-}
-.submenu li{
-  display: block;
-}*/
 ul{
   list-style: none;
+}
+.submenuUsu li>a{
+  display: block;
+  color:black;
+  text-decoration: none;
+  padding: 10px 20px;
+  line-height: normal;
+  font-size: 17px;
+  font-weight: bold;
+  -webkit-transition:all 500ms ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;
+  font-family: 'Cuprum', sans-serif;
+}
+
+.submenuUsu li>a:hover{
+  background-color: #D7DB6F;
+  border-radius: 50px;
+}
+.submenuUsu>li{
+  float: left;
+  text-align:center
+  display:inline-block;
 }
 .submenu li>a{
   display: block;
@@ -74,6 +84,16 @@ ul{
 .submenu>li:hover>ul {
   display:block;
 }
+/*submenu usuario*/
+.submenuUsu>li>ul{
+  display: none;
+  position: absolute;
+  background-color: #fff6;
+  border-radius: 15px;
+}
+.submenuUsu>li:hover>ul {
+  display:block;
+}
 /*Personaliza el titulo de la cabecera*/
 .tituloPadel{
   font-size: 44px;
@@ -93,6 +113,14 @@ ul{
   position: absolute;
   top: 24px;
   left: 843px;
+}
+.navUsu{
+    float: right;
+    line-height: 100px;
+    margin-right: 2%;
+    position: absolute;
+    top: 24px;
+    left: 800px;
 }
 nav{
   float: right;
@@ -305,6 +333,10 @@ body{
 #miembro1{
   margin-top: 12%;
 }
+/*titulo miembro 1 en editar  liga*/
+#miembro1Liga{
+  margin-top: 5px;
+}
 .formularioAñadirCamp{
   top: 200px;
   left: 551px;
@@ -411,7 +443,7 @@ body{
 #tablaGenero{
   width: 25%;
 }
-#columnaEliminar{
+#columnaEliminar, #columnaElLiga, #columnaEditarLiga, #columnaAñadirLiga{
   border: none;
 }
 /*Personaliza select*/
@@ -512,6 +544,11 @@ body{
   position: absolute;
   left: 84%;
   top: 7%;
+}
+.botonVolverLiga{
+  position: absolute;
+  top: 26px;
+  left: 568px;
 }
 .botonRegistrar, .botonAñadir{
   margin-bottom: 0;
@@ -614,8 +651,8 @@ body{
 }
 /*tabla usuarios eliminados*/
 .tablaUsuariosEl{
-  top: 30%;
-  left: 33%;
+  top: 155px;
+  left: 261px;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
@@ -624,7 +661,6 @@ body{
   background-color: #fff4;
   border-collapse: collapse;
 }
-
 .tablaOferta{
   top: 200px;
   left: 268px;
@@ -651,6 +687,19 @@ body{
   background-color: #fff4;
   border-collapse: collapse;
   width: 64%;
+}
+.tablaLigaEl{
+  top: 150px;
+  left: 400px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 600px;
+  font-family: 'Rajdhani', sans-serif;
 }
 .tablaPromocion{
   top: 200px;
@@ -864,11 +913,27 @@ body{
   font-size: 17px;
   outline: none;
 }
-.botonEliminar:hover, .botonEliminarUsu:hover{
+.botonEliminar:hover, .botonEliminarUsu:hover, .botonEliminarLiga:hover{
   background: #E56464;
   cursor: pointer;
 }
 .botonEliminarUsu{
+  margin-bottom: 0;
+  background: #E64747;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 3.5%;
+  margin-top: 8%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  outline: none;
+  margin-left: 5px;
+}
+.botonEliminarLiga{
   margin-bottom: 0;
   background: #E64747;
   color: #fff;
@@ -962,6 +1027,66 @@ body{
   background: #C890DC;
   cursor: pointer;
 }
+/*botones campeonato showall*/
+.botonGrupos{
+  margin-bottom: 0;
+  background: #d1892e;
+  color: black;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 3.5%;
+  margin-top: 8%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  outline: none
+}
+.botonGrupos:hover{
+  background: #d0a268;
+  cursor: pointer;
+}
+.botonVer{
+  margin-bottom: 0;
+  background: white;
+  color: black;
+  border: none;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 3.5%;
+  margin-top: 8%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  outline: none
+}
+.botonVer:hover{
+  background: #b6b6b6;
+  cursor: pointer;
+}
+/*botones showall Liga*/
+.botonEditar{
+  margin-bottom: 0;
+  background: #d1892e;
+  color: black;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 3.5%;
+  margin-top: 4px;
+  margin-left: 12px;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  outline: none
+}
+.botonEditar:hover{
+  background: #d0a268;
+  cursor: pointer;
+}
 /*Personaliza las letras*/
 #letraUsuarios, #letraPromocionAd {
   font-family: 'Rajdhani', sans-serif;
@@ -1019,6 +1144,14 @@ body{
   cursor: pointer;
   position: absolute;
   top: 143px;
+}
+/*icono tic eliminar usuario y liga*/
+#ticConfirmarElUsu, #ticConfirmarElLiga{
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 146px;
 }
 /*Titulos de la tabla eliminar*/
 #titulosTabEl{

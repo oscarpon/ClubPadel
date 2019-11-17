@@ -23,9 +23,11 @@ class LigaShowallView
   <th>Campeonato</th>
   <th>Grupo</th>
   <th>Puntos</th>
-  <div>
-    <a href="../controllers/Campeonato_Controller.php?action=ADD" action="añadir" id = "añadirCampeonato" class="botonAñadirProm"><img src="../img/añadir.png" width="24px" height="24px" ></a>
-  </div>
+  <th id="columnaAñadirLiga">
+    <div>
+      <a href="../controllers/Campeonato_Controller.php?action=ADD" action="añadir"><img src="../img/añadir.png" width="24px" height="24px" ></a>
+    </div>
+  </th>
 </tr>
 
 <?php
@@ -41,19 +43,19 @@ while ($fila = $resultado->fetch_assoc()) {
 
  ?>
 
- <td> <form action="../controllers/Liga_Controller.php" name ='DELETE'>
+ <td id="columnaElLiga"> <form action="../controllers/Liga_Controller.php" name ='DELETE'>
          <input type="hidden" name = 'miembro1' value="<?php echo $fila['miembro1'] ?>" readonly>
          <input type="hidden" name = 'miembro2' value="<?php echo $fila['miembro2'] ?>" readonly>
          <input type="hidden" name = 'nombreCamp' value="<?php echo $fila['nombreCamp'] ?>" readonly>
-         <button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
+         <button class="botonEliminarLiga" name = "action" value = "DELETE">Eliminar</button>
          </form>
  </td>
- <td>
+ <td id="columnaEditarLiga">
    <form action="../controllers/Liga_Controller.php" name ='EDIT'>
            <input type="hidden" name = 'miembro1' value="<?php echo $fila['miembro1'] ?>" readonly>
            <input type="hidden" name = 'miembro2' value="<?php echo $fila['miembro2'] ?>" readonly>
            <input type="hidden" name = 'nombreCamp' value="<?php echo $fila['nombreCamp'] ?>" readonly>
-           <button class="botonEliminar" name = "action" value = "EDIT">Editar</button>
+           <button class="botonEditar" name = "action" value = "EDIT">Editar</button>
            </form>
  </td>
 
