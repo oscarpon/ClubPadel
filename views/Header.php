@@ -32,7 +32,7 @@ if (!isAuthenticated()) {
         <div class="tituloPadel">Club de padel</div>
         <nav class="navUsu">
         <ul class="submenuUsu">
-          <li><a href="../controllers/Noticias_Controller.php">Inicio</a></li>
+          <li><a href="../controllers/Noticias_Controller.php?action=PagPrincipal">Inicio</a></li>
           <li><a href="../controllers/Reserva_Controller.php">Mis reservas</a></li>
           <li><a href="">Partidos</a>
             <ul>
@@ -56,7 +56,7 @@ if (!isAuthenticated()) {
         <div class="tituloPadel">Club de padel</div>
         <nav class="navAdmin">
         <ul class="submenu">
-          <li><a href="../controllers/Noticias_Controller.php">Inicio</a></li>
+          <li><a href="../controllers/Noticias_Controller.php?action=PagPrincipal">Inicio</a></li>
           <li><a href="../controllers/PromocionPartido_Controller.php">Promociones de partidos</a></li>
           <li><a href=""> Gestionar </a>
             <ul>
