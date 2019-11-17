@@ -92,7 +92,7 @@ ul{
   margin-right: 2%;
   position: absolute;
   top: 24px;
-  left: 664px;
+  left: 843px;
 }
 nav{
   float: right;
@@ -410,6 +410,9 @@ body{
 /*Personaliza la tabla*/
 #tablaGenero{
   width: 25%;
+}
+#columnaEliminar{
+  border: none;
 }
 /*Personaliza select*/
 .tablaFecha {
@@ -861,9 +864,25 @@ body{
   font-size: 17px;
   outline: none;
 }
-.botonEliminar:hover{
+.botonEliminar:hover, .botonEliminarUsu:hover{
   background: #E56464;
   cursor: pointer;
+}
+.botonEliminarUsu{
+  margin-bottom: 0;
+  background: #E64747;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 3.5%;
+  margin-top: 8%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  outline: none;
+  margin-left: 5px;
 }
 .botonConfirmar{
   margin-bottom: 7%;
@@ -971,7 +990,7 @@ body{
   left:320px;
 }
 .botonVolverEl{
-  margin-right: 25%;
+  margin-right: 67px;
 }
 .botonVolverPago{
   position: absolute;
@@ -989,8 +1008,17 @@ body{
 /*Icono tic*/
 #ticConfirmar{
   border: none;
-  background: none;
+  background: transparent;
   cursor: pointer;
+  position: absolute;
+  top: 177px;
+}
+#ticConfirmarOfPar{
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 143px;
 }
 /*Titulos de la tabla eliminar*/
 #titulosTabEl{

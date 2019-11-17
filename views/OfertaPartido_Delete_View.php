@@ -44,9 +44,9 @@
             <input type="hidden" name = 'tipo' value="<?php echo $valores['tipo'] ?>" readonly>
             <h4 id="mensajeEliminar">¿Desea borrar esta oferta?</h4>
 
-            <button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmar"></button>
+            <button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmarOfPar"></button>
             </form>
-            <center><a href="../controllers/OfertaPartido_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverEl"></a></center>
+            <center><a href="../controllers/OfertaPartido_Controller.php"><img src="../img/volver.png" width="21px" height="21px" class="botonVolverEl"></a></center>
 
     </center>
         </div>
