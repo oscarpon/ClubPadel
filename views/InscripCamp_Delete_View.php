@@ -33,7 +33,7 @@
             <input type="hidden" name = 'nombreCamp' value="<?php echo $valores['nombreCamp'] ?>" readonly>
             <h4 id="mensajeEliminar">¿Desea borrar esta inscripción?</h4>
 
-            <button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmar"></button>
+            <button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmarInscCamp"></button>
             </form>
             <center><a href="../controllers/InscripCamp_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverEl"></a></center>
 

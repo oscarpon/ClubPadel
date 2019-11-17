@@ -1146,7 +1146,7 @@ body{
   top: 143px;
 }
 /*icono tic eliminar usuario y liga*/
-#ticConfirmarElUsu, #ticConfirmarElLiga{
+#ticConfirmarElUsu, #ticConfirmarElLiga, #ticConfirmarInscCamp, #ticConfirmarPareja{
   border: none;
   background: transparent;
   cursor: pointer;
