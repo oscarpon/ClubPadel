@@ -32,7 +32,7 @@ if (!isAuthenticated()) {
         <div class="tituloPadel">Club de padel</div>
         <nav class="navUsu">
         <ul class="submenuUsu">
-          <li><a href="#">Inicio</a></li>
+          <li><a href="../controllers/Noticias_Controller.php">Inicio</a></li>
           <li><a href="../controllers/Reserva_Controller.php">Mis reservas</a></li>
           <li><a href="">Partidos</a>
             <ul>
