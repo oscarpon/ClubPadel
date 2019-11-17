@@ -46,7 +46,6 @@ if (!isAuthenticated()) {
               <li><a href="../controllers/Pareja_Controller.php">Parejas</a></li>
             </ul>
           </li>
-          <li><a href="#">Contacto</a></li>
           <li><a id="desconectar" href="../functions/Desconectar.php"> <img src="../img/desconectar.png" width="24px" height="24px" > </a></li>
         </ul>
         </nav>
