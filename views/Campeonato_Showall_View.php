@@ -53,13 +53,13 @@ while ($fila = $resultado->fetch_assoc()) {
   <td>
     <form action="../controllers/Campeonato_Controller.php" name ='crearGrupos'>
    <input type="hidden" name = 'nombre' value="<?php echo $fila['nombre'] ?>" readonly>
-   <button class="botonEliminar" name = "action" value = "generarGrupos">Grupos</button>
+   <button class="botonGrupos" name = "action" value = "generarGrupos">Grupos</button>
    </form>
   </td>
       <td>
         <form action="../controllers/Campeonato_Controller.php" name ='verGrupos'>
        <input type="hidden" name = 'nombre' value="<?php echo $fila['nombre'] ?>" readonly>
-       <button class="botonEliminar" name = "action" value = "verGrupos">Ver</button>
+       <button class="botonVer" name = "action" value = "verGrupos">Ver</button>
        </form>
       </td>
 

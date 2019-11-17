@@ -32,9 +32,9 @@
     <td><?php echo $fila['rol']?> </td>
     <td><?php echo $fila['genero']?> </td>
 
-    <td> <form action="../controllers/Usuario_Controller.php" name ='DELETE'>
+    <td id="columnaEliminar"> <form action="../controllers/Usuario_Controller.php" name ='DELETE'>
             <input type="hidden" name = 'email' value="<?php echo $fila['email'] ?>" readonly>
-            <button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
+            <button class="botonEliminarUsu" name = "action" value = "DELETE">Eliminar</button>
             </form>
     </td>
 </tr>

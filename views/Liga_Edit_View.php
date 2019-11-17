@@ -16,11 +16,11 @@ class LigaEditView
 <div class="formulario">
 
 
-		<form class="tablaNoticiasTodo" method="post" action="../Controllers/Liga_Controller.php?action=EDIT" onsubmit="return validar();">
+		<form class="tablaNoticiasTodo" method="post" action="../Controllers/Liga_Controller.php" onsubmit="return validar();">
 
 
         Miembro 1
-        <input type="text" id="miembro1" name="miembro1" class="form-control" readonly value="<?php echo $valores[0] ?>" >
+        <input type="text" id="miembro1Liga" name="miembro1" class="form-control" readonly value="<?php echo $valores[0] ?>" >
         Miembro 2
 		  	<input type="text" id="miembro2" name="miembro2" required class="form-control" readonly value="<?php echo $valores[1] ?>">
         Campeonato
@@ -36,19 +36,15 @@ class LigaEditView
 
 
 
-		   <button type="submit" class="">Guardar</button>
+		   <button type="submit" name="action" value="EDIT" class="">Guardar</button>
 
 		   <p>
 
 		   </p>
 		   <br>
 		   <br>
+			 <a href="../controllers/Liga_Controller.php"><img src="../img/volver.png" width="21px" height="21px" class="botonVolverLiga" ></a>
 		</form>
-    <a href="../controllers/Liga_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverOfPar" ></a>
-
-
-
-
 
 </div>
 

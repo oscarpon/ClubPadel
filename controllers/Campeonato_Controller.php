@@ -10,8 +10,10 @@ include '../views/Campeonato_Showall_View.php';
 include '../views/Campeonato_Add_View.php';
 include '../models/Campeonato_Model.php';
 include '../views/Campeonato_Delete_View.php';
+include '../views/Campeonato_ShowCurrent_View.php';
 include '../views/Message_View.php';
 include '../models/PartidoCamp_Model.php';
+include '../models/Liga_Model.php';
 
 
 function get_data(){
@@ -58,37 +60,16 @@ switch ($_REQUEST['action']) {
 	}
     break;
 
-		case 'generarGrupos':
+	case 'generarGrupos':
+			$modelo = new CampeonatoModel ($_REQUEST['nombre'], '', '', '', '');
+			$respuesta = $modelo -> crearGrupo() ;
+			new MessageView($respuesta, './Campeonato_Controller.php');
 
-		/*if(!$_POST){
-
-			$arrayAscendiente = getGruposAsc($_REQUEST['nombre'], $_REQUEST['categoria'], $_REQUEST['genero']);
-			$arrayDescendiente = getGruposDes($_REQUEST['nombre'], $_REQUEST['categoria'], $_REQUEST['genero']);
-			$array1 = array();
-			$array2 = array();
-			if(!comprobarSiExisteEnfrentamiento($_REQUEST['id_campeonato'], $_REQUEST['nivel'], $_REQUEST['categoria'])){
-			while($array1 = $arrayAscendiente->fetch_assoc()){
-			while($array2 = $arrayAscendiente->fetch_assoc()){
-			$modelo = new GruposModel($_REQUEST['codigoPista'],$_REQUEST['fecha'],$array1['miembro1Par1'],$array1['miembro1Par2'],$array2['miembro2Par1'],$array2['miembro2Par2'],$_REQUEST['nombreCamp'],'');
-			$respuesta = $modelo->ADD();
-
-			break;
-				}
-
-			}
-		}
-		else{
-			$modelo = new GruposModel('','','','','','','','');
-			$resultado = $modelo->SEARCHCLASHBYCATNIV($_REQUEST['id_campeonato'], $_REQUEST['nivel'], $_REQUEST['categoria']);
-			$datos = array();
-			new CampeonatoCurrentView($datos, $resultado);
-		}
-		}
-		break;*/
-		$modelo = new CampeonatoModel ($_REQUEST['nombre'], '', '', '', '');
-		$respuesta = $modelo -> crearGrupo() ;
-		new MessageView($respuesta, './Campeonato_Controller.php');
-
+		break;
+	case 'verGrupos':
+		$modelo = new LigaModel('','',$_REQUEST['nombre'],'','');
+		$datos = $modelo->showCurrent();
+		new CampeonatoShowCurrentView($datos);
 		break;
 
   default:

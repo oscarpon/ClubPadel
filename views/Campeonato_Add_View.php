@@ -31,7 +31,7 @@ class CampeonatoAddView
         <option value="F">Femenino</option>
         <option value="X">Mixto</option>
       </select>
-      <input type="hidden" name="estado" placeholder="estado" value="NJ">
+      <input type="hidden" name="estado" placeholder="estado" value="abierto">
       <button class="botonAñadirCamp" type="submit" name="button" >Añadir</button>
   </form>
 </div>

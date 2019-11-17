@@ -36,7 +36,7 @@
             <input type="hidden" name = 'nivel' value="<?php echo $valores['nivel'] ?>" readonly>
             <h4 id="mensajeEliminar">¿Desea borrar esta pareja?</h4>
 
-            <button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmar"></button>
+            <button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmarPareja"></button>
             </form>
             <center><a href="../controllers/Pareja_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverEl"></a></center>
 

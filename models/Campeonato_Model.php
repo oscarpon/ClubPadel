@@ -123,7 +123,6 @@ class CampeonatoModel
     }
 
     function crearGrupo(){
-
       $sql = "SELECT * FROM partcampeonatos WHERE (nombreCamp = '$this->nombre')";
       $resultado = $this->mysqli->query($sql);
       $grupo = 1;
@@ -133,47 +132,46 @@ class CampeonatoModel
       }else{
         while(!$lineas == 0){
           if ($lineas >= 12) {
-            $sql = "SELECT * FROM partcampeonatos WHERE (nombreCamp = '$this->nombre') LIMIT 12";
-            $resultado12 = $this->mysqli->query($sql);
-            $arrayresultado = mysqli_fetch_row($resultado12);
-            for ($i = 0; $i < $lineas;$i++) {
-              $m1 = $arrayresultado[0];
-              $m2 = $arrayresultado[1];
-              $nm = $arrayresultado[2];
-              $sql = "INSERT INTO clasificacion VALUES('$m1','$m2','$nm','$grupo',0)";
-              $resultadoinsert = $this->mysqli->query($sql);
-              $sql2 = "DELETE FROM partcampeonatos WHERE('$m1','$m2','$nm')";
-              $resultadodelete = $this->mysqli->query($sql2);
-            }
-            $lineas = $lineas - 12;
-            $grupo = $grupo + 1;
+            $limite = 12;
           }else if ($lineas == 11){
-
+            $limite = 11;
           }else if ($lineas == 10) {
-
+            $limite = 10;
           }else if ($lineas == 9) {
-
+            $limite = 9;
           }else if($lineas == 8){
-
+            $limite = 8;
           }else{
             $sql = "SELECT * FROM partcampeonatos WHERE (nombreCamp = '$this->nombre')";
             $resultado12 = $this->mysqli->query($sql);
-            $arrayresultado = mysqli_fetch_row($resultado12);
-            for($i = 0; $i < $lineas; $i++) {
-              $sql = "INSERT INTO clasificacion VALUES($m1,$m2,$nm,$grupo,0)";
+            while ($fila = mysqli_fetch_array($resultado12)) {
+              $m1 = $fila['miembro1'];
+              $m2 = $fila['miembro2'];
+              $nm = $fila['nombreCamp'];
+              $sql = "INSERT INTO clasificacion VALUES('$m1','$m2','$nm','$grupo',0)";
               $resultadoinsert = $this->mysqli->query($sql);
-              $sql2 = "DELETE FROM partcampeonatos WHERE($m1,$m2,$nm)";
+              $sql2 = "DELETE FROM partcampeonatos WHERE (miembro1='$m1'AND miembro2='$m2'AND nombreCamp='$nm')";
               $resultadodelete = $this->mysqli->query($sql2);
             }
-            $resultado = 0;
+            $lineas = 0;
+            return 'Grupos creados satisfactoriamente';
           }
+          $sql = "SELECT * FROM partcampeonatos WHERE (nombreCamp = '$this->nombre') LIMIT $limite";
+          $resultado12 = $this->mysqli->query($sql);
+          while ($fila = mysqli_fetch_array($resultado12)) {
+            $m1 = $fila['miembro1'];
+            $m2 = $fila['miembro2'];
+            $nm = $fila['nombreCamp'];
+            $sql = "INSERT INTO clasificacion VALUES('$m1','$m2','$nm','$grupo',0)";
+            $resultadoinsert = $this->mysqli->query($sql);
+            $sql2 = "DELETE FROM partcampeonatos WHERE (miembro1='$m1'AND miembro2='$m2'AND nombreCamp='$nm')";
+            $resultadodelete = $this->mysqli->query($sql2);
+          }
+          $lineas = $lineas - $limite;
+          $grupo = $grupo + 1;
         }
-
-
       }
     }
-
-
 }
 
 

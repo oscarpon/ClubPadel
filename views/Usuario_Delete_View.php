@@ -42,9 +42,9 @@
             <input type="hidden" name = 'genero' value="<?php echo $valores['genero'] ?>" readonly>
             <h4 id="mensajeEliminar">¿Desea borrar este usuario?</h4>
 
-            <button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmar"></button>
+            <button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmarElUsu"></button>
             </form>
-            <center><a href="../controllers/Usuario_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverEl"></a></center>
+            <center><a href="../controllers/Usuario_Controller.php"><img src="../img/volver.png" width="21px" height="21px" class="botonVolverEl"></a></center>
 
     </center>
         </div>

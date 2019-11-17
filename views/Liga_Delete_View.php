@@ -10,7 +10,7 @@
 
 ?>
     <cuerpo>
-<div class="tablaNoticiasTodo">
+<div class="tablaLigaEl">
     <center>
 		<table>
 			<tr id="titulosTabCampeonato">
@@ -37,10 +37,10 @@
        <input type="hidden" name = 'nombreCamp' value="<?php echo $valores['nombreCamp'] ?>" readonly>
        <input type="hidden" name = 'grupo' value="<?php echo $valores['grupo'] ?>" readonly>
        <input type="hidden" name = 'puntos' value="<?php echo $valores['puntos'] ?>" readonly>
-            <button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmar"></button>
+            <button name = "action" value = "DELETE" ><img src="../img/tic.png" width="24px" height="24px" id="ticConfirmarElLiga"></button>
             </form>
     <center>
-      <a href="../controllers/Liga_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverEl"></a></center>
+      <a href="../controllers/Liga_Controller.php"><img src="../img/volver.png" width="21px" height="21px" class="botonVolverEl"></a></center>
 
     </center>
         </div>

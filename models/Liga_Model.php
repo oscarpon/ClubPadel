@@ -76,7 +76,13 @@ class LigaModel
     }
 
     function showAll(){
-      $sql = "SELECT * FROM clasificacion ORDER BY puntos";
+      $sql = "SELECT * FROM clasificacion ORDER BY grupo ASC, puntos DESC";
+  		$resultado = $this->mysqli->query($sql);
+  		return $resultado;
+    }
+
+    function showCurrent(){
+      $sql = "SELECT * FROM clasificacion WHERE nombreCamp='$this->nombreCamp' ORDER BY grupo ASC, puntos DESC";
   		$resultado = $this->mysqli->query($sql);
   		return $resultado;
     }
