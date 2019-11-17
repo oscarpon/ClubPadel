@@ -838,6 +838,9 @@ body{
 #letraParejasCamp{
   margin-right: 10%;
 }
+.tablaParejas th{
+  width: 190px;
+}
 .tablaMisInscripCamp{
   top: 192px;
   left: 382px;
