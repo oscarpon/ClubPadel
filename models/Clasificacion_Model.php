@@ -89,7 +89,7 @@ function EDIT(){
     {
 
 		$sql = "UPDATE partidocamp  SET
-				codPista = '$this->cosPista',
+				codPista = '$this->codPista',
 				fecha = '$this->fecha',
 				miembro1Par1 = '$this->miembro1Par1',
 				miembro2Par1 = '$this->miembro2Par1',
