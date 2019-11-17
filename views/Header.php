@@ -56,7 +56,7 @@ if (!isAuthenticated()) {
         <div class="tituloPadel">Club de padel</div>
         <nav class="navAdmin">
         <ul class="submenu">
-          <li><a href="#">Inicio</a></li>
+          <li><a href="../controllers/Noticias_Controller.php">Inicio</a></li>
           <li><a href="../controllers/PromocionPartido_Controller.php">Promociones de partidos</a></li>
           <li><a href=""> Gestionar </a>
             <ul>
@@ -65,10 +65,8 @@ if (!isAuthenticated()) {
               <li><a href="../controllers/Liga_Controller.php">Ligas</a></li>
               <li><a href="../controllers/Noticias_Controller.php">Noticias</a></li>
               <li><a href="../controllers/Pago_Controller.php">Pagos</a></li>
-
             </ul>
           </li>
-          <li><a href="#">Contacto</a></li>
           <li><a id="desconectar" href="../functions/Desconectar.php"> <img src="../img/desconectar.png" width="24px" height="24px" > </a></li>
         </ul>
 
