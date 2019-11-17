@@ -16,7 +16,7 @@ class LigaEditView
 <div class="formulario">
 
 
-		<form class="tablaNoticiasTodo" method="post" action="../Controllers/Liga_Controller.php?action=EDIT" onsubmit="return validar();">
+		<form class="tablaNoticiasTodo" method="post" action="../Controllers/Liga_Controller.php" onsubmit="return validar();">
 
 
         Miembro 1
@@ -36,7 +36,7 @@ class LigaEditView
 
 
 
-		   <button type="submit" class="">Guardar</button>
+		   <button type="submit" name="action" value="EDIT" class="">Guardar</button>
 
 		   <p>
 
