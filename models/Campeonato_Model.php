@@ -172,21 +172,6 @@ class CampeonatoModel
         }
       }
     }
-    //Devuelve las pistas que están libres
-    function comprobarDispPistas(){
-      $sql = "SELECT t1.codigoPista, t1.fecha
-              FROM pistas as t1
-              WHERE NOT EXISTS (SELECT t2.codigoPista, t2.fecha
-              FROM partidos as t2 WHERE t1.codigoPista = t2.codigoPista
-              AND t1.fecha = t2.fecha AND t2.resultado = 'NJ') AND NOT EXISTS (SELECT t3.codigoPista, t3.fecha
-              FROM partidocamp as t3 WHERE t1.codigoPista = t3.codigoPista
-              AND t1.fecha = t3.fecha AND t3.resultado = 'NJ') AND NOT EXISTS (SELECT t4.codigoPista, t4.fecha
-              FROM reservas as t4 WHERE t1.codigoPista = t4.codigoPista
-              AND t1.fecha = t4.fecha) AND t1.fecha='$this->fecha'";
-      if($resultado=$this->mysqli->query($sql)){
-        return $resultado;
-      }
-    }
 
     function generarPartidos(){
       $hora = 0;
@@ -201,7 +186,6 @@ class CampeonatoModel
         if($resultado->num_rows > 0){
           while ($fila = mysqli_fetch_array($resultado)) {
               while ($fila2 = mysqli_fetch_array($resultado2)) {
-                  //$fecha = date("Y-m-d H:i:s");
                   $fecha = new DateTime('now');
                   $hora = $hora + 4;
                   $fecha->setTime($hora, $minuto, $segundo);
