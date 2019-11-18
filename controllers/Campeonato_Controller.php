@@ -14,7 +14,8 @@ include '../views/Campeonato_ShowCurrent_View.php';
 include '../views/Message_View.php';
 include '../models/PartidoCamp_Model.php';
 include '../models/Liga_Model.php';
-
+include '../models/Clasificacion_Model.php';
+include '../views/Clasificacion_Showall_View.php';
 
 function get_data(){
 	$nombre = $_REQUEST['nombre'];
@@ -76,6 +77,12 @@ switch ($_REQUEST['action']) {
 		$modelo = new CampeonatoModel($_REQUEST['nombre'], '', '', '', '');
 		$modelo -> generarPartidos();
 		new MessageView('Partidos generados.','./Campeonato_Model.php');
+	break;
+
+	case 'verPartidos':
+		$modelo = new ClasificacionModel('','','','','','', $_REQUEST['nombre'],'');
+		$datos = $modelo -> showAll();
+		new ClasificacionShowallView($datos);
 	break;
 
   default:

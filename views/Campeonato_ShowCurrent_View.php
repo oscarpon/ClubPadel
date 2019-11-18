@@ -29,6 +29,12 @@ class CampeonatoShowCurrentView
       <button class="botonGenerar" name = "action" value = "generarPartidos">Generar</button>
       </form>
   </th>
+  <th>
+      <form action="../controllers/Campeonato_Controller.php" name ='verPartidos'>
+      <input type="hidden" name = 'nombre' value="<?php echo $nombreCamp ?>" readonly>
+      <button class="botonGenerar" name = "action" value = "verPartidos">Ver partidos</button>
+      </form>
+  </th>
 </tr>
 
 <?php

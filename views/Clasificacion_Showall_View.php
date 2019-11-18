@@ -6,12 +6,12 @@
 class ClasificacionShowallView
 {
 
-  function __construct($fila, $resultado)
+  function __construct($resultado)
   {
-    $this->render($fila, $resultado);
+    $this->render($resultado);
   }
 
-  function render($fila, $resultado){
+  function render($resultado){
     include '../views/Header.php';
 
 ?>
@@ -31,7 +31,7 @@ class ClasificacionShowallView
 <?php
 while ($fila = $resultado->fetch_assoc()) {
   echo "<tr>";
-      echo "<td>".$fila['codPista']."</td>";
+      echo "<td>".$fila['codigoPista']."</td>";
       echo "<td>".$fila['fecha']."</td>";
       echo "<td>".$fila["miembro1Par1"]."</td>";
       echo "<td>".$fila["miembro2Par1"]."</td>";
@@ -43,12 +43,6 @@ while ($fila = $resultado->fetch_assoc()) {
 
 
  ?>
-
- <td> <form action="../controllers/Campeonato_Controller.php" name ='DELETE'>
-         <input type="hidden" name = 'nombre' value="<?php echo $fila['nombre'] ?>" readonly>
-         <button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
-         </form>
- </td>
 
 <?php echo "</tr>"; } ?>
 
