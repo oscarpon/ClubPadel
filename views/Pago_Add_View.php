@@ -10,7 +10,7 @@ class PagoAddView{
 <div class="formularioAñadirPago">
   <form id="añadir" action='../controllers/Pago_Controller.php' method='post'>
     <h3 id="nuevoPago">Añadir pago</h3>
-    <a href="../controllers/Pago_Controller"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverPago" ></a>
+    <a href="../controllers/Pago_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverPago" ></a>
     <div>
       <div>
         <label></label>

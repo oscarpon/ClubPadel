@@ -13,9 +13,9 @@ class CampeonatoShowCurrentView
 
   function render($resultado){
     include '../views/Header.php';
-
+    $fila = $resultado->fetch_assoc();
+    $nombreCamp = $fila['nombreCamp'];
 ?>
-
 <table border="1" class="tablaNoticiasTodo">
 <tr>
   <th>Participante1</th>
@@ -25,9 +25,14 @@ class CampeonatoShowCurrentView
   <th>Puntos</th>
   <th>
       <form action="../controllers/Campeonato_Controller.php" name ='generarPartidos'>
-      <input type="hidden" name = 'nombre' value="<?php echo $fila['nombre'] ?>" readonly>
-      <input type="hidden" name = 'grupo' value="<?php echo $fila['grupo'] ?>" readonly>
+      <input type="hidden" name = 'nombre' value="<?php echo $nombreCamp ?>" readonly>
       <button class="botonGenerar" name = "action" value = "generarPartidos">Generar</button>
+      </form>
+  </th>
+  <th>
+      <form action="../controllers/Campeonato_Controller.php" name ='verPartidos'>
+      <input type="hidden" name = 'nombre' value="<?php echo $nombreCamp ?>" readonly>
+      <button class="botonGenerar" name = "action" value = "verPartidos">Ver partidos</button>
       </form>
   </th>
 </tr>

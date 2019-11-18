@@ -80,6 +80,7 @@ ul{
   position: absolute;
   background-color: #fff6;
   border-radius: 15px;
+  z-index: 999;
 }
 .submenu>li:hover>ul {
   display:block;
@@ -112,7 +113,7 @@ ul{
   margin-right: 2%;
   position: absolute;
   top: 24px;
-  left: 920px;
+  left: 860px;
 }
 .navUsu{
     float: right;
@@ -120,7 +121,15 @@ ul{
     margin-right: 2%;
     position: absolute;
     top: 24px;
-    left: 870px;
+    left: 820px;
+}
+.navPrincipio{
+  position: absolute;
+  width: 100%;
+  height: 12%;
+  background-color:#fff2;
+  margin-bottom: 20px;
+  margin-left: 600px;
 }
 nav{
   float: right;
@@ -413,7 +422,7 @@ body{
   background-color: #fff4;
   width: 39%;
   overflow:scroll;
-  height:auto;
+  height:330px;
   overflow-x: hidden;
 }
 
@@ -443,7 +452,7 @@ body{
 #tablaGenero{
   width: 25%;
 }
-#columnaEliminar, #columnaElLiga, #columnaEditarLiga, #columnaAñadirLiga{
+#columnaEliminar, #columnaElLiga, #columnaEditarLiga{
   border: none;
 }
 /*Personaliza select*/
@@ -838,6 +847,9 @@ body{
 #letraParejasCamp{
   margin-right: 10%;
 }
+.tablaParejas th{
+  width: 190px;
+}
 .tablaMisInscripCamp{
   top: 192px;
   left: 382px;
@@ -910,6 +922,28 @@ body{
 }
 .tablaNoticiasTodo th,td{
   width: 150px;
+}
+.tablaNoticiasEl{
+  top: 192px;
+  left: 409px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 29px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 584px;
+  overflow:scroll;
+  height:150px;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+}
+/*pregunta confirmacion eliminar noticia*/
+#mensajeEliminarNoticia{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  margin-top: 29px;
 }
 /*Personaliza los botones de las tablas*/
 .botonEliminar{
@@ -1166,6 +1200,13 @@ body{
   cursor: pointer;
   position: absolute;
   top: 146px;
+}
+#ticConfirmarNoticia{
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 163px;
 }
 /*Titulos de la tabla eliminar*/
 #titulosTabEl{

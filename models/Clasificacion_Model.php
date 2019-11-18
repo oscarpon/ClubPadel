@@ -3,7 +3,7 @@
 /**
  *
  */
-class ClasificacionModel()
+class ClasificacionModel
 {
 
   var $codPista;
@@ -31,54 +31,12 @@ class ClasificacionModel()
 
   }
 
-  function ADD(){
-		if (!$result = $this->mysqli->query($sql)){
-			return 'No se ha podido conectar con la base de datos';
-		}
-		else {
-			if ($result->num_rows == 0){
+  function showAll(){
+    $sql = "SELECT * FROM partidocamp WHERE nombreCamp='$this->nombreCamp'";
+    $resultado = $this->mysqli->query($sql);
+    return $resultado;
+  }
 
-				$sql = "INSERT INTO partidocamp (
-					codPista,
-					fecha,
-					miembro1Par1,
-					miembro2Par1,
-					miembro1Par2,
-          miembro2Par2,
-          nombreCamp,
-          resultado
-					)
-						VALUES (
-						'$this->codPista',
-						'$this->fecha',
-						'$this->miembro1Par1',
-						'$this->miembro2Par1',
-						'$this->miembro1Par2',
-						'$this->miembro2Par2',
-            '$this->nombreCamp',
-            '$this->resultado'
-          )";
-
-
-				if (!$this->mysqli->query($sql)) {
-					return 'Error en la inserción';
-				}
-				else{
-					return 'Inserción realizada con éxito';
-				}
-
-			}
-			else
-				return 'Ya existe en la base de datos';
-		}
-
-    else{
-
-        return 'Introduzca un valor';
-
-	}
-	}
-}
 function EDIT(){
 	$sql = "SELECT * FROM partidocamp  WHERE (miembro1Par1 = '$this->miembro1Par1') ";
 

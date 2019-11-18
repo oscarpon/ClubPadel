@@ -50,21 +50,7 @@ class LigaModel
       }
 
 		}
-  /*  function SEARCH(){
-      $sql="SELECT miembro1, miembro2, nombreCamp, grupo, estado
-        from CAMPEONATO
-        where ((BINARY nombre LIKE '%$this->nombre%')
-        && (BINARY fechaFinIns LIKE '%$this->fechaFinIns%')
-        && (BINARY categoria LIKE '%$this->categoria%')
-        && (BINARY genero LIKE '%$this->genero%')
-        && (BINARY estado LIKE '%$this->estado%'))";
-
-        if (!($resultado=$this->mysqli->query($sql))){
-          return 'Error en la consulta';
-        } else {
-            return $resultado;
-          }
-    }*/
+    
     function RellenaDatos(){
       $sql = "SELECT * FROM clasificacion WHERE (miembro1 = '$this->miembro1' AND miembro2 = '$this->miembro2' AND nombreCamp = '$this->nombreCamp')";
 		  if ( !( $resultado = $this->mysqli->query( $sql ) ) ) {
