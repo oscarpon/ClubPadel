@@ -81,11 +81,6 @@ Switch ($_REQUEST['action']){
 				}
 
 					break;
-		case 'SHOWCURRENT':
-			    $modelo = new NoticiaModel($_REQUEST['id_noticia'],'','','');
-				$valores = $modelo->RellenaDatos();
-				new SHOWCURRENT_VIEW($valores);
-				break;
 
 		case 'PagPrincipal':
 			$modelo = new NoticiaModel('' ,'' ,'', $_SESSION['email']);

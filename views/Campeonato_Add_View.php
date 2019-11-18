@@ -13,12 +13,14 @@ class CampeonatoAddView
   function render(){
     include '../views/Header.php';
 
+    $fecha = date("Y-m-d");
+
   ?>
 
 <div class="">
   <form class="formularioAñadirCamp" action="../controllers/Campeonato_Controller.php?action=ADD" method="post">
       <input type="text" name="nombre" placeholder="Nombre Campeonato">
-      <input type="date" name="fechaFinIns" placeholder="Fecha fin Inscripcion">
+      <input type="date" name="fechaFinIns" placeholder="Fecha fin Inscripcion" min="<?php echo $fecha;?>">
       <select class="" name="categoria">
         <option value="">--Categoria--</option>
         <option value="1">Principiante</option>
