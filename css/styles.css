@@ -583,7 +583,7 @@ body{
   float: none;
   text-align: center;
 }
-.botonRegistrar:hover, .botonAñadir:hover, .botonAñadirProm:hover, .botonGenerar:hover{
+.botonRegistrar:hover, .botonAñadir:hover, .botonAñadirProm:hover, .botonGenerar:hover, .botonVerPartidos:hover{
   background: #727DB0;
   cursor: pointer;
 }
@@ -656,6 +656,25 @@ body{
   font-family: 'Rajdhani', sans-serif;
   left: 64%;
   top: 61%;
+  margin-left: 5px;
+}
+.botonVerPartidos{
+  margin-bottom: 0;
+  background: #5264BA;
+  color: #fff;
+  border: none;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 1.5%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  left: 64%;
+  top: 61%;
+  margin-left: 5px;
+}
+#botonesCuadroCamp{
+  border: none;
 }
 /*Personaliza las diferentes tablas*/
 .tablaUsuarios {
@@ -936,6 +955,39 @@ body{
   width: 584px;
   overflow:scroll;
   height:150px;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+}
+.tablaCampeonatoTodo{
+  top: 175px;
+  left: 357px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 29px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 685px;
+  overflow:scroll;
+  height:333px;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+}
+.tablaClasificacionTodo{
+  top: 175px;
+  left: 300px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 29px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 792px;
+  overflow:scroll;
+  height:333px;
   overflow-x: hidden;
   font-family: 'Rajdhani', sans-serif;
 }

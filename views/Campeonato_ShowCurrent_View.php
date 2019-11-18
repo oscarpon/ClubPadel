@@ -16,23 +16,23 @@ class CampeonatoShowCurrentView
     $fila = $resultado->fetch_assoc();
     $nombreCamp = $fila['nombreCamp'];
 ?>
-<table border="1" class="tablaNoticiasTodo">
+<table border="1" class="tablaCampeonatoTodo">
 <tr>
   <th>Participante1</th>
   <th>Participante2</th>
   <th>Campeonato</th>
   <th>Grupo</th>
   <th>Puntos</th>
-  <th>
+  <th id="botonesCuadroCamp">
       <form action="../controllers/Campeonato_Controller.php" name ='generarPartidos'>
       <input type="hidden" name = 'nombre' value="<?php echo $nombreCamp ?>" readonly>
       <button class="botonGenerar" name = "action" value = "generarPartidos">Generar</button>
       </form>
   </th>
-  <th>
+  <th id="botonesCuadroCamp">
       <form action="../controllers/Campeonato_Controller.php" name ='verPartidos'>
       <input type="hidden" name = 'nombre' value="<?php echo $nombreCamp ?>" readonly>
-      <button class="botonGenerar" name = "action" value = "verPartidos">Ver partidos</button>
+      <button class="botonVerPartidos" name = "action" value = "verPartidos">Ver partidos</button>
       </form>
   </th>
 </tr>
