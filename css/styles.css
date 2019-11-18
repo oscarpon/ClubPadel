@@ -139,16 +139,6 @@ nav{
   top: -4%;
   left: 40%;
 }
-/*
-.navLogin{
-  float: right;
-  line-height: 100px;
-  margin-right: 2%;
-  position: absolute;
-  top: -4%;
-  left: 40%;
-}*/
-
 /*Personaliza las opciones de la cabecera*/
 nav a, .navAdmin a{
   display: inline-block;
@@ -405,12 +395,6 @@ body{
   background-color: #fff4;
   width: auto;
 }
-/*Separacion columnas
-.tablaNoticiasTodo tr{
-  border-collapse: separate;
-  border-spacing: 10px 5px;
-}
-*/
 .tablaPagoTodo{
   top: 30%;
   left: 32%;
@@ -425,7 +409,6 @@ body{
   height:330px;
   overflow-x: hidden;
 }
-
 /*Personaliza la fuente*/
 #email, #clave, #nombre, #apellidos, #genero, #mensajeEliminar {
   font-family: 'Rajdhani', sans-serif;
