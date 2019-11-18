@@ -42,7 +42,7 @@ switch ($_REQUEST['action']){
       $OFERTAPARTIDO = get_data_form();
       $respuestaEdit = $OFERTAPARTIDO->EDIT($_SESSION['email']);
       if($_REQUEST['tipo'] == 'PROM'){
-        $PAGO = new PAGO($_SESSION['email'],'',12,'N');
+        $PAGO = new PagoModel($_SESSION['email'],'',12,'N');
         $PAGO->ADD();
       }
       $arrayPart = $OFERTAPARTIDO->comprobarParticipacion();
