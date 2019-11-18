@@ -990,6 +990,7 @@ body{
   height:333px;
   overflow-x: hidden;
   font-family: 'Rajdhani', sans-serif;
+  text-align: center;
 }
 /*pregunta confirmacion eliminar noticia*/
 #mensajeEliminarNoticia{
