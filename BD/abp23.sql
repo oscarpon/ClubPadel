@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2019 a las 13:15:04
+-- Tiempo de generación: 15-01-2020 a las 10:39:59
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
 
@@ -21,12 +21,14 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+
 SET GLOBAL event_scheduler="ON";
 
 CREATE DEFINER=`root`@`localhost` EVENT `no_mostrar_cpto` ON SCHEDULE EVERY 1 DAY STARTS '2019-11-18 13:45:31' ON COMPLETION PRESERVE ENABLE DO UPDATE campeonato SET estado = 'cerrado' WHERE UNIX_TIMESTAMP(fechaFinIns) <
 (UNIX_TIMESTAMP());
 
- CREATE DEFINER=`root`@`localhost` EVENT `reserva_caduca` ON SCHEDULE EVERY 1 MINUTE STARTS '2019-11-18 13:33:49' ON COMPLETION PRESERVE ENABLE DO DELETE FROM reservas WHERE UNIX_TIMESTAMP(fecha) < (UNIX_TIMESTAMP()-90*60);
+CREATE DEFINER=`root`@`localhost` EVENT `reserva_caduca` ON SCHEDULE EVERY 1 MINUTE STARTS '2019-11-18 13:33:49' ON COMPLETION PRESERVE ENABLE DO DELETE FROM reservas WHERE UNIX_TIMESTAMP(fecha) < (UNIX_TIMESTAMP()-90*60);
+
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -37,26 +39,6 @@ CREATE DEFINER=`root`@`localhost` EVENT `no_mostrar_cpto` ON SCHEDULE EVERY 1 DA
 --
 -- Base de datos: `abp23`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `asistenciasclases`
---
-
-CREATE TABLE `asistenciasclases` (
-  `nombre` varchar(50) NOT NULL,
-  `horario` datetime NOT NULL,
-  `email` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `asistenciasclases`
---
-
-INSERT INTO `asistenciasclases` (`nombre`, `horario`, `email`) VALUES
-('Nombre 1', '2019-10-30 00:00:00', 'mail@mail.com'),
-('nombre2', '2019-10-29 00:00:00', 'mail2@mail.com');
 
 -- --------------------------------------------------------
 
@@ -89,36 +71,6 @@ INSERT INTO `campeonato` (`nombre`, `fechaFinIns`, `categoria`, `genero`, `estad
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `clasesformativas`
---
-
-CREATE TABLE `clasesformativas` (
-  `nombre` varchar(50) NOT NULL,
-  `horario` datetime NOT NULL,
-  `entrenador` varchar(50) NOT NULL,
-  `codigoPista` char(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `clasesformativas`
---
-
-INSERT INTO `clasesformativas` (`nombre`, `horario`, `entrenador`, `codigoPista`) VALUES
-('Clase1', '2019-11-03 00:00:00', 'juan@mail.com', '000001'),
-('Clase2', '2019-10-31 00:00:00', 'Entrenador1', '2'),
-('Clase2', '2019-11-04 10:00:00', 'pepe@mail.com', '000000'),
-('Clase3', '2019-10-31 00:00:00', 'Entrenador1', '2'),
-('Clase4', '2019-10-31 00:00:00', 'Entrenador1', '2'),
-('Clase5', '2019-10-31 00:00:00', 'Entrenador1', '2'),
-('Clase6', '2019-10-31 00:00:00', 'Entrenador1', '2'),
-('Clase7', '2019-10-31 00:00:00', 'Entrenador1', '2'),
-('Clase8', '2019-10-31 00:00:00', 'Entrenador1', '2'),
-('Clase9', '2019-10-31 00:00:00', 'Entrenador1', '2'),
-('Master Clas', '2019-10-31 00:00:00', 'Entrenador1', '2');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `clasificacion`
 --
 
@@ -129,6 +81,37 @@ CREATE TABLE `clasificacion` (
   `grupo` char(1) NOT NULL,
   `puntos` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `clasificacion`
+--
+
+INSERT INTO `clasificacion` (`miembro1`, `miembro2`, `nombreCamp`, `grupo`, `puntos`) VALUES
+('a@gmail.com', 'b@gmail.com', 'Open Pontevedra', '1', 21),
+('asdf@mail.com', 'afsasdf@mail.com', 'Open Pontevedra', '1', 0),
+('c@gmail.com', 'd@gmail.com', 'Open Pontevedra', '1', 0),
+('correo11@mail.com', 'correo12@mail.com', 'Open Pontevedra', '1', 0),
+('correo13@gmail.com', 'correo14@gmail.com', 'Open Pontevedra', '1', 0),
+('correo15@gmail.com', 'correo16@gmail.com', 'Open Pontevedra', '1', 0),
+('correo17@gmail.com', 'correo18@gmail.com', 'Open Pontevedra', '1', 0),
+('correo19@gmail.com', 'correo20@gmail.com', 'Open Pontevedra', '1', 0),
+('correo1@mail.com', 'correo2@mail.com', 'Open Pontevedra', '1', 0),
+('correo3@mail.com', 'correo4@mail.com', 'Open Pontevedra', '1', 0),
+('correo5@mail.com', 'correo6@mail.com', 'Open Pontevedra', '1', 5),
+('correo7@mail.com', 'correo8@mail.com', 'Open Pontevedra', '1', 12),
+('correo9@mail.com', 'correo10@mail.com', 'Open Pontevedra', '2', 0),
+('ererere@mail.com', 'rgffgfg@gmail.com', 'Open Pontevedra', '2', 0),
+('mail11@mail.com', 'mail12@mail.com', 'Open Pontevedra', '2', 0),
+('mail13@mail.com', 'mail14@mail.com', 'Open Pontevedra', '2', 0),
+('mail15@mail.com', 'mail16@mail.com', 'Open Pontevedra', '2', 0),
+('mail17@mail.com', 'mail18@mail.com', 'Open Pontevedra', '2', 0),
+('mail19@mail.com', 'mail20@mail.com', 'Open Pontevedra', '2', 0),
+('mail1@mail.com', 'mail2@mail.com', 'Open Pontevedra', '2', 0),
+('mail3@mail.com', 'mail4@mail.com', 'Open Pontevedra', '2', 0),
+('mail5@mail.com', 'mail6@mail.com', 'Open Pontevedra', '2', 0),
+('mail7@mail.com', 'mail8@mail.com', 'Open Pontevedra', '2', 0),
+('mail9@mail.com', 'mail10@mail.com', 'Open Pontevedra', '2', 0),
+('trelo@gmail.com', 'marta@mail.com', 'Open Pontevedra', '3', 0);
 
 -- --------------------------------------------------------
 
@@ -148,7 +131,6 @@ CREATE TABLE `contenido` (
 --
 
 INSERT INTO `contenido` (`idContenido`, `titulo`, `descripcion`, `email`) VALUES
-(15, 'Nuevo pago', 'Nuevo pago de reserva pendiente', 'trelo@gmail.com'),
 (16, 'Nuevo pago', 'Nuevo pago de reserva pendiente', 'trelo@gmail.com'),
 (17, 'Nuevo pago', 'Nuevo pago de reserva pendiente', 'trelo@gmail.com'),
 (18, 'Nuevo pago', 'Nuevo pago de reserva pendiente', 'trelo@gmail.com'),
@@ -185,37 +167,56 @@ INSERT INTO `contenido` (`idContenido`, `titulo`, `descripcion`, `email`) VALUES
 (49, 'Nuevo pago', 'Nuevo pago de reserva pendiente', 'trelo@gmail.com'),
 (50, 'Nuevo pago', 'Nuevo pago de reserva pendiente', 'trelo@gmail.com'),
 (51, 'Nuevo pago', 'Nuevo pago de reserva pendiente', 'trelo@gmail.com'),
-(52, 'Nuevo pago', 'Nuevo pago de reserva pendiente', 'trelo@gmail.com');
+(52, 'Nuevo pago', 'Nuevo pago de reserva pendiente', 'trelo@gmail.com'),
+(53, 'Nuevo pago', 'Nuevo pago de reserva pendiente', 'trelo@gmail.com'),
+(54, 'Nuevo pago', 'Nuevo pago de reserva pendiente', 'trelo@gmail.com'),
+(55, 'Nuevo pago', 'Nuevo pago de reserva pendiente', 'trelo@gmail.com');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `incripcionesclases`
+-- Estructura de tabla para la tabla `escuelasdeportivas`
 --
 
-CREATE TABLE `incripcionesclases` (
+CREATE TABLE `escuelasdeportivas` (
+  `nombre` varchar(50) NOT NULL,
+  `horario` datetime NOT NULL,
+  `entrenador` varchar(50) NOT NULL,
+  `codigoPista` char(6) NOT NULL,
+  `periodicidad` int(2) NOT NULL,
+  `minInscritos` int(2) NOT NULL,
+  `maxInscritos` int(2) NOT NULL,
+  `estado` varchar(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `escuelasdeportivas`
+--
+
+INSERT INTO `escuelasdeportivas` (`nombre`, `horario`, `entrenador`, `codigoPista`, `periodicidad`, `minInscritos`, `maxInscritos`, `estado`) VALUES
+('Clase1', '2019-11-03 00:00:00', 'juan@mail.com', '000001', 3, 2, 10, 'abierto'),
+('Clase2', '2019-10-31 00:00:00', 'Entrenador1', '2', 5, 5, 15, 'abierto'),
+('Clase2', '2019-11-04 10:00:00', 'pepe@mail.com', '000000', 6, 2, 20, 'progreso'),
+('Clase3', '2019-10-31 00:00:00', 'Entrenador1', '2', 2, 10, 30, 'cerrado'),
+('Clase4', '2019-10-31 00:00:00', 'Entrenador1', '2', 1, 4, 11, 'progreso'),
+('Clase5', '2019-10-31 00:00:00', 'Entrenador1', '2', 3, 1, 2, 'abierto'),
+('Clase6', '2019-10-31 00:00:00', 'Entrenador1', '2', 5, 5, 15, 'progreso'),
+('Clase7', '2019-10-31 00:00:00', 'Entrenador1', '2', 4, 2, 9, 'abierto'),
+('Clase8', '2019-10-31 00:00:00', 'Entrenador1', '2', 3, 4, 18, 'cerrado'),
+('Clase9', '2019-10-31 00:00:00', 'Entrenador1', '2', 2, 5, 22, 'cerrado'),
+('Master Clas', '2019-10-31 00:00:00', 'Entrenador1', '2', 1, 1, 6, 'cerrado');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `inscripcionesclases`
+--
+
+CREATE TABLE `inscripcionesclases` (
   `nombre` varchar(50) NOT NULL,
   `horario` datetime NOT NULL,
   `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `incripcionesclases`
---
-
-INSERT INTO `incripcionesclases` (`nombre`, `horario`, `email`) VALUES
-('clase1', '2019-10-30 11:00:00', 'mail1@mail.com'),
-('clase1', '2019-10-31 00:00:00', 'albino@mail.com'),
-('clase1', '2019-10-31 00:00:00', 'brais@mail.com'),
-('clase1', '2019-10-31 00:00:00', 'mail1@mail.com'),
-('clase1', '2019-10-31 00:00:00', 'mail2@mail.com'),
-('clase1', '2019-10-31 00:00:00', 'marta@mail.com'),
-('clase1', '2019-10-31 00:00:00', 'oscar@mail.com'),
-('clase1', '2019-10-31 00:00:00', 'raul@mail.com'),
-('clase2', '2019-10-30 14:00:00', 'mail1@mail.com'),
-('clase3', '2019-10-31 00:00:00', 'mail1@mail.com'),
-('clase4', '2019-10-31 00:00:00', 'mail1@mail.com'),
-('clase5', '2019-10-31 00:00:00', 'mail1@mail.com');
 
 -- --------------------------------------------------------
 
@@ -240,7 +241,9 @@ CREATE TABLE `oferprompartidos` (
 
 INSERT INTO `oferprompartidos` (`email`, `fecha`, `partic1`, `partic2`, `partic3`, `partic4`, `numpart`, `tipo`) VALUES
 ('brmartinez@esei.uvigo.es', '2019-11-18 19:00:00', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 0, 'PROM'),
-('trelo@gmail.com', '2019-11-18 18:00:00', 'trelo@gmail.com', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 1, 'OFER');
+('brmartinez@esei.uvigo.es', '2019-11-19 09:00:00', 'trelo@gmail.com', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 1, 'PROM'),
+('trelo@gmail.com', '2019-11-18 18:00:00', 'trelo@gmail.com', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 1, 'OFER'),
+('trelo@gmail.com', '2019-11-19 09:00:00', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 'Puesto vacio', 0, 'OFER');
 
 -- --------------------------------------------------------
 
@@ -260,8 +263,21 @@ CREATE TABLE `pagos` (
 --
 
 INSERT INTO `pagos` (`email`, `fecha`, `importe`, `pagado`) VALUES
-('trelo@gmail.com', '2019-11-14 20:16:44', 35, 'N'),
-('trelo@gmail.com', '2019-11-14 20:19:18', 35, 'N'),
+('rachid1194@hotmail.com', '2020-01-14 18:17:22', 30, 'N'),
+('rachid1194@hotmail.com', '2020-01-14 18:19:40', 30, 'N'),
+('rachid1194@hotmail.com', '2020-01-14 18:22:55', 30, 'N'),
+('rachid1194@hotmail.com', '2020-01-14 18:25:05', 30, 'N'),
+('rachid1194@hotmail.com', '2020-01-14 18:26:24', 30, 'N'),
+('rachid1194@hotmail.com', '2020-01-14 18:26:39', 30, 'N'),
+('rachid1194@hotmail.com', '2020-01-14 18:35:38', 30, 'N'),
+('rachid1194@hotmail.com', '2020-01-14 18:36:14', 30, 'N'),
+('rachid1194@hotmail.com', '2020-01-14 18:36:43', 30, 'N'),
+('rachid1194@hotmail.com', '2020-01-15 09:45:43', 30, 'N'),
+('rachid1194@hotmail.com', '2020-01-15 09:53:14', 30, 'N'),
+('rachid1194@hotmail.com', '2020-01-15 09:57:44', 30, 'N'),
+('rachid1194@hotmail.com', '2020-01-15 09:58:27', 30, 'N'),
+('trelo@gmail.com', '2019-11-14 20:16:44', 35, 'S'),
+('trelo@gmail.com', '2019-11-14 20:19:18', 35, 'S'),
 ('trelo@gmail.com', '2019-11-15 13:38:53', 35, 'N'),
 ('trelo@gmail.com', '2019-11-15 13:39:08', 35, 'N'),
 ('trelo@gmail.com', '2019-11-15 13:42:09', 35, 'N'),
@@ -301,7 +317,16 @@ INSERT INTO `pagos` (`email`, `fecha`, `importe`, `pagado`) VALUES
 ('trelo@gmail.com', '2019-11-15 16:39:02', 35, 'N'),
 ('trelo@gmail.com', '2019-11-15 16:39:07', 35, 'N'),
 ('trelo@gmail.com', '2019-11-15 16:43:33', 25, 'N'),
-('trelo@gmail.com', '2019-11-15 16:43:38', 25, 'N');
+('trelo@gmail.com', '2019-11-15 16:43:38', 25, 'N'),
+('trelo@gmail.com', '2019-11-18 17:05:22', 35, 'N'),
+('trelo@gmail.com', '2019-11-18 17:08:26', 35, 'N'),
+('trelo@gmail.com', '2019-11-18 17:11:08', 35, 'N'),
+('trelo@gmail.com', '2019-11-18 17:11:29', 35, 'N'),
+('trelo@gmail.com', '2019-11-18 17:15:35', 12, 'N'),
+('trelo@gmail.com', '2019-11-18 17:15:53', 12, 'N'),
+('trelo@gmail.com', '2019-11-18 17:15:57', 12, 'N'),
+('trelo@gmail.com', '2019-11-18 17:20:33', 25, 'N'),
+('trelo@gmail.com', '2019-11-22 23:15:23', 25, 'N');
 
 -- --------------------------------------------------------
 
@@ -333,6 +358,7 @@ INSERT INTO `parejas` (`miembro1`, `miembro2`, `genero`, `nivel`) VALUES
 ('rachid1194@hotmail.com', 'pepe@mail.com', 'M', '1'),
 ('rachid1194@hotmail.com', 'raul@mail.com', 'M', '3'),
 ('trelo@gmail.com', 'marta@mail.com', 'F', '2'),
+('trelo@gmail.com', 'rachid1194@hotmail.com', 'X', '1'),
 ('trelo@gmail.com', 'raul@mail.com', 'X', '3');
 
 -- --------------------------------------------------------
@@ -352,31 +378,27 @@ CREATE TABLE `partcampeonatos` (
 --
 
 INSERT INTO `partcampeonatos` (`miembro1`, `miembro2`, `nombreCamp`) VALUES
-('a@gmail.com', 'b@gmail.com', 'Open Pontevedra'),
-('asdf@mail.com', 'afsasdf@mail.com', 'Open Pontevedra'),
-('c@gmail.com', 'd@gmail.com', 'Open Pontevedra'),
-('correo11@mail.com', 'correo12@mail.com', 'Open Pontevedra'),
-('correo13@gmail.com', 'correo14@gmail.com', 'Open Pontevedra'),
-('correo15@gmail.com', 'correo16@gmail.com', 'Open Pontevedra'),
-('correo17@gmail.com', 'correo18@gmail.com', 'Open Pontevedra'),
-('correo19@gmail.com', 'correo20@gmail.com', 'Open Pontevedra'),
-('correo1@mail.com', 'correo2@mail.com', 'Open Pontevedra'),
-('correo3@mail.com', 'correo4@mail.com', 'Open Pontevedra'),
-('correo5@mail.com', 'correo6@mail.com', 'Open Pontevedra'),
-('correo7@mail.com', 'correo8@mail.com', 'Open Pontevedra'),
-('correo9@mail.com', 'correo10@mail.com', 'Open Pontevedra'),
-('ererere@mail.com', 'rgffgfg@gmail.com', 'Open Pontevedra'),
-('mail11@mail.com', 'mail12@mail.com', 'Open Pontevedra'),
-('mail13@mail.com', 'mail14@mail.com', 'Open Pontevedra'),
-('mail15@mail.com', 'mail16@mail.com', 'Open Pontevedra'),
-('mail17@mail.com', 'mail18@mail.com', 'Open Pontevedra'),
-('mail19@mail.com', 'mail20@mail.com', 'Open Pontevedra'),
-('mail1@mail.com', 'mail2@mail.com', 'Open Pontevedra'),
-('mail3@mail.com', 'mail4@mail.com', 'Open Pontevedra'),
-('mail5@mail.com', 'mail6@mail.com', 'Open Pontevedra'),
-('mail7@mail.com', 'mail8@mail.com', 'Open Pontevedra'),
-('mail9@mail.com', 'mail10@mail.com', 'Open Pontevedra'),
-('trelo@gmail.com', 'marta@mail.com', 'Open Pontevedra');
+('albion@gmail.es', 'labino@gmail.es', 'Open Pontevedra'),
+('carmenlomana@gmail.es', 'geforcegtx@gmail.es', 'Open Pontevedra'),
+('charlie@gmail.es', 'godofredo@gmail.es', 'Open Pontevedra'),
+('gorgue@gmail.es', 'alibon@gmail.es', 'Open Pontevedra'),
+('gumersindo@gmail.es', 'rigoberto@gmail.es', 'Open Pontevedra'),
+('humbertocarrillo@gmail.es', 'phpmyadmin@gmail.es', 'Open Pontevedra'),
+('jorgecalvinho@gmail.es', 'davidlorenzo@gmail.es', 'Open Pontevedra'),
+('labion@gmail.es', 'ojka@gmail.es', 'Open Pontevedra'),
+('maceta@gmail.es', 'louisolta@gmail.es', 'Open Pontevedra'),
+('manololama@gmail.es', 'fernandoalonso@gmail.es', 'Open Pontevedra'),
+('melchor@gmail.es', 'gaspar@gmail.es', 'Open Pontevedra'),
+('mika@gmail.es', 'morgan@gmail.es', 'Open Pontevedra'),
+('moreno19@gmail.es', 'apreverte@gmail.es', 'Open Pontevedra'),
+('nachoanel@gmail.es', 'toni@gmail.es', 'Open Pontevedra'),
+('paulina@gmail.es', 'padelchampion@gmail.es', 'Open Pontevedra'),
+('personareal@gmail.es', 'emailmuyreal@gmail.es', 'Open Pontevedra'),
+('pocholo@gmail.es', 'maikel@gmail.es', 'Open Pontevedra'),
+('trelo@gmail.com', 'marta@mail.com', 'Master Nacasa'),
+('tucker@gmail.es', 'ruffles@gmail.es', 'Open Pontevedra'),
+('vilares@gmail.es', 'baltasar@gmail.es', 'Open Pontevedra'),
+('windows10@gmail.es', 'kubuntu@gmail.es', 'Open Pontevedra');
 
 -- --------------------------------------------------------
 
@@ -394,6 +416,38 @@ CREATE TABLE `partidocamp` (
   `nombreCamp` varchar(25) NOT NULL,
   `resultado` char(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `partidocamp`
+--
+
+INSERT INTO `partidocamp` (`codigoPista`, `fecha`, `miembro1Par1`, `miembro2Par1`, `miembro1Par2`, `miembro2Par2`, `nombreCamp`, `resultado`) VALUES
+('000010', '2019-11-18 04:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'a@gmail.com', 'b@gmail.com', 'Open Pontevedra', 'NJ'),
+('000010', '2019-11-19 04:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'correo19@gmail.com', 'correo20@gmail.com', 'Open Pontevedra', 'NJ'),
+('000010', '2019-11-19 12:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'correo15@gmail.com', 'correo16@gmail.com', 'Open Pontevedra', 'NJ'),
+('000010', '2019-11-19 16:00:00', 'a@gmail.com', 'b@gmail.com', 'c@gmail.com', 'd@gmail.com', 'Open Pontevedra', 'NJ'),
+('000011', '2019-11-18 04:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'a@gmail.com', 'b@gmail.com', 'Open Pontevedra', 'NJ'),
+('000011', '2019-11-18 08:00:00', 'a@gmail.com', 'b@gmail.com', 'correo5@mail.com', 'correo6@mail.com', 'Open Pontevedra', 'NJ'),
+('000011', '2019-11-18 12:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'correo5@mail.com', 'correo6@mail.com', 'Open Pontevedra', 'NJ'),
+('000011', '2019-11-18 16:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'c@gmail.com', 'd@gmail.com', 'Open Pontevedra', 'NJ'),
+('000011', '2019-11-19 00:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'correo1@mail.com', 'correo2@mail.com', 'Open Pontevedra', 'NJ'),
+('000011', '2019-11-19 08:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'asdf@mail.com', 'afsasdf@mail.com', 'Open Pontevedra', 'NJ'),
+('000011', '2019-11-19 12:00:00', 'a@gmail.com', 'b@gmail.com', 'correo11@mail.com', 'correo12@mail.com', 'Open Pontevedra', 'NJ'),
+('000012', '2019-11-18 04:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'a@gmail.com', 'b@gmail.com', 'Open Pontevedra', 'NJ'),
+('000012', '2019-11-18 12:00:00', 'a@gmail.com', 'b@gmail.com', 'correo3@mail.com', 'correo4@mail.com', 'Open Pontevedra', 'NJ'),
+('000012', '2019-11-18 16:00:00', 'a@gmail.com', 'b@gmail.com', 'correo1@mail.com', 'correo2@mail.com', 'Open Pontevedra', 'NJ'),
+('000013', '2019-11-18 08:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'correo7@mail.com', 'correo8@mail.com', 'Open Pontevedra', 'NJ'),
+('000013', '2019-11-18 12:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'correo5@mail.com', 'correo6@mail.com', 'Open Pontevedra', 'NJ'),
+('000013', '2019-11-18 20:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'correo3@mail.com', 'correo4@mail.com', 'Open Pontevedra', 'NJ'),
+('000013', '2019-11-19 04:00:00', 'a@gmail.com', 'b@gmail.com', 'correo15@gmail.com', 'correo16@gmail.com', 'Open Pontevedra', 'NJ'),
+('000013', '2019-11-19 08:00:00', 'a@gmail.com', 'b@gmail.com', 'correo13@gmail.com', 'correo14@gmail.com', 'Open Pontevedra', 'NJ'),
+('000013', '2019-11-19 20:00:00', 'a@gmail.com', 'b@gmail.com', 'asdf@mail.com', 'afsasdf@mail.com', 'Open Pontevedra', 'NJ'),
+('000014', '2019-11-18 08:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'correo7@mail.com', 'correo8@mail.com', 'Open Pontevedra', 'NJ'),
+('000014', '2019-11-18 20:00:00', 'a@gmail.com', 'b@gmail.com', 'correo19@gmail.com', 'correo20@gmail.com', 'Open Pontevedra', 'NJ'),
+('000014', '2019-11-19 00:00:00', 'a@gmail.com', 'b@gmail.com', 'correo17@gmail.com', 'correo18@gmail.com', 'Open Pontevedra', 'NJ'),
+('000014', '2019-11-19 16:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'correo13@gmail.com', 'correo14@gmail.com', 'Open Pontevedra', 'NJ'),
+('000014', '2019-11-19 20:00:00', 'correo17@gmail.com', 'correo18@gmail.com', 'correo11@mail.com', 'correo12@mail.com', 'Open Pontevedra', 'NJ'),
+('000014', '2019-11-20 00:00:00', 'a@gmail.com', 'b@gmail.com', 'correo7@mail.com', 'correo8@mail.com', 'Open Pontevedra', 'NJ');
 
 -- --------------------------------------------------------
 
@@ -461,6 +515,32 @@ INSERT INTO `pistas` (`codigoPista`, `fecha`, `tipo`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `playoffs`
+--
+
+CREATE TABLE `playoffs` (
+  `idPlayoff` int(11) NOT NULL,
+  `miembro1Par1` varchar(50) NOT NULL,
+  `miembro2Par1` varchar(50) NOT NULL,
+  `miembro1Par2` varchar(50) NOT NULL,
+  `miembro2Par2` varchar(50) NOT NULL,
+  `nombreCamp` varchar(25) NOT NULL,
+  `resultado` char(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `playoffs`
+--
+
+INSERT INTO `playoffs` (`idPlayoff`, `miembro1Par1`, `miembro2Par1`, `miembro1Par2`, `miembro2Par2`, `nombreCamp`, `resultado`) VALUES
+(928, 'a@gmail.com', 'b@gmail.com', 'correo7@mail.com', 'correo8@mail.com', 'Open Pontevedra', 'NJ'),
+(929, '', '', '', '', 'Open Pontevedra', 'NJ'),
+(930, '', '', '', '', 'Open Pontevedra', 'NJ'),
+(931, '', '', '', '', 'Open Pontevedra', 'NJ');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `reservas`
 --
 
@@ -469,6 +549,14 @@ CREATE TABLE `reservas` (
   `codigoPista` char(6) NOT NULL,
   `fecha` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `reservas`
+--
+
+INSERT INTO `reservas` (`email`, `codigoPista`, `fecha`) VALUES
+('trelo@gmail.com', '000008', '2019-11-27 10:00:00'),
+('trelo@gmail.com', '000009', '2019-11-27 10:00:00');
 
 -- --------------------------------------------------------
 
@@ -508,22 +596,10 @@ INSERT INTO `usuarios` (`email`, `password`, `nombre`, `apellidos`, `rol`, `gene
 --
 
 --
--- Indices de la tabla `asistenciasclases`
---
-ALTER TABLE `asistenciasclases`
-  ADD PRIMARY KEY (`nombre`,`horario`,`email`);
-
---
 -- Indices de la tabla `campeonato`
 --
 ALTER TABLE `campeonato`
   ADD PRIMARY KEY (`nombre`);
-
---
--- Indices de la tabla `clasesformativas`
---
-ALTER TABLE `clasesformativas`
-  ADD PRIMARY KEY (`nombre`,`horario`);
 
 --
 -- Indices de la tabla `clasificacion`
@@ -538,9 +614,15 @@ ALTER TABLE `contenido`
   ADD PRIMARY KEY (`idContenido`);
 
 --
--- Indices de la tabla `incripcionesclases`
+-- Indices de la tabla `escuelasdeportivas`
 --
-ALTER TABLE `incripcionesclases`
+ALTER TABLE `escuelasdeportivas`
+  ADD PRIMARY KEY (`nombre`,`horario`);
+
+--
+-- Indices de la tabla `inscripcionesclases`
+--
+ALTER TABLE `inscripcionesclases`
   ADD PRIMARY KEY (`nombre`,`horario`,`email`);
 
 --
@@ -586,6 +668,12 @@ ALTER TABLE `pistas`
   ADD PRIMARY KEY (`codigoPista`,`fecha`);
 
 --
+-- Indices de la tabla `playoffs`
+--
+ALTER TABLE `playoffs`
+  ADD PRIMARY KEY (`idPlayoff`);
+
+--
 -- Indices de la tabla `reservas`
 --
 ALTER TABLE `reservas`
@@ -605,7 +693,24 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `contenido`
 --
 ALTER TABLE `contenido`
-  MODIFY `idContenido` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `idContenido` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT de la tabla `playoffs`
+--
+ALTER TABLE `playoffs`
+  MODIFY `idPlayoff` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=932;
+
+DELIMITER $$
+--
+-- Eventos
+--
+CREATE DEFINER=`root`@`localhost` EVENT `reserva_caduca` ON SCHEDULE EVERY 1 MINUTE STARTS '2019-11-18 13:33:49' ON COMPLETION PRESERVE ENABLE DO DELETE FROM reservas WHERE UNIX_TIMESTAMP(fecha) < (UNIX_TIMESTAMP()-90*60)$$
+
+CREATE DEFINER=`root`@`localhost` EVENT `no_mostrar_cpto` ON SCHEDULE EVERY 1 DAY STARTS '2019-11-18 13:45:31' ON COMPLETION PRESERVE ENABLE DO UPDATE campeonato SET estado = 'cerrado' WHERE UNIX_TIMESTAMP(fechaFinIns) <
+(UNIX_TIMESTAMP())$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
