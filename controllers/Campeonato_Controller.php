@@ -15,6 +15,7 @@ include '../views/Message_View.php';
 include '../models/Liga_Model.php';
 include '../models/PartidoCamp_Model.php';
 include '../views/PartidoCamp_Showall_View.php';
+include '../views/PartidoCamp_Edit_View.php';
 
 function get_data(){
 	$nombre = $_REQUEST['nombre'];
@@ -46,6 +47,20 @@ switch ($_REQUEST['action']) {
 				new MessageView($result,'./Campeonato_Controller.php');
 			}
     break;
+
+	case 'EDIT':
+      if (!$_POST) {
+        $partidocamp = new PartidoCampModel($_REQUEST['codigoPista'],$_REQUEST['fecha'], $_REQUEST['miembro1Par1'], $_REQUEST['miembro2Par1'], $_REQUEST['miembro1Par2'], $_REQUEST['miembro2Par2'], $_REQUEST['nombreCamp'], $_REQUEST['resultado']);
+        $valores= $partidocamp ->RellenaDatos();
+        new PartidoCampEditView($valores);
+      }
+      else{
+        $partidocamp = new PartidoCampModel($_REQUEST['codigoPista'],$_REQUEST['fecha'], $_REQUEST['miembro1Par1'], $_REQUEST['miembro2Par1'], $_REQUEST['miembro1Par2'], $_REQUEST['miembro2Par2'], $_REQUEST['nombreCamp'], $_REQUEST['resultado']);
+        $respuesta = $partidocamp->EDIT($partidocamp);
+        new MessageView($respuesta, './Campeonato_Controller.php');
+      }
+
+      break;
 
   case 'DELETE':
 	if (!$_POST) {
@@ -80,7 +95,7 @@ switch ($_REQUEST['action']) {
 
 	case 'verPartidos':
 		$modelo = new PartidoCampModel('','','','','','', $_REQUEST['nombre'],'');
-		$datos = $modelo -> showAll();
+		$datos = $modelo -> showCampeonatos();
 		new PartidoCampShowallView($datos);
 	break;
 

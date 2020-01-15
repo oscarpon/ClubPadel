@@ -76,7 +76,7 @@ class PartidoCampModel
   }
 
     function RellenaDatos(){
-      $sql = "SELECT * FROM partidocamp WHERE (nombreCamp = '$this->nombreCamp')";
+      $sql = "SELECT * FROM partidocamp WHERE (codigoPista='$this->codigoPista' AND fecha='$this->fecha' AND nombreCamp='$this->nombreCamp')";
 		  if ( !( $resultado = $this->mysqli->query( $sql ) ) ) {
 			 return 'No existe en la base de datos'; //
 		  } else {
@@ -99,16 +99,16 @@ class PartidoCampModel
     }
 
   function EDIT(){
-  	$sql = "SELECT * FROM partidocamp  WHERE (miembro1Par1 = '$this->miembro1Par1') ";
+  	$sql = "SELECT * FROM partidocamp  WHERE (codigoPista='$this->codigoPista' AND fecha='$this->fecha' AND nombreCamp='$this->nombreCamp') ";
 
-      $result = $this->bd->query($sql);
+      $result = $this->mysqli->query($sql);
 
       if ($result->num_rows == 1)
 
       {
 
-  		$sql = "UPDATE partidocamp  SET
-  				codPista = '$this->codPista',
+  		$sql = "UPDATE partidocamp SET
+  				codigoPista = '$this->codigoPista',
   				fecha = '$this->fecha',
   				miembro1Par1 = '$this->miembro1Par1',
   				miembro2Par1 = '$this->miembro2Par1',
@@ -118,16 +118,15 @@ class PartidoCampModel
           resultado = '$this->resultado'
 
 
-  				WHERE ( miembro1Par1 = '$this->miembro1Par1')";
-          if (!($resultado = $this->bd->query($sql))){
-  			return 'Error en la modificación';
-  		}
-  		else{
-  			return 'Modificado correctamente';
-  		}
+  				WHERE ( codigoPista='$this->codigoPista' AND fecha='$this->fecha' AND nombreCamp='$this->nombreCamp')";
+          if (!($resultado = $this->mysqli->query($sql))){
+  			       return 'Error en la modificación';
+  		    }
+      		else{
+      			return 'Modificado correctamente';
+      		}
       }
       else{
-
       	return 'No existe en la base de datos';
       }
   }

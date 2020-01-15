@@ -117,7 +117,7 @@ class CampeonatoModel
     }
 
     function showCampeonatos(){
-      $sql = "SELECT * FROM partidocamp WHERE (nombreCamp = '$this->nombreCamp')";
+      $sql = "SELECT * FROM partidocamp WHERE (nombreCamp = '$this->nombre')";
       $resultado = $this->mysqli->query($sql);
       return $resultado;
     }
