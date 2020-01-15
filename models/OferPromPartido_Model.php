@@ -221,7 +221,7 @@ class OferPromPartidoModel{
             FROM partidos as t3 WHERE t1.codigoPista = t3.codigoPista
             AND t1.fecha = t3.fecha AND t3.resultado = 'NJ') AND NOT EXISTS (SELECT t4.fecha
             FROM partidocamp as t4 WHERE t1.codigoPista = t4.codigoPista
-            AND t1.fecha = t4.fecha AND t4.resultado = 'NJ') AND t1.fecha >= '$fecha'
+            AND t1.fecha = t4.fecha AND t4.resultado = 'NJ') AND TIMESTAMPDIFF(hour, fecha, '$fecha') < -12
             ORDER BY t1.fecha";
     if($resultado=$this->mysqli->query($sql)){
       if($resultado->num_rows != 0){

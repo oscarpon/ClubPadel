@@ -41,15 +41,15 @@ switch ($_REQUEST['action']){
   case 'EDIT':
       $OFERTAPARTIDO = get_data_form();
       $respuestaEdit = $OFERTAPARTIDO->EDIT($_SESSION['email']);
+      if($_REQUEST['tipo'] == 'PROM'){
+        $PAGO = new PagoModel($_SESSION['email'],'',12,'N');
+        $PAGO->ADD();
+      }
       $arrayPart = $OFERTAPARTIDO->comprobarParticipacion();
       if($arrayPart[0] == 4){
         $arrayPistas = $OFERTAPARTIDO->comprobarDispPistas();
         if(!empty($arrayPistas)){
           $respuestaCrear = $OFERTAPARTIDO->crearPartido($arrayPistas);
-          if($_REQUEST['tipo'] == 'PROM'){
-            $PAGO = new PAGO($_SESSION['email'],'',12,'N');
-            $PAGO->ADD();
-          }
           new MessageView($respuestaCrear, '../controllers/InscripcionPartido_Controller.php');
         }else{
           new MessageView("No hay pistas disponibles actualmente, el partido ha

@@ -25,6 +25,8 @@
   height: 12%;
   background-color:#fff2;
   margin-bottom: 20px;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 ul{
   list-style: none;
@@ -139,16 +141,6 @@ nav{
   top: -4%;
   left: 40%;
 }
-/*
-.navLogin{
-  float: right;
-  line-height: 100px;
-  margin-right: 2%;
-  position: absolute;
-  top: -4%;
-  left: 40%;
-}*/
-
 /*Personaliza las opciones de la cabecera*/
 nav a, .navAdmin a{
   display: inline-block;
@@ -298,7 +290,7 @@ body{
 }
 .formularioRegister{
   top: 30%;
-  left: 40%;
+  left: 502px;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
@@ -405,12 +397,22 @@ body{
   background-color: #fff4;
   width: auto;
 }
-/*Separacion columnas
-.tablaNoticiasTodo tr{
-  border-collapse: separate;
-  border-spacing: 10px 5px;
+.tablaNoticiasTodoLiga{
+  top: 30%;
+  left: 379px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  width: 625px;
+  overflow:scroll;
+  height:330px;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
 }
-*/
 .tablaPagoTodo{
   top: 30%;
   left: 32%;
@@ -425,7 +427,6 @@ body{
   height:330px;
   overflow-x: hidden;
 }
-
 /*Personaliza la fuente*/
 #email, #clave, #nombre, #apellidos, #genero, #mensajeEliminar {
   font-family: 'Rajdhani', sans-serif;
@@ -583,7 +584,7 @@ body{
   float: none;
   text-align: center;
 }
-.botonRegistrar:hover, .botonAñadir:hover, .botonAñadirProm:hover, .botonGenerar:hover{
+.botonRegistrar:hover, .botonAñadir:hover, .botonAñadirProm:hover, .botonGenerar:hover, .botonVerPartidos:hover{
   background: #727DB0;
   cursor: pointer;
 }
@@ -656,6 +657,25 @@ body{
   font-family: 'Rajdhani', sans-serif;
   left: 64%;
   top: 61%;
+  margin-left: 5px;
+}
+.botonVerPartidos{
+  margin-bottom: 0;
+  background: #5264BA;
+  color: #fff;
+  border: none;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 1.5%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  left: 64%;
+  top: 61%;
+  margin-left: 5px;
+}
+#botonesCuadroCamp{
+  border: none;
 }
 /*Personaliza las diferentes tablas*/
 .tablaUsuarios {
@@ -938,6 +958,40 @@ body{
   height:150px;
   overflow-x: hidden;
   font-family: 'Rajdhani', sans-serif;
+}
+.tablaCampeonatoTodo{
+  top: 175px;
+  left: 357px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 29px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 685px;
+  overflow:scroll;
+  height:333px;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+}
+.tablaClasificacionTodo{
+  top: 175px;
+  left: 300px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 29px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 792px;
+  overflow:scroll;
+  height:333px;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
 }
 /*pregunta confirmacion eliminar noticia*/
 #mensajeEliminarNoticia{

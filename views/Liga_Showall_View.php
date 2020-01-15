@@ -16,7 +16,7 @@ class LigaShowallView
 
 ?>
 
-<table border="1" class="tablaNoticiasTodo">
+<table border="1" class="tablaNoticiasTodoLiga">
 <tr>
   <th>Participante1</th>
   <th>Participante2</th>

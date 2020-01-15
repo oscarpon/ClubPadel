@@ -12,10 +12,9 @@ include '../models/Campeonato_Model.php';
 include '../views/Campeonato_Delete_View.php';
 include '../views/Campeonato_ShowCurrent_View.php';
 include '../views/Message_View.php';
-include '../models/PartidoCamp_Model.php';
 include '../models/Liga_Model.php';
-include '../models/Clasificacion_Model.php';
-include '../views/Clasificacion_Showall_View.php';
+include '../models/PartidoCamp_Model.php';
+include '../views/PartidoCamp_Showall_View.php';
 
 function get_data(){
 	$nombre = $_REQUEST['nombre'];
@@ -80,9 +79,9 @@ switch ($_REQUEST['action']) {
 	break;
 
 	case 'verPartidos':
-		$modelo = new ClasificacionModel('','','','','','', $_REQUEST['nombre'],'');
+		$modelo = new PartidoCampModel('','','','','','', $_REQUEST['nombre'],'');
 		$datos = $modelo -> showAll();
-		new ClasificacionShowallView($datos);
+		new PartidoCampShowallView($datos);
 	break;
 
   default:
