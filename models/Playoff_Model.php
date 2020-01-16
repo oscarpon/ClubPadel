@@ -44,7 +44,6 @@ class PlayoffModel
     }
 
     function SEARCH_GR(){
-      /*HAVING count(grupo) >= $partMinimos*/
       $sql="SELECT nombreCamp, grupo FROM clasificacion WHERE nombreCamp = '$this->nombreCamp' GROUP BY grupo";
 
         if (!($resultado=$this->mysqli->query($sql))){
@@ -116,13 +115,13 @@ class PlayoffModel
                           $m2Local = $rows[$i]['miembro2'];
                           $m1Visitante = $rows[$i+1]['miembro1'];
                           $m2Visitante = $rows[$i+1]['miembro2'];
-                          var_dump($m1Local);
                           $insert = "INSERT INTO playoffs VALUES('$this->idPlayoff','$m1Local', '$m2Local', '$m1Visitante', '$m2Visitante', '$this->nombreCamp', 'NJ')";
                           if (!($resultadoInsert = $this->mysqli->query($insert))){
                                return 'Error en la consulta';
                           }
                       }
                     }
+                    return 'Playoffs creados.';
                  }
 
                }
