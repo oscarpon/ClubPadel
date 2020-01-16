@@ -40,35 +40,47 @@ class EscuelaDeportivaModel{
       }
 			if ($result->num_rows == 0){
 
-				$sql = "INSERT INTO escuelasdeportivas (
-          nombre,
-					horario,
-					entrenador,
-				  codigoPista,
-					periodicidad,
-          minInscritos,
-          maxInscritos,
-          estado
-        )
-						VALUES (
-            '$this->nombre',
-						'$this->horario',
-						'$this->entrenador',
-						'$this->codigoPista',
-						'$this->periodicidad',
-            '$this->minInscritos',
-            '$this->maxInscritos',
-            '$this->estado'
-						)";
+        $sql="SELECT * FROM USUARIOS WHERE (email='$this->entrenador' AND rol='E')";
+        if (!($resultado=$this->mysqli->query($sql))){//4
+            return 'Error en la conexion a la base de datos';
+        }
+        else{//4
+          if($resultado->num_rows == 1){//5
+
+              $sql = "INSERT INTO escuelasdeportivas (
+                nombre,
+      					horario,
+      					entrenador,
+      				  codigoPista,
+      					periodicidad,
+                minInscritos,
+                maxInscritos,
+                estado
+              )
+      						VALUES (
+                  '$this->nombre',
+      						'$this->horario',
+      						'$this->entrenador',
+      						'$this->codigoPista',
+      						'$this->periodicidad',
+                  '$this->minInscritos',
+                  '$this->maxInscritos',
+                  '$this->estado'
+      						)";
 
 
-				if (!$this->mysqli->query($sql)) {
-					return 'Error';
-				}
-				else{
-					return 'Escuela Deportiva añadida correctamente';
-				}
+          }
+          else {//5
+            return 'No existe este entrenador';
+          }
 
+          if (!$this->mysqli->query($sql)){//6
+            return 'Error en la inserción';
+          }
+          else{//6
+            return 'Inserción realizada';
+          }
+        }
 			}
 			else
 				return 'Escuela deportiva ya existe';
