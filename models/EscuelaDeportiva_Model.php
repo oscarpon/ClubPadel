@@ -72,6 +72,35 @@ class EscuelaDeportivaModel{
     }
 
   }
+  function RellenaDatos(){
+    $sql = "SELECT * FROM escuelasdeportivas WHERE (nombre = '$this->nombre')";
+    if ( !( $resultado = $this->mysqli->query( $sql ) ) ) {
+     return 'No existe en la base de datos'; //
+    } else {
+      $result = $resultado->fetch_array();
+      return $result;
+    }
+  }
+  function DELETE()
+		{
+		   $sql = "SELECT * FROM escuelasdeportivas  WHERE
+		   (nombre = '$this->nombre')";
+
+		    $result = $this->mysqli->query($sql);
+
+		    if ($result->num_rows == 1)
+		    {
+
+		       $sql = "DELETE FROM escuelasdeportivas  WHERE
+		       (nombre = '$this->nombre')";
+
+		        $this->mysqli->query($sql);
+
+		    	return "Eliminada correctamente";
+		    }
+		    else
+		        return "No se encuentra la escuela";
+		}
 }
 
  ?>
