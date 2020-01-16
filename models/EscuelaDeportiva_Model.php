@@ -38,17 +38,23 @@ class EscuelaDeportivaModel{
 
 				$sql = "INSERT INTO escuelasdeportivas (
           nombre,
-					fechaFinIns,
-					categoria,
-					genero,
-					estado
+					horario,
+					entrenador,
+				  codigoPista,
+					periodicidad,
+          minInscritos,
+          maxInscritos,
+          estado
 					)
 						VALUES (
             '$this->nombre',
-						'$this->fechaFinIns',
-						'$this->categoria',
-						'$this->genero',
-						'$this->estado'
+						'$this->horario',
+						'$this->entrenador',
+						'$this->codigoPista',
+						'$this->periodicidad',
+            '$this->minInscritos',
+            '$this->maxInscritos',
+            '$this->estado'
 						)";
 
 
@@ -56,12 +62,12 @@ class EscuelaDeportivaModel{
 					return 'Error';
 				}
 				else{
-					return 'Campeonato añadido correctamente';
+					return 'Escuela Deportiva añadida correctamente';
 				}
 
 			}
 			else
-				return 'Campeonato ya existe';
+				return 'Escuela deportiva ya existe';
 		}
     }
 

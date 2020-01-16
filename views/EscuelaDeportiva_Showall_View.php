@@ -16,7 +16,7 @@ class EscuelaDeportivaShowallView
 
 ?>
 
-<table class="tablaNoticiasTodo">
+<table class="tablaNoticiasTodoLiga">
 <tr>
   <th>Nombre</th>
   <th>Horario</th>

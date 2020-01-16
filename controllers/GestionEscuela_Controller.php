@@ -7,7 +7,7 @@ if (!isset($_REQUEST['action'])){
 }
 
 include '../views/EscuelaDeportiva_Showall_View.php';
-include '../views/Campeonato_Add_View.php';
+include '../views/EscuelaDeportiva_Add_View.php';
 include '../models/EscuelaDeportiva_Model.php';
 include '../views/Campeonato_Delete_View.php';
 include '../views/Campeonato_ShowCurrent_View.php';
@@ -43,7 +43,7 @@ function get_data(){
 switch ($_REQUEST['action']) {
   case 'ADD':
     	if (!$_POST) {
-    		new EscuelaAddView();
+    		new EscuelaDeportivaAddView();
     	}
 			else{
 
