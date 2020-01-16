@@ -25,42 +25,41 @@ class CampeonatoModel
 
   }
 
-  function añadirCampeonato(){
+  function añadirCampeonato($categorias, $generos){
     if (($this->nombre <> '')){
-        $sql = "SELECT * FROM campeonato WHERE (nombre = '$this->nombre')";
-		if (!$result = $this->mysqli->query($sql)){
-			return 'Imposible ConectarBD';
-		}
-		else {
-			if ($result->num_rows == 0){
-
-				$sql = "INSERT INTO campeonato (
-          nombre,
-					fechaFinIns,
-					categoria,
-					genero,
-					estado
-					)
-						VALUES (
-            '$this->nombre',
-						'$this->fechaFinIns',
-						'$this->categoria',
-						'$this->genero',
-						'$this->estado'
-						)";
-
-
-				if (!$this->mysqli->query($sql)) {
-					return 'Error';
-				}
-				else{
-					return 'Campeonato añadido correctamente';
-				}
-
-			}
-			else
-				return 'Campeonato ya existe';
-		}
+      $i = 0;
+      $cont = 0;
+      while($i != 3){
+        if(isset($categorias[$i])){
+          $categoria = $categorias[$i];
+          $arrayGeneros = $generos;
+          foreach($arrayGeneros as $genero){
+              $nombreCamp = $this->nombre.$categorias[$i].$genero;
+              $sql = "SELECT * FROM campeonato WHERE(nombre='$nombreCamp')";
+              if ( !( $resultado = $this->mysqli->query( $sql ) ) ) {
+                   return 'Error en la consulta.';
+              } else{
+                  if($resultado -> num_rows == 0){
+                      $insert = "INSERT INTO campeonato VALUES('$nombreCamp','$this->fechaFinIns','$categoria','$genero','$this->estado')";
+                      $cont++;
+                      if ( !( $resultado = $this->mysqli->query( $insert ) ) ) {
+                           return 'Error en la inserción.';
+                      }
+                  }
+              }
+          }
+        }
+        $i++;
+      }
+      if($cont == 0){
+          return 'Campeonato creado anteriormente.';
+      }
+      else{
+          return 'Campeonato creado.';
+      }
+    }
+    else{
+        return 'Valores vacíos.';
     }
 
   }
@@ -68,7 +67,7 @@ class CampeonatoModel
   function DELETE()
 		{
 		   $sql = "SELECT * FROM campeonato  WHERE
-		   (nombre = '$this->nombre')";
+		   (nombre='$this->nombre')";
 
 		    $result = $this->mysqli->query($sql);
 
@@ -76,7 +75,7 @@ class CampeonatoModel
 		    {
 
 		       $sql = "DELETE FROM campeonato  WHERE
-		       (nombre = '$this->nombre')";
+		       (nombre='$this->nombre')";
 
 		        $this->mysqli->query($sql);
 
@@ -100,6 +99,7 @@ class CampeonatoModel
             return $resultado;
           }
     }
+
     function RellenaDatos(){
       $sql = "SELECT * FROM CAMPEONATO WHERE (nombre = '$this->nombre')";
 		  if ( !( $resultado = $this->mysqli->query( $sql ) ) ) {
@@ -117,32 +117,54 @@ class CampeonatoModel
     }
 
     function showCampeonatos(){
-      $sql = "SELECT * FROM partidocamp WHERE (nombreCamp = '$this->nombre')";
+      $sql = "SELECT * FROM partidocamp WHERE (nombre = '$this->nombre')";
       $resultado = $this->mysqli->query($sql);
       return $resultado;
     }
 
     function crearGrupo(){
-      $sql = "SELECT * FROM partcampeonatos WHERE (nombreCamp = '$this->nombre')";
-      $resultado = $this->mysqli->query($sql);
-      $grupo = 1;
-      $lineas = $resultado->num_rows;
-      if($lineas < 8){
-          return "No se puede crear, no hay suficientes";
-      }else{
-        while(!$lineas == 0){
-          if ($lineas >= 12) {
-            $limite = 12;
-          }else if ($lineas == 11){
-            $limite = 11;
-          }else if ($lineas == 10) {
-            $limite = 10;
-          }else if ($lineas == 9) {
-            $limite = 9;
-          }else if($lineas == 8){
-            $limite = 8;
-          }else{
-            $sql = "SELECT * FROM partcampeonatos WHERE (nombreCamp = '$this->nombre')";
+      $consultaClasif = "SELECT * FROM clasificacion WHERE (nombreCamp='$this->nombre')";
+      $resultadoClasif = $this->mysqli->query($consultaClasif);
+      $lineasClasif = $resultadoClasif->num_rows;
+      if($lineasClasif > 0){
+          return 'Grupos creados previamente';
+      }
+      else{
+        $sql = "SELECT * FROM partcampeonatos WHERE (nombreCamp='$this->nombre')";
+        $resultado = $this->mysqli->query($sql);
+        $grupo = 1;
+        $lineas = $resultado->num_rows;
+
+        if($lineas < 8){
+            return "No se puede crear, no hay suficientes";
+        }else{
+          while(!$lineas == 0){
+            if ($lineas >= 12) {
+              $limite = 12;
+            }else if ($lineas == 11){
+              $limite = 11;
+            }else if ($lineas == 10) {
+              $limite = 10;
+            }else if ($lineas == 9) {
+              $limite = 9;
+            }else if($lineas == 8){
+              $limite = 8;
+            }else{
+              $sql = "SELECT * FROM partcampeonatos WHERE (nombreCamp='$this->nombre')";
+              $resultado12 = $this->mysqli->query($sql);
+              while ($fila = mysqli_fetch_array($resultado12)) {
+                $m1 = $fila['miembro1'];
+                $m2 = $fila['miembro2'];
+                $nm = $fila['nombreCamp'];
+                $sql = "INSERT INTO clasificacion VALUES('$m1','$m2','$nm','$grupo',0)";
+                $resultadoinsert = $this->mysqli->query($sql);
+                $sql2 = "DELETE FROM partcampeonatos WHERE (miembro1='$m1'AND miembro2='$m2'AND nombreCamp='$nm')";
+                $resultadodelete = $this->mysqli->query($sql2);
+              }
+              $lineas = 0;
+              return 'Grupos creados satisfactoriamente';
+            }
+            $sql = "SELECT * FROM partcampeonatos WHERE (nombreCamp='$this->nombre') LIMIT $limite";
             $resultado12 = $this->mysqli->query($sql);
             while ($fila = mysqli_fetch_array($resultado12)) {
               $m1 = $fila['miembro1'];
@@ -153,24 +175,12 @@ class CampeonatoModel
               $sql2 = "DELETE FROM partcampeonatos WHERE (miembro1='$m1'AND miembro2='$m2'AND nombreCamp='$nm')";
               $resultadodelete = $this->mysqli->query($sql2);
             }
-            $lineas = 0;
-            return 'Grupos creados satisfactoriamente';
+            $lineas = $lineas - $limite;
+            $grupo = $grupo + 1;
           }
-          $sql = "SELECT * FROM partcampeonatos WHERE (nombreCamp = '$this->nombre') LIMIT $limite";
-          $resultado12 = $this->mysqli->query($sql);
-          while ($fila = mysqli_fetch_array($resultado12)) {
-            $m1 = $fila['miembro1'];
-            $m2 = $fila['miembro2'];
-            $nm = $fila['nombreCamp'];
-            $sql = "INSERT INTO clasificacion VALUES('$m1','$m2','$nm','$grupo',0)";
-            $resultadoinsert = $this->mysqli->query($sql);
-            $sql2 = "DELETE FROM partcampeonatos WHERE (miembro1='$m1'AND miembro2='$m2'AND nombreCamp='$nm')";
-            $resultadodelete = $this->mysqli->query($sql2);
-          }
-          $lineas = $lineas - $limite;
-          $grupo = $grupo + 1;
         }
       }
+
     }
 
     function generarPartidos(){

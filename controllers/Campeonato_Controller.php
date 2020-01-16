@@ -41,9 +41,28 @@ switch ($_REQUEST['action']) {
     		new CampeonatoAddView();
     	}
 			else{
-
-				$sql = new CampeonatoModel($_REQUEST['nombre'], $_REQUEST['fechaFinIns'],$_REQUEST['categoria'], $_REQUEST['genero'], $_REQUEST['estado']);
-				$result = $sql->añadirCampeonato();
+				$categorias = [];
+				$generos = [];
+				if(isset($_POST['principiante'])){
+						$categorias[] = $_REQUEST['principiante'];
+				}
+				if(isset($_POST['medio'])){
+						$categorias[] = $_REQUEST['medio'];
+				}
+				if(isset($_POST['profesional'])){
+						$categorias[] = $_REQUEST['profesional'];
+				}
+				if(isset($_POST['masculino'])){
+						$generos[] = $_REQUEST['masculino'];
+				}
+				if(isset($_POST['femenino'])){
+						$generos[] = $_REQUEST['femenino'];
+				}
+				if(isset($_POST['mixto'])){
+						$generos[] = $_REQUEST['mixto'];
+				}
+				$sql = new CampeonatoModel($_REQUEST['nombre'], $_REQUEST['fechaFinIns'],'','', $_REQUEST['estado']);
+				$result = $sql->añadirCampeonato($categorias,$generos);
 				new MessageView($result,'./Campeonato_Controller.php');
 			}
     break;
