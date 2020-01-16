@@ -16,7 +16,7 @@ class EscuelaDeportivaShowallView
 
 ?>
 
-<table class="tablaNoticiasTodo">
+<table class="tablaNoticiasTodoLiga">
 <tr>
   <th>Nombre</th>
   <th>Horario</th>
@@ -50,7 +50,7 @@ while ($fila = $resultado->fetch_assoc()) {
  ?>
 
  <td>
-  <form action="../controllers/Campeonato_Controller.php" name ='DELETE'>
+  <form action="../controllers/GestionEscuela_Controller.php" name ='DELETE'>
   <input type="hidden" name = 'nombre' value="<?php echo $fila['nombre'] ?>" readonly>
   <button class="botonEliminar" name = "action" value = "DELETE">Eliminar</button>
   </form>

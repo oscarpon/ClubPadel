@@ -7,9 +7,9 @@ if (!isset($_REQUEST['action'])){
 }
 
 include '../views/EscuelaDeportiva_Showall_View.php';
-include '../views/Campeonato_Add_View.php';
+include '../views/EscuelaDeportiva_Add_View.php';
 include '../models/EscuelaDeportiva_Model.php';
-include '../views/Campeonato_Delete_View.php';
+include '../views/EscuelaDeportiva_Delete_View.php';
 include '../views/Campeonato_ShowCurrent_View.php';
 include '../views/Message_View.php';
 include '../models/Liga_Model.php';
@@ -43,7 +43,7 @@ function get_data(){
 switch ($_REQUEST['action']) {
   case 'ADD':
     	if (!$_POST) {
-    		new EscuelaAddView();
+    		new EscuelaDeportivaAddView();
     	}
 			else{
 
@@ -57,7 +57,7 @@ switch ($_REQUEST['action']) {
 	if (!$_POST) {
 		$modelo= new EscuelaDeportivaModel($_REQUEST['nombre'],'', '', '', '', '', '', '');
 		$datos= $modelo ->RellenaDatos();
-		new EscuelaDeoportivaDeleteView($datos);
+		new EscuelaDeportivaDeleteView($datos);
 	}
 	else{
 		$modelo= new EscuelaDeportivaModel($_REQUEST['nombre'], $_REQUEST['horario'],$_REQUEST['entrenador'], $_REQUEST['codigoPista'], $_REQUEST['periodicidad'], $_REQUEST['minInscritos'], $_REQUEST['maxInscritos'], $_REQUEST['estado']);
