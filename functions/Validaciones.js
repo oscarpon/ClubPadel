@@ -17,11 +17,11 @@ function comprobarVacio(campo){
 	}
 }
 
-//Comprobar que solo se introducen caracteres alfabeticos, y que no supere el tamaño indicado.
+//Comprobar que solo se introducen caracteres alfabeticos, y que no supere el tamaï¿½o indicado.
 function comprobarAlfabetico(campo, size){
 
 	//Expresion regular para comprobar que solo se introducen caracteres alfabeticos.
-	var expresion_reg_alf=/(([A-Za-záéíóúñ]+)(\s)?([A-Za-záéíóúñ]+)?)/;
+	var expresion_reg_alf=/(([A-Za-zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]+)(\s)?([A-Za-zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]+)?)/;
 
 	//Comprueba que en el campo solo se introducen caracteres alfabeticos.
 	if(!expresion_reg_alf.test(campo.value)){
@@ -30,7 +30,7 @@ function comprobarAlfabetico(campo, size){
 		return false;
 	}
 	else{
-		//Comprueba el que tamaño del campo no supere el maximo indicado.
+		//Comprueba el que tamaï¿½o del campo no supere el maximo indicado.
 		if(campo.value.length > size){
 			alert("El campo "+campo.name+" no puede superar la longitud maxima( "+size+" caracteres).");
 			campo.style.borderColor = "#d32e12";
@@ -44,11 +44,11 @@ function comprobarAlfabetico(campo, size){
 	}
 }
 
-//Comprobar que solo se introducen caracteres alfanumericos, y que no supere el tamaño indicado.
+//Comprobar que solo se introducen caracteres alfanumericos, y que no supere el tamaï¿½o indicado.
 function comprobarAlfanumerico(campo, size){
 
 	//Expresion regular para comprobar que solo se introducen caracteres alfanumericos.
-	var expresion_reg_alfnum=/^[A-Za-záéíóúÁÉÍÓÚñÑ0-9]+$/;
+	var expresion_reg_alfnum=/^[A-Za-zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0-9]+$/;
 
 	//Comprueba que en el campo solo se introducen caracteres alfanumericos.
 	if(!expresion_reg_alfnum.test(campo.value)){
@@ -57,7 +57,7 @@ function comprobarAlfanumerico(campo, size){
 		return false;
 	}
 	else{
-		//Comprueba el que tamño del campo no supere el maximo indicado.
+		//Comprueba el que tamï¿½o del campo no supere el maximo indicado.
 		if(campo.value.length > size){
 			alert("El campo "+campo.name+" no puede superar la longitud maxima( "+size+" caracteres).");
 			campo.style.borderColor = "#d32e12";
@@ -71,7 +71,7 @@ function comprobarAlfanumerico(campo, size){
 	}
 }
 
-//Comprobar que se introduce correctamente un email, y que no supere el tamaño indicado.
+//Comprobar que se introduce correctamente un email, y que no supere el tamaï¿½o indicado.
 function comprobarEmail(campo, size){
 	//Expresion regular para un email
 	var expresion_reg_email=/^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(\.[_a-z0-9-]+)*(\.[a-z]{2,4})$/;
@@ -82,7 +82,7 @@ function comprobarEmail(campo, size){
 		return false;
 	}
 	else{
-		//Comprueba el que tamño del campo no supere el maximo indicado.
+		//Comprueba el que tamï¿½o del campo no supere el maximo indicado.
 		if(campo.value.length > size){
 			alert("El campo "+campo.name+" no puede superar la longitud maxima( "+size+" caracteres).");
 			campo.style.borderColor = "#d32e12";
@@ -113,7 +113,7 @@ function validarLogin(){
 	var passwd;
 	correo = document.getElementById("email");
 	passwd = document.getElementById("password");
-	
+
 	//Comprueba el campo email.
 	if(comprobarVacio(correo) == false){
 		correo.style.borderColor = "#d32e12";
@@ -131,7 +131,7 @@ function validarLogin(){
 			correo.style.borderColor = "#00ff66";
 		}
 	}
-	
+
 	//Comprueba el campo password
 	if(comprobarVacio(passwd) == false){
 		passwd.style.borderColor = "#d32e12";
@@ -149,10 +149,27 @@ function validarLogin(){
 			passwd.style.borderColor = "#00ff66";
 		}
 	}
-	
+
 	confirm("El formulario esta correcto.");
 	submitLogin();
 	return true;
+}
+
+function comprobarFecha(campo){
+	var hoy = new Date();
+	var fecha = hoy.getFullYear()+'-'+(hoy.getMonth() + 1)+'-'+hoy.getDate();
+	var hora = hoy.getHours()+':'+hoy.getMinutes();
+	var fechaTodo = fecha+' '+hora;
+	if(campo.value < fechaTodo){
+		alert("La fecha no puede ser anterior a hoy");
+		campo.style.borderColor = "#d32e12";
+		return false;
+	}
+	else{
+		campo.style.backgroundColor = "ffffff";
+		campo.style.borderColor = "#00ff66";
+		return true;
+	}
 }
 
 //////////////////////////////////////////////////////
@@ -178,7 +195,7 @@ function validarRegister(){
 	passwd = document.getElementById("password");
 	correo = document.getElementById("email");
 	genero = document.getElementById("genero");
-	
+
 	//Comprueba el campo nombre.
 	if(comprobarVacio(nombre) == false){
 		nombre.style.borderColor = "#d32e12";
@@ -196,7 +213,7 @@ function validarRegister(){
 			nombre.style.borderColor = "#00ff66";
 		}
 	}
-	
+
 	//Comprueba el campo apellidos.
 	if(comprobarVacio(apellidos) == false){
 		apellidos.style.borderColor = "#d32e12";
@@ -214,7 +231,7 @@ function validarRegister(){
 			apellidos.style.borderColor = "#00ff66";
 		}
 	}
-	
+
 	//Comprueba el campo password
 	if(comprobarVacio(passwd) == false){
 		passwd.style.borderColor = "#d32e12";
@@ -232,7 +249,7 @@ function validarRegister(){
 			passwd.style.borderColor = "#00ff66";
 		}
 	}
-	
+
 	//Comprueba el campo email.
 	if(comprobarVacio(correo) == false){
 		correo.style.borderColor = "#d32e12";
@@ -250,7 +267,7 @@ function validarRegister(){
 			correo.style.borderColor = "#00ff66";
 		}
 	}
-	
+
 	//Comprueba el campo genero.
 	if(comprobarVacio(genero) == false){
 		genero.style.borderColor = "#d32e12";
@@ -261,7 +278,7 @@ function validarRegister(){
 		genero.style.backgroundColor = "ffffff";
 		genero.style.borderColor = "#00ff66";
 	}
-	
+
 	confirm("El formulario esta correcto.");
 	submitRegister();
 	return true;
