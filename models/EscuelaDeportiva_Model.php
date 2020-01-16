@@ -28,12 +28,16 @@ class EscuelaDeportivaModel{
     return $resultado;
   }
   function añadirEscuela(){
+    $fechaActual = date("Y-m-d H:i:s");
     if (($this->nombre <> '')){
         $sql = "SELECT * FROM escuelasdeportivas WHERE (nombre = '$this->nombre')";
 		if (!$result = $this->mysqli->query($sql)){
 			return 'Imposible ConectarBD';
 		}
 		else {
+      if ($this->horario < $fechaActual) {
+        return 'Datos de fecha erroneos';
+      }
 			if ($result->num_rows == 0){
 
 				$sql = "INSERT INTO escuelasdeportivas (
