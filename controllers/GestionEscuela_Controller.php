@@ -15,6 +15,7 @@ include '../views/Message_View.php';
 include '../models/Liga_Model.php';
 include '../models/PartidoCamp_Model.php';
 include '../views/PartidoCamp_Showall_View.php';
+include '../models/InscripcionEscuela_Model.php';
 
 function get_data(){
 	$nombre = $_REQUEST['nombre'];
@@ -26,7 +27,7 @@ function get_data(){
 	$maxInscritos='';
 	$estado='';
 	$action = $_REQUEST['action'];
-	$escuelasdeportivas = new EscuelaModel(
+	$escuelasdeportivas = new EscuelaDeportivaModel(
 		$nombre,
 		$horario,
 		$entrenador,
@@ -46,10 +47,12 @@ switch ($_REQUEST['action']) {
     		new EscuelaDeportivaAddView();
     	}
 			else{
-
 				$sql = new EscuelaDeportivaModel($_REQUEST['nombre'], $_REQUEST['horario'],$_REQUEST['entrenador'], $_REQUEST['codigoPista'], $_REQUEST['periodicidad'], $_REQUEST['minInscritos'], $_REQUEST['maxInscritos'], $_REQUEST['estado']);
 				$result = $sql->añadirEscuela();
+				$INSESC = new InscripcionEscuelaModel($_REQUEST['nombre'], $_REQUEST['horario'],$_REQUEST['entrenador']);
+				$INSESC->ADD2();
 				new MessageView($result,'./GestionEscuela_Controller.php');
+
 			}
     break;
 

@@ -45,7 +45,7 @@ class EscuelaDeportivaModel{
           minInscritos,
           maxInscritos,
           estado
-					)
+        )
 						VALUES (
             '$this->nombre',
 						'$this->horario',
