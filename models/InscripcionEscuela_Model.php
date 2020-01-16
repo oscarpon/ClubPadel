@@ -83,6 +83,42 @@
         return 'Introduzca un valor.';//1
       }
     }
+    function ADD2(){
+      if (($this->nombre <> '')){
+          $sql = "SELECT * FROM inscripcionesclases WHERE (nombre = '$this->nombre'AND horario='$this->horario'
+            AND email='$this->email')";
+  		if (!$result = $this->mysqli->query($sql)){
+  			return 'Imposible ConectarBD';
+  		}
+  		else {
+  			if ($result->num_rows == 0){
+
+  				$sql = "INSERT INTO inscripcionesclases (
+            nombre,
+  					horario,
+  					email
+          )
+  						VALUES (
+              '$this->nombre',
+  						'$this->horario',
+  						'$this->email'
+  						)";
+
+
+  				if (!$this->mysqli->query($sql)) {
+  					return 'Error';
+  				}
+  				else{
+  					return 'Entrenador OK';
+  				}
+
+  			}
+  			else
+  				return 'Error Entrenador';
+  		}
+      }
+
+    }
 
     function RellenaDatos(){
       $sql="SELECT * FROM PARTCAMPEONATOS WHERE (miembro1='$this->miembro1' AND miembro2='$this->miembro2' AND nombreCamp='$this->nombreCamp')";
