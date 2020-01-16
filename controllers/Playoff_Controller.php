@@ -8,6 +8,7 @@ if (!isset($_REQUEST['action'])){
 
 include '../views/Playoff_Showall_View.php';
 include '../views/PlayoffCamp_Showall_View.php';
+include '../views/PlayoffGrupo_Showcurrent_View.php';
 include '../models/Playoff_Model.php';
 include '../models/Campeonato_Model.php';
 include '../views/Playoff_Edit_View.php';
@@ -29,12 +30,16 @@ switch ($_REQUEST['action']) {
       break;
 
   case 'generarPlayoffs':
-      $modelo = new PlayoffModel('', '', '', '', '', $_REQUEST['nombreCamp'], '');
-      $respuesta = $modelo -> generarPlayoffs();
-			echo '<p>';
-			print_r($respuesta);
-			echo '</p>';
-      new MessageView("A",'./Playoff_Controller.php');
+			if(!$_POST){
+					$modelo = new PlayoffModel('', '', '', '', '', $_REQUEST['nombreCamp'], '');
+					$datos = $modelo -> SEARCH_GR();
+					new PlayoffGrupoShowCurrentView($datos);
+			}
+			else{
+					$modelo = new PlayoffModel('', '', '', '', '', $_REQUEST['nombreCamp'], '');
+		      $respuesta = $modelo -> generarPlayoffs($_REQUEST['grupo']);
+		      new MessageView($respuesta,'./Playoff_Controller.php');
+			}
     break;
 
 	case 'verPlayoffs':
