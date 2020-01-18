@@ -17,11 +17,11 @@ class PlayoffGrupoShowcurrentView
 ?>
 
 <table class="tablaPlayoffGrupo">
-<tr>
-  <th>Nombre</th>
-  <th>Grupo</th>
-  <th>Opciones</th>
-</tr>
+  <tr>
+    <th>Nombre</th>
+    <th>Grupo</th>
+    <th>Opciones</th>
+  </tr>
 
 <?php
 while ($fila = $datos->fetch_assoc()) {

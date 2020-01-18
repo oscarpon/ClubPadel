@@ -386,6 +386,45 @@ body{
     transition: all 0.25s ease;
     margin-top: 3%;
 }
+.formularioEditar{
+  top: 200px;
+  left: 551px;
+  width: 199px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+}
+.formularioEditar select{
+  position: relative;
+  max-width: 90px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  padding: 0px 6px;
+  height: 25px;
+  outline:0;
+  border: 0;
+  border-radius: 0;
+  background: #f0f0f0;
+	color: #7b7b7b;
+	font-size: 13px;
+	color: #7B7A7A;
+	font-family:
+	'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+    margin-top: 3%;
+}
 .tablaNoticiasTodo{
   top: 30%;
   left: 35%;
@@ -822,6 +861,111 @@ body{
   border-collapse: collapse;
   width: 390px;
 }
+.tablaPlayoffGrupo{
+  top: 200px;
+  left: 461px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 22px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 390px;
+  font-family: 'Rajdhani', sans-serif;
+}
+.tablaPlayoffGrupo th{
+  width: 190px;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+}
+.tablaAñadirEscDep{
+  top: 120px;
+  left: 551px;
+  width: 199px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+}
+/*tabla muestra escuelas deportivas*/
+.tablaEscDepTodo{
+  top: 30%;
+  left: 379px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  width: 705px;
+  overflow:scroll;
+  height:330px;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+}
+.tablaEscDepTodo th{
+  width: 190px;
+}
+/*tabla confirmar eliminacion escuela deportiva*/
+.tablaEscDepEl{
+  top: 192px;
+  left: 409px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 29px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 584px;
+  height:175px;
+  font-family: 'Rajdhani', sans-serif;
+}
+.tablaInscripcionEscuela{
+  top: 192px;
+  left: 490px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 29px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 400px;
+  height:175px;
+  font-family: 'Rajdhani', sans-serif;
+  overflow:scroll;
+  overflow-x: hidden;
+}
+.tablaInscripcionEscuela th{
+  width: 190px;
+}
+.tablaAñadirEscuela{
+  top: 192px;
+  left: 370px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 29px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 600px;
+  height:250px;
+  font-family: 'Rajdhani', sans-serif;
+  overflow:scroll;
+  overflow-x: hidden;
+}
+.tablaAñadirEscuela th{
+  width: 170px;
+}
 /*Crea un borde en las tablas especificadas*/
 .tablaUsuarios td, .tablaUsuariosEl td{
     border: 1px solid black;
@@ -993,6 +1137,23 @@ body{
   font-family: 'Rajdhani', sans-serif;
   text-align: center;
 }
+.tablaPlayoffTodo{
+  top: 175px;
+  left: 300px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 29px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 800px;
+  overflow:scroll;
+  height:333px;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+}
 /*pregunta confirmacion eliminar noticia*/
 #mensajeEliminarNoticia{
   font-family: 'Rajdhani', sans-serif;
@@ -1129,8 +1290,8 @@ body{
   background: #C890DC;
   cursor: pointer;
 }
-/*botones campeonato showall*/
-.botonGrupos{
+/*botones campeonato showall y playoffs*/
+.botonGrupos, .botonPlayoffs{
   margin-bottom: 0;
   background: #d1892e;
   color: black;
@@ -1145,7 +1306,7 @@ body{
   font-size: 17px;
   outline: none
 }
-.botonGrupos:hover{
+.botonGrupos:hover, .botonPlayoffs:hover{
   background: #d0a268;
   cursor: pointer;
 }
@@ -1189,6 +1350,44 @@ body{
   background: #d0a268;
   cursor: pointer;
 }
+.botonResulPlayoffs{
+  margin-bottom: 0;
+  background: #d1892e;
+  color: black;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 3.5%;
+  margin-top: 8%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  outline: none
+}
+.botonResulPlayoffs:hover{
+  background: #d0a268;
+  cursor: pointer;
+}
+.botonEdit{
+  margin-bottom: 0;
+  background: #9041E9;
+  color: black;
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 3.3%;
+  margin-top: 8%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  outline: none
+}
+.botonEdit:hover{
+  background: #AA70EC;
+  cursor: pointer;
+}
 /*Personaliza las letras*/
 #letraUsuarios, #letraPromocionAd {
   font-family: 'Rajdhani', sans-serif;
@@ -1227,10 +1426,20 @@ body{
 #nuevoPago{
   margin-bottom: 10%;
 }
+.botonVolverEditPlayoff{
+  position: absolute;
+  left: 84%;
+  top: 15%;
+}
 .botonVolverReserva{
   position: absolute;
   left: 89%;
   top: 64%;
+}
+.botonVolverElEscDep{
+  position: absolute;
+  top:177px;
+  left:265px;
 }
 /*Icono tic*/
 #ticConfirmar{
