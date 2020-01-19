@@ -138,23 +138,4 @@ class PlayoffModel
       }
     }
 }
-
-/*array(8) {
-    [0]=> array(4) { [0]=> string(11) "a@gmail.com" ["miembro1"]=> string(11) "a@gmail.com" [1]=> string(11) "b@gmail.com" ["miembro2"]=> string(11) "b@gmail.com" }
-    [1]=> array(4) { [0]=> string(16) "correo7@mail.com" ["miembro1"]=> string(16) "correo7@mail.com" [1]=> string(16) "correo8@mail.com" ["miembro2"]=> string(16) "correo8@mail.com" }
-    [2]=> array(4) { [0]=> string(16) "correo5@mail.com" ["miembro1"]=> string(16) "correo5@mail.com" [1]=> string(16) "correo6@mail.com" ["miembro2"]=> string(16) "correo6@mail.com" }
-    [3]=> array(4) { [0]=> string(11) "c@gmail.com" ["miembro1"]=> string(11) "c@gmail.com" [1]=> string(11) "d@gmail.com" ["miembro2"]=> string(11) "d@gmail.com" }
-    [4]=> array(4) { [0]=> string(18) "correo13@gmail.com" ["miembro1"]=> string(18) "correo13@gmail.com" [1]=> string(18) "correo14@gmail.com" ["miembro2"]=> string(18) "correo14@gmail.com" }
-    [5]=> array(4) { [0]=> string(18) "correo15@gmail.com" ["miembro1"]=> string(18) "correo15@gmail.com" [1]=> string(18) "correo16@gmail.com" ["miembro2"]=> string(18) "correo16@gmail.com" }
-    [6]=> array(4) { [0]=> string(18) "correo17@gmail.com" ["miembro1"]=> string(18) "correo17@gmail.com" [1]=> string(18) "correo18@gmail.com" ["miembro2"]=> string(18) "correo18@gmail.com" }
-    [7]=> array(4) { [0]=> string(18) "correo19@gmail.com" ["miembro1"]=> string(18) "correo19@gmail.com" [1]=> string(18) "correo20@gmail.com" ["miembro2"]=> string(18) "correo20@gmail.com" } }
-*/
-/*array(8) { [0]=> array(2) { ["miembro1"]=> string(11) "a@gmail.com" ["miembro2"]=> string(11) "b@gmail.com" }
-[1]=> array(2) { ["miembro1"]=> string(16) "correo7@mail.com" ["miembro2"]=> string(16) "correo8@mail.com" }
-[2]=> array(2) { ["miembro1"]=> string(16) "correo5@mail.com" ["miembro2"]=> string(16) "correo6@mail.com" }
-[3]=> array(2) { ["miembro1"]=> string(11) "c@gmail.com" ["miembro2"]=> string(11) "d@gmail.com" }
-[4]=> array(2) { ["miembro1"]=> string(18) "correo13@gmail.com" ["miembro2"]=> string(18) "correo14@gmail.com" }
-[5]=> array(2) { ["miembro1"]=> string(18) "correo15@gmail.com" ["miembro2"]=> string(18) "correo16@gmail.com" }
-[6]=> array(2) { ["miembro1"]=> string(18) "correo17@gmail.com" ["miembro2"]=> string(18) "correo18@gmail.com" }
-[7]=> array(2) { ["miembro1"]=> string(18) "correo19@gmail.com" ["miembro2"]=> string(18) "correo20@gmail.com" } }*/
  ?>

@@ -61,9 +61,16 @@ switch ($_REQUEST['action']) {
 				if(isset($_POST['mixto'])){
 						$generos[] = $_REQUEST['mixto'];
 				}
-				$sql = new CampeonatoModel($_REQUEST['nombre'], $_REQUEST['fechaFinIns'],'','', $_REQUEST['estado']);
-				$result = $sql->añadirCampeonato($categorias,$generos);
-				new MessageView($result,'./Campeonato_Controller.php');
+
+				if(empty($generos) && empty($categorias)){
+						$alerta = 'Se debe seleccionar al menos una categoría y nivel.';
+						new MessageView($alerta,'./Campeonato_Controller.php');
+				}
+				else{
+						$sql = new CampeonatoModel($_REQUEST['nombre'], $_REQUEST['fechaFinIns'],'','', $_REQUEST['estado']);
+						$result = $sql->añadirCampeonato($categorias,$generos);
+						new MessageView($result,'./Campeonato_Controller.php');
+				}
 			}
     break;
 
