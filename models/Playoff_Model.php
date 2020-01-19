@@ -115,9 +115,17 @@ class PlayoffModel
                           $m2Local = $rows[$i]['miembro2'];
                           $m1Visitante = $rows[$i+1]['miembro1'];
                           $m2Visitante = $rows[$i+1]['miembro2'];
-                          $insert = "INSERT INTO playoffs VALUES('$this->idPlayoff','$m1Local', '$m2Local', '$m1Visitante', '$m2Visitante', '$this->nombreCamp', 'NJ')";
-                          if (!($resultadoInsert = $this->mysqli->query($insert))){
-                               return 'Error en la consulta';
+                          $consulta = "SELECT * FROM playoffs WHERE nombreCamp = '$this->nombreCamp' AND miembro1Par1='$m1Local' AND miembro2Par1='$m2Local'
+                                        AND miembro1Par2='$m1Visitante' AND miembro2Par2='$m2Visitante'";
+                          $resultadoConsulta = $this->mysqli->query($consulta);
+                          if($resultadoConsulta -> num_rows == 0){
+                            $insert = "INSERT INTO playoffs VALUES('$this->idPlayoff','$m1Local', '$m2Local', '$m1Visitante', '$m2Visitante', '$this->nombreCamp', 'NJ')";
+                            if (!($resultadoInsert = $this->mysqli->query($insert))){
+                                 return 'Error en la consulta';
+                            }
+                          }
+                          else{
+                              return 'Este grupo ya tiene partidos de playoffs creados.';
                           }
                       }
                     }
