@@ -45,6 +45,11 @@ if (!isAuthenticated()) {
               <li><a href="../controllers/Pareja_Controller.php">Parejas</a></li>
             </ul>
           </li>
+          <li><a href="">Escuelas</a>
+            <ul>
+              <li><a href="../controllers/InscripcionEscuela_Controller.php">Inscribirme a una escuela</a></li>
+            </ul>
+          </li>
           <li><a id="desconectar" href="../functions/Desconectar.php"> <img src="../img/desconectar.png" width="24px" height="24px" > </a></li>
         </ul>
         </nav>
@@ -62,6 +67,8 @@ if (!isAuthenticated()) {
               <li><a href="../controllers/Usuario_Controller.php">Usuarios</a></li>
               <li><a href="../controllers/Campeonato_Controller.php">Campeonatos</a></li>
               <li><a href="../controllers/Liga_Controller.php">Ligas</a></li>
+              <li><a href="../controllers/Playoffs_Controller.php">Playoffs</a></li>
+              <li><a href="../controllers/GestionEscuela_Controller.php">Playoffs</a></li>
               <li><a href="../controllers/Noticias_Controller.php">Noticias</a></li>
               <li><a href="../controllers/Pago_Controller.php">Pagos</a></li>
             </ul>
