@@ -13,14 +13,15 @@ class EscuelaDeportivaAddView
   function render(){
     include '../views/Header.php';
 
-    $fecha = date("Y-m-d H:i:s");
+
+
 
   ?>
 
 <div class="tablaAñadirEscDep">
   <form action="../controllers/GestionEscuela_Controller.php?action=ADD" method="post" >
       <input type="text" name="nombre" placeholder="Nombre Escuela Deportiva" onblur="comprobarVacio(nombre)">
-      <input type="datetime-local" name="horario" placeholder="Horario inicio" min="<?php echo $fecha;?>">
+      <input type="date" name="horario" placeholder="Horario inicio" >
       <input type="email" name="entrenador" placeholder="Entrenador email">
       <input type="text" name="codigoPista" placeholder="Codigo Pista" >
       <input type="text" name="periodicidad" placeholder="Periodicidad" maxlength="1" >
