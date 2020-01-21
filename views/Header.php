@@ -67,8 +67,8 @@ if (!isAuthenticated()) {
               <li><a href="../controllers/Usuario_Controller.php">Usuarios</a></li>
               <li><a href="../controllers/Campeonato_Controller.php">Campeonatos</a></li>
               <li><a href="../controllers/Liga_Controller.php">Ligas</a></li>
-              <li><a href="../controllers/Playoffs_Controller.php">Playoffs</a></li>
-              <li><a href="../controllers/GestionEscuela_Controller.php">Playoffs</a></li>
+              <li><a href="../controllers/Playoff_Controller.php">Playoffs</a></li>
+              <li><a href="../controllers/GestionEscuela_Controller.php">Escuelas</a></li>
               <li><a href="../controllers/Noticias_Controller.php">Noticias</a></li>
               <li><a href="../controllers/Pago_Controller.php">Pagos</a></li>
             </ul>
