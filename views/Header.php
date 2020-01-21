@@ -33,6 +33,7 @@ if (!isAuthenticated()) {
         <ul class="submenuUsu">
           <li><a href="../controllers/Noticias_Controller.php?action=PagPrincipal">Inicio</a></li>
           <li><a href="../controllers/Reserva_Controller.php">Mis reservas</a></li>
+          <li><a href="../controllers/InscripcionEscuela_Controller.php">Mis escuelas</a></li>
           <li><a href="">Partidos</a>
             <ul>
               <li><a href="../controllers/InscripcionPartido_Controller.php">Inscribirme a un partido</a></li>
@@ -43,11 +44,6 @@ if (!isAuthenticated()) {
             <ul>
               <li><a href="../controllers/InscripCamp_Controller.php">Inscribirme a un campeonato</a></li>
               <li><a href="../controllers/Pareja_Controller.php">Parejas</a></li>
-            </ul>
-          </li>
-          <li><a href="">Escuelas</a>
-            <ul>
-              <li><a href="../controllers/InscripcionEscuela_Controller.php">Inscribirme a una escuela</a></li>
             </ul>
           </li>
           <li><a id="desconectar" href="../functions/Desconectar.php"> <img src="../img/desconectar.png" width="24px" height="24px" > </a></li>
