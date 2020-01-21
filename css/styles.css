@@ -25,8 +25,7 @@
   height: 12%;
   background-color:#fff2;
   margin-bottom: 20px;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  z-index: 999;
 }
 ul{
   list-style: none;
