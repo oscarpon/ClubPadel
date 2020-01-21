@@ -22,7 +22,7 @@ class EscuelaDeportivaShowallView
   <th>Horario</th>
   <th>Entrenador</th>
   <th>CodPista</th>
-  <th>periodicidad</th>
+  <th>Periodicidad</th>
   <th>minInscritos</th>
   <th>maxInscritos</th>
   <th>Estado</th>

@@ -426,6 +426,16 @@ body{
     transition: all 0.25s ease;
     margin-top: 3%;
 }
+.formularioNotAdd{
+  top: 200px;
+  left: 452px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff4;
+}
 .tablaNoticiasTodo{
   top: 30%;
   left: 35%;
@@ -900,14 +910,14 @@ body{
 /*tabla muestra escuelas deportivas*/
 .tablaEscDepTodo{
   top: 30%;
-  left: 379px;
+  left: 333px;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
   border-radius: 10px;
   padding: 18px;
   background-color: #fff4;
-  width: 705px;
+  width: 735px;
   overflow:scroll;
   height:330px;
   overflow-x: hidden;
@@ -915,7 +925,8 @@ body{
   text-align: center;
 }
 .tablaEscDepTodo th{
-  width: 190px;
+  padding-bottom: 6px;
+  padding-right: 6px;
 }
 /*tabla confirmar eliminacion escuela deportiva*/
 .tablaEscDepEl{
