@@ -115,9 +115,17 @@ class PlayoffModel
                           $m2Local = $rows[$i]['miembro2'];
                           $m1Visitante = $rows[$i+1]['miembro1'];
                           $m2Visitante = $rows[$i+1]['miembro2'];
-                          $insert = "INSERT INTO playoffs VALUES('$this->idPlayoff','$m1Local', '$m2Local', '$m1Visitante', '$m2Visitante', '$this->nombreCamp', 'NJ')";
-                          if (!($resultadoInsert = $this->mysqli->query($insert))){
-                               return 'Error en la consulta';
+                          $consulta = "SELECT * FROM playoffs WHERE nombreCamp = '$this->nombreCamp' AND miembro1Par1='$m1Local' AND miembro2Par1='$m2Local'
+                                        AND miembro1Par2='$m1Visitante' AND miembro2Par2='$m2Visitante'";
+                          $resultadoConsulta = $this->mysqli->query($consulta);
+                          if($resultadoConsulta -> num_rows == 0){
+                            $insert = "INSERT INTO playoffs VALUES('$this->idPlayoff','$m1Local', '$m2Local', '$m1Visitante', '$m2Visitante', '$this->nombreCamp', 'NJ')";
+                            if (!($resultadoInsert = $this->mysqli->query($insert))){
+                                 return 'Error en la consulta';
+                            }
+                          }
+                          else{
+                              return 'Este grupo ya tiene partidos de playoffs creados.';
                           }
                       }
                     }
@@ -130,23 +138,4 @@ class PlayoffModel
       }
     }
 }
-
-/*array(8) {
-    [0]=> array(4) { [0]=> string(11) "a@gmail.com" ["miembro1"]=> string(11) "a@gmail.com" [1]=> string(11) "b@gmail.com" ["miembro2"]=> string(11) "b@gmail.com" }
-    [1]=> array(4) { [0]=> string(16) "correo7@mail.com" ["miembro1"]=> string(16) "correo7@mail.com" [1]=> string(16) "correo8@mail.com" ["miembro2"]=> string(16) "correo8@mail.com" }
-    [2]=> array(4) { [0]=> string(16) "correo5@mail.com" ["miembro1"]=> string(16) "correo5@mail.com" [1]=> string(16) "correo6@mail.com" ["miembro2"]=> string(16) "correo6@mail.com" }
-    [3]=> array(4) { [0]=> string(11) "c@gmail.com" ["miembro1"]=> string(11) "c@gmail.com" [1]=> string(11) "d@gmail.com" ["miembro2"]=> string(11) "d@gmail.com" }
-    [4]=> array(4) { [0]=> string(18) "correo13@gmail.com" ["miembro1"]=> string(18) "correo13@gmail.com" [1]=> string(18) "correo14@gmail.com" ["miembro2"]=> string(18) "correo14@gmail.com" }
-    [5]=> array(4) { [0]=> string(18) "correo15@gmail.com" ["miembro1"]=> string(18) "correo15@gmail.com" [1]=> string(18) "correo16@gmail.com" ["miembro2"]=> string(18) "correo16@gmail.com" }
-    [6]=> array(4) { [0]=> string(18) "correo17@gmail.com" ["miembro1"]=> string(18) "correo17@gmail.com" [1]=> string(18) "correo18@gmail.com" ["miembro2"]=> string(18) "correo18@gmail.com" }
-    [7]=> array(4) { [0]=> string(18) "correo19@gmail.com" ["miembro1"]=> string(18) "correo19@gmail.com" [1]=> string(18) "correo20@gmail.com" ["miembro2"]=> string(18) "correo20@gmail.com" } }
-*/
-/*array(8) { [0]=> array(2) { ["miembro1"]=> string(11) "a@gmail.com" ["miembro2"]=> string(11) "b@gmail.com" }
-[1]=> array(2) { ["miembro1"]=> string(16) "correo7@mail.com" ["miembro2"]=> string(16) "correo8@mail.com" }
-[2]=> array(2) { ["miembro1"]=> string(16) "correo5@mail.com" ["miembro2"]=> string(16) "correo6@mail.com" }
-[3]=> array(2) { ["miembro1"]=> string(11) "c@gmail.com" ["miembro2"]=> string(11) "d@gmail.com" }
-[4]=> array(2) { ["miembro1"]=> string(18) "correo13@gmail.com" ["miembro2"]=> string(18) "correo14@gmail.com" }
-[5]=> array(2) { ["miembro1"]=> string(18) "correo15@gmail.com" ["miembro2"]=> string(18) "correo16@gmail.com" }
-[6]=> array(2) { ["miembro1"]=> string(18) "correo17@gmail.com" ["miembro2"]=> string(18) "correo18@gmail.com" }
-[7]=> array(2) { ["miembro1"]=> string(18) "correo19@gmail.com" ["miembro2"]=> string(18) "correo20@gmail.com" } }*/
  ?>

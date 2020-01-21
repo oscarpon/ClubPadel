@@ -16,13 +16,13 @@ class EscuelaDeportivaShowallView
 
 ?>
 
-<table class="tablaNoticiasTodoLiga">
+<table class="tablaEscDepTodo">
 <tr>
   <th>Nombre</th>
   <th>Horario</th>
   <th>Entrenador</th>
   <th>CodPista</th>
-  <th>periodicidad</th>
+  <th>Periodicidad</th>
   <th>minInscritos</th>
   <th>maxInscritos</th>
   <th>Estado</th>

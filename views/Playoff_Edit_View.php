@@ -10,7 +10,7 @@ class PlayoffEditView{
 <div class="formularioEditar">
   <form id="editar" action='../controllers/Playoff_Controller.php' method='post'>
     <h3 id="editarPlayoff">Editar playoff</h3>
-    <a href="../controllers/Playoff_Controller.php"><img src="../img/volver.png" width="22px" height="22px" class="botonVolverEditPlayoff" ></a>
+    <a href="../controllers/Playoff_Controller.php"><img src="../img/volver.png" width="20px" height="20px" class="botonVolverEditPlayoff" ></a>
     <div>
       <div>
         <label></label>

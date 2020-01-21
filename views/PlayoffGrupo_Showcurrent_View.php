@@ -17,11 +17,11 @@ class PlayoffGrupoShowcurrentView
 ?>
 
 <table class="tablaPlayoffGrupo">
-<tr>
-  <th>Nombre</th>
-  <th>Grupo</th>
-  <th>Opciones</th>
-</tr>
+  <tr>
+    <th>Nombre</th>
+    <th>Grupo</th>
+    <th>Opciones</th>
+  </tr>
 
 <?php
 while ($fila = $datos->fetch_assoc()) {
@@ -35,7 +35,7 @@ while ($fila = $datos->fetch_assoc()) {
     <form action="../controllers/Playoff_Controller.php" name ='generarPlayoffs' method="post">
        <input type="hidden" name = 'nombreCamp' value="<?php echo $fila['nombreCamp'] ?>" readonly>
        <input type="hidden" name = 'grupo' value="<?php echo $fila['grupo'] ?>" readonly>
-       <button class="botonPlayoffs" name = "action" value = "generarPlayoffs">Generar</button>
+       <button class="botonPlayoffsGenerar" name = "action" value = "generarPlayoffs">Generar</button>
    </form>
   </td>
 

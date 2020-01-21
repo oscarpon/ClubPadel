@@ -10,7 +10,7 @@
 
 ?>
     <cuerpo>
-<div class="tablaNoticiasTodo">
+<div class="tablaEscDepEl">
     <center>
 		<table>
 			<tr id="titulosTabCampeonato">
@@ -47,7 +47,7 @@
       				</form>
 
 
-            <center><a href="../controllers/GestionEscuela_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverEl"></a></center>
+            <center><a href="../controllers/GestionEscuela_Controller.php"><img src="../img/volver.png" width="22px" height="22px" class="botonVolverElEscDep"></a></center>
 
     </center>
         </div>
