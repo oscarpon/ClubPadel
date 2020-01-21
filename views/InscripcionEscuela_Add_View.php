@@ -8,7 +8,7 @@
 
  ?>
 
-<table class="tablaEscuela">
+<table class="tablaAñadirEscuela">
         <tr id="letraEscuela">
             <th>Escuela</th>
             <th>Horario</th>

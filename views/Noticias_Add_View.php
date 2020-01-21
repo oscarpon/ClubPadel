@@ -15,7 +15,7 @@
       include '../views/Header.php';
 ?>
 
-<form class="formularioLogin" method="post" action="../controllers/Noticias_Controller.php?action=ADD">
+<form class="formularioNotAdd" method="post" action="../controllers/Noticias_Controller.php?action=ADD">
   <div>
     <input type="hidden" value="0" name="idContenido" class="form-control form-control-lg" placeholder="Titulo"/>
   </div>

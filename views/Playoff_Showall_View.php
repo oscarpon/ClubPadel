@@ -13,7 +13,7 @@ class PlayoffShowallView
 
 ?>
 
-<table border="1" class="tablaPlayoff">
+<table border="1" class="tablaPlayoffTodo">
 <tr>
   <th>Miembro 1 Par 1</th>
   <th>Miembro 2 Par 1</th>
@@ -39,7 +39,7 @@ while ($fila = $resultado->fetch_assoc()) {
     <form action="../controllers/Playoff_Controller.php" name ='EDIT'>
       <input type="hidden" name = 'idPlayoff' value="<?php echo $fila['idPlayoff'] ?>" readonly>
       <input type="hidden" name = 'resultado' value="<?php echo $fila['resultado'] ?>" readonly>
-      <button class="botonEditPlayoffs" name = "action" value = "EDIT">Resultado</button>
+      <button class="botonResulPlayoffs" name = "action" value = "EDIT">Resultado</button>
     </form>
   </td>
 

@@ -33,6 +33,7 @@ if (!isAuthenticated()) {
         <ul class="submenuUsu">
           <li><a href="../controllers/Noticias_Controller.php?action=PagPrincipal">Inicio</a></li>
           <li><a href="../controllers/Reserva_Controller.php">Mis reservas</a></li>
+          <li><a href="../controllers/InscripcionEscuela_Controller.php">Mis escuelas</a></li>
           <li><a href="">Partidos</a>
             <ul>
               <li><a href="../controllers/InscripcionPartido_Controller.php">Inscribirme a un partido</a></li>
@@ -62,6 +63,8 @@ if (!isAuthenticated()) {
               <li><a href="../controllers/Usuario_Controller.php">Usuarios</a></li>
               <li><a href="../controllers/Campeonato_Controller.php">Campeonatos</a></li>
               <li><a href="../controllers/Liga_Controller.php">Ligas</a></li>
+              <li><a href="../controllers/Playoff_Controller.php">Playoffs</a></li>
+              <li><a href="../controllers/GestionEscuela_Controller.php">Escuelas</a></li>
               <li><a href="../controllers/Noticias_Controller.php">Noticias</a></li>
               <li><a href="../controllers/Pago_Controller.php">Pagos</a></li>
             </ul>
