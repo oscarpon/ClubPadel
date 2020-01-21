@@ -1267,7 +1267,7 @@ body{
   outline: none;
   margin-left: 20%;
 }
-.botonInscribir:hover, .botonShowPareja:hover{
+.botonInscribir:hover, .botonShowPareja:hover, .botonInscribirEscuela:hover{
   background: #E5DD73;
   cursor: pointer;
 }
