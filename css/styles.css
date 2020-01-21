@@ -964,7 +964,7 @@ body{
 }
 .tablaAñadirEscuela{
   top: 192px;
-  left: 370px;
+  left: 355px;
   position: absolute;
   display:inline-block;
   border: 1.5px solid #ccc;
@@ -972,14 +972,17 @@ body{
   padding: 29px;
   background-color: #fff4;
   border-collapse: collapse;
-  width: 600px;
+  width: 705px;
   height:250px;
   font-family: 'Rajdhani', sans-serif;
   overflow:scroll;
   overflow-x: hidden;
+  text-align:center;
 }
 .tablaAñadirEscuela th{
-  width: 170px;
+  padding-bottom: 6px;
+  padding-right: 13px;
+  padding-left: 10px;
 }
 /*Crea un borde en las tablas especificadas*/
 .tablaUsuarios td, .tablaUsuariosEl td{
@@ -1044,6 +1047,7 @@ body{
   height:auto;
   overflow-x: hidden;
   font-family: 'Rajdhani', sans-serif;
+  text-align: center;
 }
 .tablaMisInscripCamp th,td{
   width: 225px;
@@ -1101,6 +1105,7 @@ body{
 }
 .tablaNoticiasTodo th,td{
   width: 150px;
+  text-align: center;
 }
 .tablaNoticiasEl{
   top: 192px;
@@ -1246,7 +1251,7 @@ body{
   background: #9CDBA0;
   cursor: pointer;
 }
-.botonInscribir, .botonShowPareja{
+.botonInscribir, .botonShowPareja, .botonInscribirEscuela{
   margin-bottom: 7%;
   background: #DED44E;
   color: black;
