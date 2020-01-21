@@ -23,7 +23,7 @@ class EscuelaDeportivaAddView
       <input type="text" name="nombre" placeholder="Nombre Escuela Deportiva" onblur="comprobarVacio(nombre)">
       <input type="date" name="horario" placeholder="Horario inicio" >
       <input type="email" name="entrenador" placeholder="Entrenador email">
-      <input type="text" name="codigoPista" placeholder="Codigo Pista" >
+      <input type="text" name="codigoPista" placeholder="Codigo Pista" maxlength="6">
       <input type="text" name="periodicidad" placeholder="Periodicidad" maxlength="1" >
       <input type="text" name="minInscritos" placeholder="Minimo Inscritos" maxlength="2" >
       <input type="text" name="maxInscritos" placeholder="Maximo Inscritos" maxlength="2" >
