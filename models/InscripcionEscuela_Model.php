@@ -76,7 +76,7 @@
                     }
                 }
             }else{// segundo else
-              return 'Ya estás inscrito a este campeonato.';
+              return 'Ya estás inscrito a esta escuela.';
             }
         }
       }else {// primer else
