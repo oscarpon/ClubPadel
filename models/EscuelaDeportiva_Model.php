@@ -38,7 +38,7 @@ class EscuelaDeportivaModel{
 			return 'Imposible ConectarBD';
 		}
 		else {
-      if ($this->horario < $fechaActual) {
+      if ($this->horario < $fechaActual || $this->minInscritos > $this->maxInscritos) {
         return 'Datos de fecha erroneos';
       }
 			if ($result->num_rows == 0){
