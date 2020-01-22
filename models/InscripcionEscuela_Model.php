@@ -83,7 +83,7 @@
         return 'Introduzca un valor.';//1
       }
     }
-    function ADD2($merge){
+    function ADD2($merge, $fechaActual){
       if (($this->nombre <> '')){
           $sql = "SELECT * FROM inscripcionesclases WHERE (nombre = '$this->nombre'AND horario='$this->horario'
             AND email='$this->email')";
@@ -91,6 +91,9 @@
   			return 'Imposible ConectarBD';
   		}
   		else {
+        if ($this->horario < $fechaActual) {
+          return 'Datos de fecha erroneos';
+        }
   			if ($result->num_rows == 0){
 
   				$sql = "INSERT INTO inscripcionesclases (

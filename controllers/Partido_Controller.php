@@ -3,8 +3,7 @@
 session_start();
 
 include '../models/Partido_Model.php';
-include '../views/Partido_Add_View.php';
-include '../views/Partido_Delete_View.php';
+include '../views/Partido_Edit_View.php';
 include '../views/Partido_Showall_View.php';
 include '../views/Message_View.php';
 
@@ -66,6 +65,20 @@ switch ($_REQUEST['action']) {
       new MessageView($respuesta, '../controllers/Partido_Controller.php');
     }
     break;
+
+    case 'EDIT':
+        if (!$_POST) {
+          $partido = new PartidoModel($_REQUEST['codigoPista'], $_REQUEST['fecha'],'', '', '', '', $_REQUEST['resultado']);
+          $valores= $partido ->RellenaDatos();
+          new PartidoEditView($valores);
+        }
+        else{
+          $partido = new PartidoModel($_REQUEST['codigoPista'], $_REQUEST['fecha'], $_REQUEST['miembro1Par1'], $_REQUEST['miembro2Par1'], $_REQUEST['miembro1Par2'], $_REQUEST['miembro2Par2'], $_REQUEST['resultado']);
+          $respuesta = $partido->EDIT($partido);
+          new MessageView($respuesta, './Playoff_Controller.php');
+        }
+
+        break;
 
   //Caso por defecto
   default:

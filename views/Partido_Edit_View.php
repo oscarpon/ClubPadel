@@ -1,5 +1,5 @@
 <?php
-class PlayoffEditView{
+class PartidoEditView{
   function __construct($fila){
     $this->render($fila);
   }
@@ -8,13 +8,17 @@ class PlayoffEditView{
 ?>
 
 <div class="formularioEditar">
-  <form id="editar" action='../controllers/Playoff_Controller.php' method='post'>
-    <h3 id="editarPlayoff">Editar playoff</h3>
-    <a href="../controllers/Playoff_Controller.php"><img src="../img/volver.png" width="20px" height="20px" class="botonVolverEditPlayoff" ></a>
+  <form id="editar" action='../controllers/Partido_Controller.php' method='post'>
+    <h3 id="editarPartido">Editar partido</h3>
+    <a href="../controllers/Partido_Controller.php"><img src="../img/volver.png" width="20px" height="20px" class="botonVolverEditPartido" ></a>
     <div>
       <div>
         <label></label>
-        <input id="idPlayoff" name="idPlayoff" type="hidden" aria-describedby="" value="<?php echo $fila['idPlayoff'] ?>">
+        <input id="codigoPista" name="codigoPista" type="hidden" aria-describedby="" value="<?php echo $fila['codigoPista'] ?>">
+      </div>
+      <div>
+        <label></label>
+        <input id="fecha" name="fecha" type="hidden" aria-describedby="" value="<?php echo $fila['fecha'] ?>">
       </div>
       <div>
         <label></label>
@@ -32,10 +36,6 @@ class PlayoffEditView{
         <label></label>
         <input id="miembro2Par2" name="miembro2Par2" type="hidden" aria-describedby="" value="<?php echo $fila['miembro2Par2'] ?>">
       </div>
-    <div>
-      <label></label>
-      <input id="nombreCamp" name="nombreCamp" type="hidden" aria-describedby="" value="<?php echo $fila['nombreCamp'] ?>">
-    </div>
 
     <div id="resultado">
       <label>Resultado</label>

@@ -61,6 +61,7 @@ if (!isAuthenticated()) {
           <li><a href=""> Gestionar </a>
             <ul>
               <li><a href="../controllers/Usuario_Controller.php">Usuarios</a></li>
+              <li><a href="../controllers/Partido_Controller.php">Partidos promocionados y ofertados</a></li>
               <li><a href="../controllers/Campeonato_Controller.php">Campeonatos</a></li>
               <li><a href="../controllers/Liga_Controller.php">Ligas</a></li>
               <li><a href="../controllers/Playoff_Controller.php">Playoffs</a></li>
