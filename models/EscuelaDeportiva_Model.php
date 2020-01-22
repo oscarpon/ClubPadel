@@ -39,7 +39,7 @@ class EscuelaDeportivaModel{
 		}
 		else {
       if ($this->horario < $fechaActual || $this->minInscritos > $this->maxInscritos) {
-        return 'Datos de fecha erroneos';
+        return 'Datos erroneos';
       }
 			if ($result->num_rows == 0){
 
