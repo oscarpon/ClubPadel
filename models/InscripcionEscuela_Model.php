@@ -83,7 +83,7 @@
         return 'Introduzca un valor.';//1
       }
     }
-    function ADD2(){
+    function ADD2($merge){
       if (($this->nombre <> '')){
           $sql = "SELECT * FROM inscripcionesclases WHERE (nombre = '$this->nombre'AND horario='$this->horario'
             AND email='$this->email')";
@@ -100,7 +100,7 @@
           )
   						VALUES (
               '$this->nombre',
-  						'$this->horario',
+  						'$merge',
   						'$this->email'
   						)";
 
