@@ -1,5 +1,5 @@
 <?php
-  class PartidoModel(){
+  class PartidoModel{
     var $codigoPista;
     var $fecha;
     var $miembro1Par1;
@@ -8,8 +8,8 @@
     var $miembro2Par2;
     var $resultado;
 
-    function __construct($codigoPista, $fecha, $miembro1Par1, $miembro1Par2,
-    $miembro1Par2, $miembro2Par2){
+    function __construct($codigoPista, $fecha, $miembro1Par1, $miembro2Par1,
+    $miembro1Par2, $miembro2Par2, $resultado){
       $this->codigoPista = $codigoPista;
       $this->fecha = $fecha;
       $this->miembro1Par1 = $miembro1Par1;
@@ -18,7 +18,7 @@
       $this->miembro2Par2 = $miembro2Par2;
       $this->resultado = $resultado;
 
-      include_once '../Functios/BdAdmin.php';
+      include_once '../functions/BdAdmin.php';
       $this->mysqli=ConectarBD();
     }
 
@@ -39,7 +39,7 @@
           }else{
             return 'Ya existe un partido para esa fecha y esa pista.';
           }
-          if(!($resultado=$this->msqli->query($sql))){
+          if(!($resultado=$this->mysqli->query($sql))){
             return 'Error en la base de datos.';
           }else{
             return 'Partido creado satisfactoriamente.';
@@ -51,14 +51,14 @@
     }
 
     function SEARCH(){
-      $sql = "SELECT * FROM partidos WHERE(codigoPista='$this->codigoPista'
-                                          AND fecha='$this->fecha'
-                                          AND miembro1Par1='$this->miembro1Par1',
-                                          AND miembro2Par1='$this->miembro2Par1',
-                                          AND miembro1Par2='$this->miembro1Par2',
-                                          AND miembro2Par2='$this->miembro2Par2',
-                                          AND resultado= $this->resultado)";
-      if(!($resultado=$this->msqli->query($sql))){
+      $sql = "SELECT * FROM partidos WHERE(codigoPista LIKE '%$this->codigoPista%'
+                                          AND fecha LIKE '%$this->fecha%'
+                                          AND miembro1Par1 LIKE '%$this->miembro1Par1%'
+                                          AND miembro2Par1 LIKE '%$this->miembro2Par1%'
+                                          AND miembro1Par2 LIKE '%$this->miembro1Par2%'
+                                          AND miembro2Par2 LIKE '%$this->miembro2Par2%'
+                                          AND resultado LIKE '%$this->resultado%')";
+      if(!($resultado=$this->mysqli->query($sql))){
         return 'Error en la consulta a la base de datos';
       }else{
         return $resultado;
@@ -67,14 +67,14 @@
 
     function DELETE(){
       $sql = "SELECT * FROM partidos WHERE(codigoPista='$this->codigoPista' AND fecha='$this->fecha')";
-      if(!($resultado=$this->msqli->query($sql))){
+      if(!($resultado=$this->mysqli->query($sql))){
         return 'Error en la base de datos.';
       }else{
         if($resultado->num_rows == 0){
           return 'No existe el partido.';
         }else{
           $sql = "DELETE FROM partidos WHERE(codigoPista='$this->codigoPista' AND fecha='$this->fecha')";
-          if(!($resultado=$this->msqli->query($sql))){
+          if(!($resultado=$this->mysqli->query($sql))){
             return 'Error en la base de datos';
           }else{
             return 'Eliminado correctamente.';
@@ -91,6 +91,27 @@
   			$result = $resultado->fetch_array();
   			return $result;
 		  }
+    }
+
+    function EDIT(){
+  	     $sql = "SELECT * FROM partidos WHERE (codigoPista='$this->codigoPista' AND fecha='$this->fecha') ";
+
+        $result = $this->mysqli->query($sql);
+
+        if ($result->num_rows == 1)
+        {
+
+    		$sql = "UPDATE partidos SET resultado = '$this->resultado' WHERE (codigoPista='$this->codigoPista' AND fecha='$this->fecha') ";
+            if (!($resultado = $this->mysqli->query($sql))){
+    			       return 'Error en la modificación';
+    		    }
+    		    else{
+    			       return 'Modificado correctamente';
+    		    }
+        }
+        else{
+        	return 'No existe en la base de datos';
+        }
     }
   }
 

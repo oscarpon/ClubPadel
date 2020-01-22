@@ -47,10 +47,17 @@ switch ($_REQUEST['action']) {
     		new EscuelaDeportivaAddView();
     	}
 			else{
+				$fechaActual = date("Y-m-d H:i:s");
+		    $hora = new DateTime();
+		    $fecha = new DateTime();
+		    $fecha = $_REQUEST['horario'];
+		    $horaString = $hora->format('H:i:s');
+		    $merge = date($fecha .' ' .$horaString);
+
 				$sql = new EscuelaDeportivaModel($_REQUEST['nombre'], $_REQUEST['horario'],$_REQUEST['entrenador'], $_REQUEST['codigoPista'], $_REQUEST['periodicidad'], $_REQUEST['minInscritos'], $_REQUEST['maxInscritos'], $_REQUEST['estado']);
-				$result = $sql->añadirEscuela();
+				$result = $sql->añadirEscuela($merge, $fechaActual);
 				$INSESC = new InscripcionEscuelaModel($_REQUEST['nombre'], $_REQUEST['horario'],$_REQUEST['entrenador']);
-				$INSESC->ADD2();
+				$INSESC->ADD2($merge, $fechaActual);
 				new MessageView($result,'./GestionEscuela_Controller.php');
 
 			}

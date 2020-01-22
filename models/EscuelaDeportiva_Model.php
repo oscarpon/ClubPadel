@@ -31,14 +31,7 @@ class EscuelaDeportivaModel{
     $resultado = $this->mysqli->query($sql);
     return $resultado;
   }
-  function añadirEscuela(){
-    $fechaActual = date("Y-m-d H:i:s");
-    $hora = new DateTime();
-    $fecha = new DateTime();
-    $fecha = $horario;
-    //$combinedDT = date('Y-m-d H:i:s', strtotime("$fecha $hora"));
-    $merge = new DateTime($fecha->format('Y-m-d') .' ' .$hora->format('H:i:s'));
-
+  function añadirEscuela($merge, $fechaActual){
     if (($this->nombre <> '')){
         $sql = "SELECT * FROM escuelasdeportivas WHERE (nombre = '$this->nombre')";
 		if (!$result = $this->mysqli->query($sql)){
