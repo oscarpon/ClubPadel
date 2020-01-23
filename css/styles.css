@@ -436,7 +436,7 @@ body{
   padding: 20px;
   background-color: #fff4;
 }
-.tablaNoticiasTodo{
+.tablaNoticiasTodo {
   top: 30%;
   left: 35%;
   position: absolute;
@@ -459,6 +459,22 @@ body{
   width: 625px;
   overflow:scroll;
   height:330px;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+}
+.tablaPartidoCamp{
+  top: 170px;
+  left: 232px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  width: 934px;
+  overflow:scroll;
+  height:346px;
   overflow-x: hidden;
   font-family: 'Rajdhani', sans-serif;
   text-align: center;
@@ -1268,6 +1284,26 @@ body{
   margin-left: 20%;
 }
 .botonInscribir:hover, .botonShowPareja:hover, .botonInscribirEscuela:hover{
+  background: #E5DD73;
+  cursor: pointer;
+}
+.botonEditPartidoCamp{
+  margin-bottom: 7%;
+  background: #DED44E;
+  color: black;
+  border: 1.5px;
+  border-color: black;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 5%;
+  margin-top: 8%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  outline: none;
+  margin-left: -4%;
+}
+.botonEditPartidoCamp:hover{
   background: #E5DD73;
   cursor: pointer;
 }
