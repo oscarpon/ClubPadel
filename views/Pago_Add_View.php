@@ -14,15 +14,15 @@ class PagoAddView{
     <div>
       <div>
         <label></label>
-        <input id="emailPago" name="email" type="text" aria-describedby="" placeholder="&#x1F464;  Email">
+        <input id="emailPago" name="email" required type="text" aria-describedby="" placeholder="&#x1F464;  Email">
       </div>
     <div>
       <label></label>
-      <input id="importe" name="importe" type="importe" aria-describedby="" placeholder="	&#128176;  Importe">
+      <input id="importe" name="importe" required type="importe" aria-describedby="" placeholder="	&#128176;  Importe">
     </div>
     <div id="pagado">
       <label>Pagado</label>
-      <select id="tablaPagado" name="pagado">
+      <select id="tablaPagado" required name="pagado">
         <option></option>
         <option>S</option>
         <option>N</option>
