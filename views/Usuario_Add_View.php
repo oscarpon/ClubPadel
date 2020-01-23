@@ -14,7 +14,7 @@ class UsuarioAddView{
     <div>
       <div>
         <label></label>
-        <input id="nombre" name="nombre" type="text" aria-describedby="" placeholder="&#x1F464;  Nombre">
+        <input id="nombre" name="nombre" type="text"  aria-describedby="" placeholder="&#x1F464;  Nombre" >
       </div>
       <div>
         <label></label>

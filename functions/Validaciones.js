@@ -21,7 +21,7 @@ function comprobarVacio(campo){
 function comprobarAlfabetico(campo, size){
 
 	//Expresion regular para comprobar que solo se introducen caracteres alfabeticos.
-	var expresion_reg_alf=/(([A-Za-z������]+)(\s)?([A-Za-z������]+)?)/;
+	var expresion_reg_alf=/(([A-Za-z]+)(\s)?([A-Za-z]+)?)/;
 
 	//Comprueba que en el campo solo se introducen caracteres alfabeticos.
 	if(!expresion_reg_alf.test(campo.value)){
