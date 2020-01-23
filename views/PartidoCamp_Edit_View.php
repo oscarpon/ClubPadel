@@ -14,31 +14,31 @@ class PartidoCampEditView{
     <div>
       <div>
         <label></label>
-        <input id="codigoPista" name="codigoPista" type="text" value="<?php echo $fila['codigoPista'] ?>" aria-describedby="">
+        <input id="codigoPista" name="codigoPista" type="hidden" value="<?php echo $fila['codigoPista'] ?>" aria-describedby="">
       </div>
       <div>
         <label></label>
-        <input id="fecha" name="fecha" type="text" value="<?php echo $fila['fecha'] ?>" aria-describedby="" >
+        <input id="fecha" name="fecha" type="hidden" value="<?php echo $fila['fecha'] ?>" aria-describedby="" >
       </div>
       <div>
         <label></label>
-        <input id="miembro1Par1" name="miembro1Par1" type="text" value="<?php echo $fila['miembro1Par1'] ?>" aria-describedby="" >
+        <input id="miembro1Par1" name="miembro1Par1" type="hidden" value="<?php echo $fila['miembro1Par1'] ?>" aria-describedby="" >
       </div>
       <div>
         <label></label>
-        <input id="miembro2Par1" name="miembro2Par1" type="text" value="<?php echo $fila['miembro2Par1'] ?>" aria-describedby="">
+        <input id="miembro2Par1" name="miembro2Par1" type="hidden" value="<?php echo $fila['miembro2Par1'] ?>" aria-describedby="">
       </div>
       <div>
         <label></label>
-        <input id="miembro1Par2" name="miembro1Par2" type="text" value="<?php echo $fila['miembro1Par2'] ?>" aria-describedby="">
+        <input id="miembro1Par2" name="miembro1Par2" type="hidden" value="<?php echo $fila['miembro1Par2'] ?>" aria-describedby="">
       </div>
       <div>
         <label></label>
-        <input id="miembro2Par2" name="miembro2Par2" type="text" value="<?php echo $fila['miembro2Par2'] ?>" aria-describedby="">
+        <input id="miembro2Par2" name="miembro2Par2" type="hidden" value="<?php echo $fila['miembro2Par2'] ?>" aria-describedby="">
       </div>
     <div>
       <label></label>
-      <input id="nombreCamp" name="nombreCamp" type="text" value="<?php echo $fila['nombreCamp'] ?>" aria-describedby="">
+      <input id="nombreCamp" name="nombreCamp" type="hidden" value="<?php echo $fila['nombreCamp'] ?>" aria-describedby="">
     </div>
 
     <div id="resultado">

@@ -104,7 +104,7 @@ switch ($_REQUEST['action']) {
 	case 'generarGrupos':
 			$modelo = new CampeonatoModel ($_REQUEST['nombre'], '', '', '', '');
 			$respuesta = $modelo -> crearGrupo() ;
-			new MessageView($respuesta, './Campeonato_Controller.php');
+			new MessageView('Grupos generados.', './Campeonato_Controller.php');
 
 		break;
 	case 'verGrupos':
