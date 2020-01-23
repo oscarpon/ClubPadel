@@ -13,7 +13,7 @@ class PartidoShowallView
 
 ?>
 
-<table border="1" class="tablaPartidoTodo">
+<table class="tablaPartidoTodo">
 <tr>
   <th>Pista</th>
   <th>Fecha</th>

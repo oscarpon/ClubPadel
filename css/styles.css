@@ -472,11 +472,37 @@ body{
   border-radius: 10px;
   padding: 18px;
   background-color: #fff4;
-  width: 934px;
+  width: 1058px;
   overflow:scroll;
   height:346px;
   overflow-x: hidden;
   font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+}
+.tablaPartidoCamp th, td, tr{
+  padding-left: 12px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.tablaPartidoTodo{
+  top: 170px;
+  left: 225px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #fff4;
+  width: 938px;
+  overflow:scroll;
+  height:346px;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+}
+.tablaPartidoTodo tr, td{
+  padding-left: 14px;
+  padding-bottom: 14px;
   text-align: center;
 }
 .tablaPagoTodo{
@@ -1113,14 +1139,14 @@ body{
   padding: 29px;
   background-color: #fff4;
   border-collapse: collapse;
-  width: 584px;
+  width: 628px;
   overflow:scroll;
   height:333px;
   overflow-x: hidden;
   font-family: 'Rajdhani', sans-serif;
 }
 .tablaNoticiasTodo th,td{
-  width: 150px;
+  padding-left: 14px;
   text-align: center;
 }
 .tablaNoticiasEl{
@@ -1301,7 +1327,8 @@ body{
   text-align: center;
   font-family: 'Rajdhani', sans-serif;
   outline: none;
-  margin-left: -4%;
+  margin-left: -19%;
+  outline: none;
 }
 .botonEditPartidoCamp:hover{
   background: #E5DD73;
@@ -1436,9 +1463,24 @@ body{
   font-size: 15px;
   outline: none
 }
-.botonResulPlayoffs:hover{
+.botonResulPlayoffs:hover, .botonResulPartidos:hover{
   background: #d0a268;
   cursor: pointer;
+}
+.botonResulPartidos{
+  margin-bottom: 0;
+  background: #d1892e;
+  color: black;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 3.5%;
+  margin-top: 8%;
+  float: none;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  outline: none
 }
 .botonEdit{
   margin-bottom: 0;
