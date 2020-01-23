@@ -472,7 +472,7 @@ body{
   border-radius: 10px;
   padding: 18px;
   background-color: #fff4;
-  width: 1058px;
+  width: 1063px;
   overflow:scroll;
   height:346px;
   overflow-x: hidden;
@@ -1014,7 +1014,7 @@ body{
   padding: 29px;
   background-color: #fff4;
   border-collapse: collapse;
-  width: 705px;
+  width: 749px;
   height:250px;
   font-family: 'Rajdhani', sans-serif;
   overflow:scroll;
@@ -1165,6 +1165,20 @@ body{
   overflow-x: hidden;
   font-family: 'Rajdhani', sans-serif;
 }
+.tablaElCamp {
+  top: 192px;
+  left: 409px;
+  position: absolute;
+  display:inline-block;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 29px;
+  background-color: #fff4;
+  border-collapse: collapse;
+  width: 628px;
+  height:176px;
+  font-family: 'Rajdhani', sans-serif;
+}
 .tablaCampeonatoTodo{
   top: 175px;
   left: 357px;
@@ -1175,7 +1189,7 @@ body{
   padding: 29px;
   background-color: #fff4;
   border-collapse: collapse;
-  width: 685px;
+  width: 730px;
   overflow:scroll;
   height:333px;
   overflow-x: hidden;
@@ -1530,6 +1544,11 @@ body{
 }
 .botonVolverEl{
   margin-right: 67px;
+}
+.botonVolverElCamp{
+  position: absolute;
+  top: 175px;
+  left: 273px;
 }
 .botonVolverPago{
   position: absolute;

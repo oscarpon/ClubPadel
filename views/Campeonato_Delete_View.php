@@ -10,7 +10,7 @@
 
 ?>
     <cuerpo>
-<div class="tablaNoticiasTodo">
+<div class="tablaElCamp">
     <center>
 		<table>
 			<tr id="titulosTabCampeonato">
@@ -38,7 +38,7 @@
       				</form>
 
 
-            <center><a href="../controllers/Campeonato_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverEl"></a></center>
+            <center><a href="../controllers/Campeonato_Controller.php"><img src="../img/volver.png" width="24px" height="24px" class="botonVolverElCamp"></a></center>
 
     </center>
         </div>
